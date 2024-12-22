@@ -92,26 +92,5 @@ git push origin feature-name
 
 ---
 
-### Contributors
 
-Thanks to all the amazing contributors who have helped improve Spectrum UI! 💖
-
-<div align="center">
-
-![Contributors](https://contributors-img.web.app/image?repo=arihantcodes/spectrum-ui)
-
-</div>
-
-#### List of Contributors:
-
-1. [arihantcodes](https://github.com/arihantcodes)
-2. [itzamanjain](https://github.com/itzamanjain)
-3. [Harsha-10](https://github.com/Harsha-10)
-4. [Prince5723](https://github.com/Prince5723)
-5. [Pratiyankkumar](https://github.com/Pratiyankkumar)
-6. [veerendra19codes](https://github.com/veerendra19codes)
-7. [0xKafkaa](https://github.com/0xKafkaa)
-8. [AayushVinayDev](https://github.com/AayushVinayDev)
-
-Want to see your name here? Follow the steps above and contribute today! 🚀
 # LuminaUI
