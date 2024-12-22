@@ -50,6 +50,13 @@ export const DOCS: Documentation[] = [
         url: "/docs/cta-section",
         new: true,
       },
+      
+      {
+        label: "Space Background",
+        value: "spacebackground-demo",
+        url: "/docs/spacebackground",
+        new: true,
+      },
     ],
   },
 ];

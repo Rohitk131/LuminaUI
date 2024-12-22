@@ -3,13 +3,13 @@ import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
 
 import { Steppers } from "@/components/ui/steppers";
-import CTASection from "./ctaSection-demo";
+import SpaceBackground from "./spacebackground-demo";
 const page = () => {
   return (
     <div>
       <PageTemplate title="CTA Section" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/cta-section/ctaSection-demo.tsx">
-          <CTASection />
+        <PreviewCodeCard path="app/(docs)/docs/spacebackground/spacebackground-demo.tsx">
+          <SpaceBackground />
         </PreviewCodeCard>
 
         <PageSubTitle>Installation</PageSubTitle>
