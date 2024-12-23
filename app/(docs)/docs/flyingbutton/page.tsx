@@ -8,7 +8,7 @@ const page = () => {
     return (
         <div>
             <PageTemplate title="Flying Button Section" className="mt-5">
-                <PreviewCodeCard path="app/(docs)/docs/flyingbutton/flying-button">
+                <PreviewCodeCard path="app/(docs)/docs/flyingbutton/flying-button.tsx">
                     <FlyingButton
                         name="Button"
                         color="#ff0000"

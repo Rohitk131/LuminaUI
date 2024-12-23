@@ -57,6 +57,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/spacebackground",
         new: true,
       },
+      {
+        label: "Flying Button",
+        value: "flying-button",
+        url: "/docs/flyingbutton",
+        new: true,
+      },
     ],
   },
 ];

@@ -1,9 +1,10 @@
+'use client'
 import gsap from 'gsap';
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaFireFlameCurved } from "react-icons/fa6";
 
-const flyingButton = ({ name, video, link, icon }: { name: string, color: string, video: string, link: string, icon: ReactNode }) => {
+const FlyingButton = ({ name, video, link, icon }: { name: string, color: string, video: string, link: string, icon: ReactNode }) => {
     return <>
 
         <motion.div drag className='flex gap-0 w-[8rem] h-full flex-col'>
@@ -108,7 +109,7 @@ const flyingButton = ({ name, video, link, icon }: { name: string, color: string
 }
 
 
-export default flyingButton;
+export default FlyingButton;
 
 
 
