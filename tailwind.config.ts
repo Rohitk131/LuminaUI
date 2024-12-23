@@ -83,6 +83,7 @@ const config = {
       fontFamily: {
         code: ["var(--font-geist-mono)"],
         regular: ["var(--font-geist-sans)"],
+        oswald : ["Oswald" , "sans-serif"]
       },
       keyframes: {
         slideOutToTopFull: {
