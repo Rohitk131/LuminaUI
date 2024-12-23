@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       <PageTemplate title="CTA Section" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/spacebackground/pricing-section.tsx">
+        <PreviewCodeCard path="app/(docs)/docs/pricing/pricing-section.tsx">
           <PricingSection />
         </PreviewCodeCard>
 

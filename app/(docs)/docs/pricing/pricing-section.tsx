@@ -1,87 +1,138 @@
+'use client'
+
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
-const Pricing: React.FC = () => {
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+const Pricing = () => {
+  const [billingCycle, setBillingCycle] = useState("monthly");
 
-  const pricingPlans = [
+  const plans = [
     {
       name: "Starter",
+      description: "Perfect for individuals and small projects",
       price: { monthly: 10, yearly: 100 },
-      features: ["Basic analytics", "10 projects", "Email support"],
-      popular: false,
+      features: ["Basic analytics dashboard", "Up to 10 project spaces", "Community support access", "Basic integrations", "2GB storage"],
+      accent: "from-emerald-500 to-teal-600"
     },
     {
       name: "Pro",
+      description: "Ideal for growing teams and businesses",
       price: { monthly: 20, yearly: 200 },
-      features: ["Advanced analytics", "Unlimited projects", "Priority support"],
+      features: ["Advanced analytics & reporting", "Unlimited projects", "Priority email & chat support", "Advanced integrations", "25GB storage", "Custom workflows"],
       popular: true,
+      accent: "from-violet-500 to-purple-600"
     },
     {
       name: "Enterprise",
+      description: "For large-scale operations",
       price: { monthly: 50, yearly: 500 },
-      features: ["Custom integrations", "Dedicated manager", "24/7 support"],
-      popular: false,
-    },
+      features: ["Custom integration development", "Dedicated success manager", "24/7 phone & email support", "Advanced security features", "Unlimited storage", "Custom branding", "API access"],
+      accent: "from-blue-500 to-indigo-600"
+    }
   ];
 
   return (
-    <div className="flex flex-col items-center bg-gray-50 py-16 px-6">
-      <h2 className="text-4xl font-bold text-gray-800 mb-8">Choose Your Plan</h2>
-      <div className="flex items-center gap-4 mb-12">
-        <span
-          className={`cursor-pointer ${billingCycle === "monthly" ? "text-indigo-600 font-semibold" : "text-gray-500"}`}
-          onClick={() => setBillingCycle("monthly")}
-        >
-          Monthly
-        </span>
-        <div className="w-12 h-6 bg-gray-300 rounded-full relative cursor-pointer" onClick={() => setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly")}>
-          <div
-            className={`w-6 h-6 bg-indigo-600 rounded-full absolute top-0 transition-transform duration-300 ${
-              billingCycle === "yearly" ? "translate-x-6" : "translate-x-0"
-            }`}
-          />
+    <div className="min-h-screen  py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">
+            Choose Your Plan
+          </h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Scale your business with the right features for your needs
+          </p>
         </div>
-        <span
-          className={`cursor-pointer ${billingCycle === "yearly" ? "text-indigo-600 font-semibold" : "text-gray-500"}`}
-          onClick={() => setBillingCycle("yearly")}
-        >
-          Yearly
-        </span>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {pricingPlans.map((plan) => (
-          <div
-            key={plan.name}
-            className={`relative bg-white shadow-lg rounded-xl p-8 border ${
-              plan.popular ? "border-indigo-600" : "border-gray-200"
+
+        <div className="flex justify-center items-center space-x-4 mb-16">
+          <button
+            onClick={() => setBillingCycle("monthly")}
+            className={`px-4 py-2 rounded-lg transition-all duration-200 ${
+              billingCycle === "monthly"
+                ? "bg-white/10 text-white"
+                : "text-gray-400 hover:text-white"
             }`}
           >
-            {plan.popular && (
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                Most Popular
-              </div>
-            )}
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">{plan.name}</h3>
-            <p className="text-4xl font-extrabold text-gray-800 mb-4">
-              ${plan.price[billingCycle]} <span className="text-lg font-medium text-gray-500">/ {billingCycle}</span>
-            </p>
-            <ul className="space-y-3 mb-8">
-              {plan.features.map((feature, idx) => (
-                <li key={idx} className="flex items-center gap-2">
-                  <span className="text-indigo-600">✔</span>
-                  <span className="text-gray-600">{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <button
-              className={`w-full py-3 rounded-lg text-white font-semibold ${
-                plan.popular ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-800 hover:bg-gray-900"
-              }`}
-            >
-              Choose Plan
-            </button>
+            Monthly
+          </button>
+          <div
+            onClick={() => setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly")}
+            className="w-16 h-8 bg-white/10 rounded-full p-1 cursor-pointer"
+          >
+            <motion.div
+              className="w-6 h-6 bg-white rounded-full shadow-lg"
+              animate={{ x: billingCycle === "yearly" ? 32 : 0 }}
+              transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            />
           </div>
-        ))}
+          <button
+            onClick={() => setBillingCycle("yearly")}
+            className={`px-4 py-2 rounded-lg transition-all duration-200 ${
+              billingCycle === "yearly"
+                ? "bg-white/10 text-white"
+                : "text-gray-400 hover:text-white"
+            }`}
+          >
+            Yearly
+            <span className="ml-2 text-sm text-emerald-400">Save 20%</span>
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {plans.map((plan) => (
+            <motion.div
+              key={plan.name}
+              className={`relative rounded-2xl backdrop-blur-xl ${
+                plan.popular
+                  ? "bg-white/15 ring-2 ring-purple-500"
+                  : "bg-white/10"
+              } p-8`}
+              whileHover={{ y: -8 }}
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            >
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-violet-500 to-purple-600 px-4 py-1 rounded-full">
+                    <span className="text-sm font-medium text-white">Most Popular</span>
+                  </div>
+                </div>
+              )}
+
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-gray-400 text-sm">{plan.description}</p>
+              </div>
+
+              <div className="mb-8">
+                <div className="flex items-baseline">
+                  <span className="text-5xl font-bold text-white">
+                    ${plan.price[billingCycle]}
+                  </span>
+                  <span className="ml-2 text-gray-400">
+                    /{billingCycle === "monthly" ? "mo" : "yr"}
+                  </span>
+                </div>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start space-x-3">
+                    <Check className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                className={`w-full py-3 rounded-xl font-medium transition-all duration-200 bg-gradient-to-r ${
+                  plan.accent
+                } hover:opacity-90 text-white`}
+              >
+                Get Started
+              </button>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

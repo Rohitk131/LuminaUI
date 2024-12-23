@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-8 md:mb-0">
             <Link href="/" className="flex items-center gap-2">
-            <img src="./logomain.png" width={25} height={25}></img>
+            <img src="https://raw.githubusercontent.com/Rohitk131/LuminaUI/refs/heads/main/public/logomain.png?token=GHSAT0AAAAAAC3MSSNKYKRMSZQMIO3RCC44Z3JTORQ" width={25} height={25}></img>
               <h2 className="text-lg font-bold">Lumina UI</h2>
             </Link>
 

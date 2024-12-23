@@ -63,6 +63,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/flyingbutton",
         new: true,
       },
+      {
+        label: "Pricing",
+        value: "pricing-section",
+        url: "/docs/pricing",
+        new: true,
+      },
     ],
   },
 ];

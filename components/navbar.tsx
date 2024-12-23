@@ -81,7 +81,7 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2">
-      <img src="./logomain.png" width={30} height={30}></img>
+      <img src="https://raw.githubusercontent.com/Rohitk131/LuminaUI/refs/heads/main/public/logomain.png?token=GHSAT0AAAAAAC3MSSNKYKRMSZQMIO3RCC44Z3JTORQ" width={30} height={30}></img>
 
       <h2 className="text-base md:text-lg font-bold">
        Lumina UI
