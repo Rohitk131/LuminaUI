@@ -3,13 +3,13 @@ import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
 
 import { Steppers } from "@/components/ui/steppers";
-import AnimatedThemeToggle from "./animated-theme-toggle-demo";
+import Toast from "./toast-demo";
 const page = () => {
   return (
     <div>
-      <PageTemplate title="Animated Theme Toggle" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/animated-theme-toggle/animated-theme-toggle-demo.tsx">
-          <AnimatedThemeToggle />
+      <PageTemplate title="CTA Section" className="mt-5">
+        <PreviewCodeCard path="app/(docs)/docs/spacebackground/spacebackground-demo.tsx">
+          <Toast />
         </PreviewCodeCard>
 
         <PageSubTitle>Installation</PageSubTitle>
@@ -18,12 +18,8 @@ const page = () => {
         </p>
         <Steppers
           className=""
-          installScript="npm i framer-motion lucide-react next-themes"
-          steps={[
-            {
-              title: "Create animated-theme-toggle component & paste the code",
-            },
-          ]}
+          installScript="npm i framer-motion lucide-react"
+          steps={[{ title: "Create toast component & paste the code" }]}
           withInstall
           codePath="lib/utils.ts"
         />

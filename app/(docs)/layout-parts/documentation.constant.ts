@@ -73,6 +73,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/pricing",
         new: true,
       },
+      {
+        label: "Toast",
+        value: "toast",
+        url: "/docs/toast",
+        new: true,
+      },
     ],
   },
 ];
