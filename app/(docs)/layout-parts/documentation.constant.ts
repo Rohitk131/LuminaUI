@@ -79,6 +79,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/neon-card",
         new: true,
       },
+      {
+        label: "Toast",
+        value: "toast",
+        url: "/docs/toast",
+        new: true,
+      },
     ],
   },
 ];
