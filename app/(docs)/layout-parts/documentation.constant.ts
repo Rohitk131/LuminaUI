@@ -43,14 +43,18 @@ export const DOCS: Documentation[] = [
     groupKey: "components",
     groupValue: "Components",
     children: [
-     
+      {
+        label: "Animated Theme Toggle",
+        value: "animated-theme-toggle",
+        url: "/docs/animated-theme-toggle",
+        new: true,
+      },
       {
         label: "CTA Section",
         value: "cta-section",
         url: "/docs/cta-section",
         new: true,
       },
-      
       {
         label: "Space Background",
         value: "spacebackground-demo",
