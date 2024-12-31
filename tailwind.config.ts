@@ -7,7 +7,7 @@ const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -73,6 +73,9 @@ const config = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
+        },
+        slate: {
+          900: '#0f172a',
         },
       },
       borderRadius: {
@@ -150,6 +153,10 @@ const config = {
       },
       transitionDuration: {
         mid: "4s",
+      },
+      boxShadow: {
+        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1)',
       },
     },
   },

@@ -73,6 +73,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/pricing",
         new: true,
       },
+      {
+        label: "Neon Card",
+        value: "neoncard-demo",
+        url: "/docs/neon-card",
+        new: true,
+      },
     ],
   },
 ];
