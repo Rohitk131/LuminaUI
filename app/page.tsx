@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const[star, setStar] = useState(0);
-  // Motion configuration for staggered animations
+
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
