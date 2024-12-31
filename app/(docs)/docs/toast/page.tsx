@@ -7,8 +7,8 @@ import Toast from "./toast-demo";
 const page = () => {
   return (
     <div>
-      <PageTemplate title="CTA Section" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/spacebackground/spacebackground-demo.tsx">
+      <PageTemplate title="Toast" className="mt-5">
+        <PreviewCodeCard path="app/(docs)/docs/toast/toast-demo.tsx">
           <Toast />
         </PreviewCodeCard>
 
