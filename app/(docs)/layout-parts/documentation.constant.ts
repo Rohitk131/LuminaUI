@@ -44,6 +44,12 @@ export const DOCS: Documentation[] = [
     groupValue: "Components",
     children: [
       {
+        label: "Progress Bar",
+        value: "progress-bar",
+        url: "/docs/progress-bar",
+        new: true,
+      },
+      {
         label: "Animated Theme Toggle",
         value: "animated-theme-toggle",
         url: "/docs/animated-theme-toggle",
