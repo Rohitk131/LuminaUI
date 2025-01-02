@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       <PageTemplate title="CTA Section" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/pricing/pricing-section.tsx">
+        <PreviewCodeCard path="app/(docs)/docs/pagination/pagination-demo.tsx">
           <Pagination />
         </PreviewCodeCard>
 
@@ -19,7 +19,7 @@ const page = () => {
         <Steppers
           className=""
           installScript="npm i framer-motion lucide-react"
-          steps={[{ title: "Create feedback component & paste the code" }]}
+          steps={[{ title: "Create pagination component & paste the code" }]}
           withInstall
           codePath="lib/utils.ts"
         />
