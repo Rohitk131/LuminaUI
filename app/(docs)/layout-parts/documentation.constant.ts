@@ -68,6 +68,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Pagination",
+        value: "pagination",
+        url: "/docs/pagination",
+        new: true,
+      },
+      {
         label: "Pricing",
         value: "pricing-section",
         url: "/docs/pricing",
