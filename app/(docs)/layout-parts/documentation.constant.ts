@@ -44,6 +44,12 @@ export const DOCS: Documentation[] = [
     groupValue: "Components",
     children: [
       {
+        label: "Footer",
+        value: "footer",
+        url: "/docs/footer",
+        new: true,
+      },
+      {
         label: "Progress Bar",
         value: "progress-bar",
         url: "/docs/progress-bar",
