@@ -29,11 +29,9 @@ const NeonCard = ({
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!divRef.current) return;
-
     const rect = divRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     setPosition({ x, y });
   };
 
@@ -65,16 +63,17 @@ const NeonCard = ({
       }}
     >
       <div
-        className="absolute -inset-[1px] rounded-2xl opacity-75 blur-2xl transition-all duration-500 group-hover:opacity-100"
+        className="absolute -inset-[1px] rounded-2xl opacity-75 blur-xl transition-all duration-500 group-hover:opacity-100"
         style={{
           background: `radial-gradient(1000px circle at ${position.x}px ${position.y}px, ${gradientColors[0]}15, transparent 40%)`,
         }}
       />
 
       <div
-        className="relative h-full w-full rounded-2xl bg-slate-900/[0.85] p-8 transition-all duration-500 group-hover:bg-slate-900/70"
+        className="relative h-full w-full rounded-2xl border border-white/10 bg-slate-900/[0.85] p-8 transition-all duration-500 group-hover:bg-slate-900/70"
         style={{
-          backdropFilter: "blur(10px)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
         }}
       >
         <div
@@ -82,11 +81,7 @@ const NeonCard = ({
           style={{
             background: `
               radial-gradient(800px circle at ${position.x}px ${position.y}px, 
-                ${
-                  theme === "dark"
-                    ? "rgba(255,255,255,0.07)"
-                    : "rgba(0,0,0,0.07)"
-                }, 
+                rgba(255,255,255,0.08),
                 transparent 40%
               )
             `,
@@ -166,7 +161,7 @@ export default function NeonCardDemo() {
         glowIntensity={0.6}
       >
         <div className="flex h-full flex-col items-center justify-center space-y-4">
-          <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-5xl font-bold text-transparent drop-shadow-lg">
+          <span className="bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text text-5xl font-bold text-transparent drop-shadow-lg">
             Neon Card
           </span>
           <p className="text-center text-sm font-medium text-gray-300/90">
@@ -181,7 +176,7 @@ export default function NeonCardDemo() {
         glowIntensity={0.5}
       >
         <div className="flex h-full flex-col items-center justify-center space-y-4">
-          <span className="bg-gradient-to-r from-cyan-300 via-blue-500 to-cyan-300 bg-clip-text text-5xl font-bold text-transparent drop-shadow-lg">
+          <span className="bg-gradient-to-r from-cyan-200 to-cyan-300 bg-clip-text text-5xl font-bold text-transparent drop-shadow-lg">
             Neon Card
           </span>
           <p className="text-center text-sm font-medium text-gray-300/90">
