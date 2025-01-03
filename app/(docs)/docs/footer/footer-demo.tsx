@@ -3,11 +3,9 @@ import { Twitter, Facebook, Instagram, Linkedin, Youtube, Mail, ArrowRight } fro
 
 const Footer = () => {
   return (
-    <div className="flex flex-col min-h-screen text-gray-300 overflow-hidden relative">
+    <div className="flex flex-col h-2/3 text-gray-300 overflow-hidden relative">
       {/* Main Content (Placeholder for Page Content) */}
-      <div className="flex-grow">
-        {/* Your page content goes here */}
-      </div>
+     
 
       {/* Footer Section */}
       <footer className="relative z-10 bg-gray-900 text-gray-300 py-16">
