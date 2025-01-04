@@ -103,6 +103,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/toast",
         new: true,
       },
+      {
+        label: "Accordion",
+        value: "accordion",
+        url: "/docs/accordion",
+        new: true,
+      },
     ],
   },
 ];
