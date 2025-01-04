@@ -3,13 +3,13 @@ import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
 
 import { Steppers } from "@/components/ui/steppers";
-import Pagination from "./pagination-demo";
+import SmartInput from "./smart-input-demo";
 const page = () => {
   return (
     <div>
-      <PageTemplate title="Pagination" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/pagination/pagination-demo.tsx">
-          <Pagination />
+      <PageTemplate title="Smart Input" className="mt-5">
+        <PreviewCodeCard path="app/(docs)/docs/smart-input/smart-input-demo.tsx">
+          <SmartInput />
         </PreviewCodeCard>
 
         <PageSubTitle>Installation</PageSubTitle>
@@ -19,7 +19,7 @@ const page = () => {
         <Steppers
           className=""
           installScript="npm i framer-motion lucide-react"
-          steps={[{ title: "Create pagination component & paste the code" }]}
+          steps={[{ title: "Create smart-input component & paste the code" }]}
           withInstall
           codePath="lib/utils.ts"
         />

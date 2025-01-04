@@ -74,6 +74,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Smart Input",
+        value: "smart-input",
+        url: "/docs/smart-input",
+        new: true,
+      },
+      {
         label: "Space Background",
         value: "spacebackground-demo",
         url: "/docs/spacebackground",
