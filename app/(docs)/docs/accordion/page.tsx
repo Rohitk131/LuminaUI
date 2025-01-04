@@ -9,10 +9,7 @@ const page = () => {
         <div>
             <PageTemplate title="Accordion Section" className="mt-5">
                 <PreviewCodeCard path="app/(docs)/docs/accordion/accordion.tsx">
-                    <Accordion
-                        title="Accordion"
-                        children="vertically stacked set of interactive headings that each reveal a section of content."
-                    />
+                    <Accordion/>
                 </PreviewCodeCard>
 
                 <PageSubTitle>Installation</PageSubTitle>
