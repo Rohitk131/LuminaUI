@@ -50,6 +50,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Grid Background",
+        value: "grid-background",
+        url: "/docs/grid-background",
+        new: true,
+      },
+      {
         label: "Progress Bar",
         value: "progress-bar",
         url: "/docs/progress-bar",
