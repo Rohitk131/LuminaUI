@@ -47,8 +47,8 @@ const Calendar = () => {
           } 
           ${
             isSameDay(day, selectedDate)
-              ? "bg-zinc-900  font-bold" 
-              : "hover:bg-zinc-800"
+              ? "bg-zinc-500  font-bold" 
+              : "hover:bg-zinc-400"
           }
           ${isSameDay(day, new Date()) 
             ? "bg-yellow-500 text-white font-bold" 
