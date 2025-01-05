@@ -121,6 +121,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/accordion",
         new: true,
       },
+      {
+        label: "Calendar",
+        value: "calendar",
+        url: "/docs/calendar",
+        new: true,
+      },
     ],
   },
 ];
