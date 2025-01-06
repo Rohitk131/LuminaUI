@@ -62,6 +62,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Navbar",
+        value: "navbar",
+        url: "/docs/navbar",
+        new: true,
+      },
+      {
         label: "Animated Theme Toggle",
         value: "animated-theme-toggle",
         url: "/docs/animated-theme-toggle",
