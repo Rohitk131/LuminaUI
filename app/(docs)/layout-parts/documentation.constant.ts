@@ -127,6 +127,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/calendar",
         new: true,
       },
+      {
+        label: "Gradient Circle",
+        value: "GradientCircleDemo",
+        url: "/docs/gradient-circle",
+        new: true,
+      },
     ],
   },
 ];
