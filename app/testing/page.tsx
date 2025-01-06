@@ -2,8 +2,6 @@
 
 import React from 'react'
 
-import FlyingButton from '../(docs)/docs/flyingbutton/flying-button';
-import Calendar from '../(docs)/docs/calendar/calendar';
 
 
 const page = () => {

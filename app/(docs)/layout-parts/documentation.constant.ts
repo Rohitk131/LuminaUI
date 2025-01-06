@@ -139,6 +139,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/gradient-circle",
         new: true,
       },
+      {
+        label: "EyeOpener",
+        value: "eyeopener",
+        url: "/docs/eyeopener",
+        new: true,
+      },
     ],
   },
 ];
