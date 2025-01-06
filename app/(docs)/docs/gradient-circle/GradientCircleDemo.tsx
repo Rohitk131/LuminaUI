@@ -48,17 +48,17 @@ const GradientCircle = ({
   // Configure each child circle's orbit
   const childOrbitConfigs = [
     {
-      radius: (INNER_ORBIT + ORBIT_GAP),         // First orbit radius
+      radius: (INNER_ORBIT + ORBIT_GAP*0.8),         // First orbit radius
       startAngle: -Math.PI,        // Start at bottom
       orbitIndex: 0                    // Inner orbit
     },
     {
-      radius: (INNER_ORBIT + ORBIT_GAP*2.5),    // Second orbit radius
+      radius: (INNER_ORBIT + ORBIT_GAP*2.3),    // Second orbit radius
       startAngle: -Math.PI / 6,                 // Slightly right of top
       orbitIndex: 1                             // Middle orbit
     },
     {
-      radius: (INNER_ORBIT + ORBIT_GAP * 4), // Third orbit radius
+      radius: (INNER_ORBIT + ORBIT_GAP * 3.9), // Third orbit radius
       startAngle: Math.PI / 3,                   // Upper right
       orbitIndex: 2                              // Outer orbit
     }
