@@ -62,9 +62,9 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
-        label: "Features Grid",
+        label: "Perks Grid",
         value: "FeatureGridDemo",
-        url: "/docs/FeatureGrid",
+        url: "/docs/Perks",
         new: true,
       },
       {

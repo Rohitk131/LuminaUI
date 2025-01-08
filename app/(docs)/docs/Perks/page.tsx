@@ -7,8 +7,8 @@ import FeaturesGrid from "./FeatureGridDemo";
 const page = () => {
   return (
     <div>
-      <PageTemplate title="Footer" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/FeatureGrid/FeatureGridDemo.tsx"> 
+      <PageTemplate title="Perks Grid" className="mt-5">
+        <PreviewCodeCard path="app/(docs)/docs/Perks/FeatureGridDemo.tsx"> 
           <FeaturesGrid />
         </PreviewCodeCard>
 
