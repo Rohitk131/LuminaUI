@@ -163,6 +163,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/eyeopener",
         new: true,
       },
+      {
+        label: "SocialMediaBar",
+        value: "socialmediabar",
+        url: "/docs/socialmediabar",
+        new: true,
+      },
     ],
   },
 ];
