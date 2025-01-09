@@ -86,6 +86,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Card Deck",
+        value: "card-deck",
+        url: "/docs/card-deck",
+        new: true,
+      },
+      {
         label: "Smart Input",
         value: "smart-input",
         url: "/docs/smart-input",
