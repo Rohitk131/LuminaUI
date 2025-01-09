@@ -98,6 +98,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Stepper Wizard",
+        value: "stepper-wizard",
+        url: "/docs/stepper-wizard",
+        new: true,
+      },
+      {
         label: "Flying Button",
         value: "flying-button",
         url: "/docs/flyingbutton",
