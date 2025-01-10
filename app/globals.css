@@ -202,3 +202,41 @@ pre>code {
 .highlight-comp>code {
   background-color: transparent !important;
 }
+@keyframes beam {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes borderGradient {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes borderSlideRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(500%); }
+}
+
+@keyframes borderSlideDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(500%); }
+}
+
+@keyframes borderSlideLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-500%); }
+}
+
+@keyframes borderSlideUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-500%); }
+}

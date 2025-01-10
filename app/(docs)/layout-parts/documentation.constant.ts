@@ -151,6 +151,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/eyeopener",
         new: true,
       },
+      {
+        label: "Slide Card",
+        value: "SlideCard",
+        url: "/docs/slide-card",
+        new: true,
+      },
     ],
   },
 ];
