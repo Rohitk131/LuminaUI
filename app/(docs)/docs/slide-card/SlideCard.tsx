@@ -1,8 +1,16 @@
 "use client";
 import * as React from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, MotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 
+interface SlideCardProps extends Omit<MotionProps, "onAnimationStart" | "onAnimationComplete"> {
+  className?: string;
+  imageSrc: string;
+  name: string; 
+  role: string; 
+  bio: string;
+  socialLinks:string;
+}
 const MovingGradient = () => (
   <div className="absolute inset-0 h-full w-full overflow-hidden">
     <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent animate-[beam_3s_infinite]" />
@@ -37,7 +45,7 @@ export const SlideCardDemo = () => {
   );
 };
 
-const SlideCard = React.forwardRef(
+const SlideCard = React.forwardRef<HTMLDivElement, SlideCardProps>(
   ({ className, imageSrc, name, role, bio, socialLinks, ...props }, ref) => {
     const [isHovered, setHovered] = React.useState(false);
 

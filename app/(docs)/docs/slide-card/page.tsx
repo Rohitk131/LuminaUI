@@ -1,9 +1,9 @@
 // page.tsx
-import React from "react"
-import { PageSubTitle, PageTemplate } from "../components/page-template"
-import PreviewCodeCard from "../components/preview-code-card"
-import { Steppers } from "@/components/ui/steppers"
-import { SlideCardDemo } from "./SlideCard"
+import React from "react";
+import { PageSubTitle, PageTemplate } from "../components/page-template";
+import PreviewCodeCard from "../components/preview-code-card";
+import { Steppers } from "@/components/ui/steppers";
+import { SlideCardDemo } from "./SlideCard";
 
 const Page = () => {
   return (
@@ -15,7 +15,8 @@ const Page = () => {
 
         <PageSubTitle>Installation</PageSubTitle>
         <p className="text-gray-400">
-          This component requires the Framer Motion library for animations and Lucide React for icons.
+          This component requires the Framer Motion library for animations and
+          Lucide React for icons.
         </p>
         <Steppers
           className=""
@@ -23,19 +24,62 @@ const Page = () => {
           steps={[
             {
               title: "Create SlideCard component",
-              description: "Create a new file called SlideCard.tsx in your components directory and copy the component code."
+              description:
+                "Create a new file called SlideCard.tsx in your components directory and copy the component code.",
             },
             {
-              title: "Add required animations",
-              description: "Make sure to add the required keyframe animations to your global CSS file."
-            }
+              title: "Add required animations in globals.css file",
+              description:
+                "Make sure to add the required keyframe animations to your global CSS file.",
+              codeSnippet: `
+/* Add the following keyframe animations to your globals.css file */
+@keyframes beam {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes borderGradient {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes borderSlideRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(500%); }
+}
+
+@keyframes borderSlideDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(500%); }
+}
+
+@keyframes borderSlideLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-500%); }
+}
+
+@keyframes borderSlideUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-500%); }
+}
+              `,
+            },
           ]}
           withInstall
           codePath="lib/utils.ts"
         />
       </PageTemplate>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

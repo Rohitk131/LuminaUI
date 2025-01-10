@@ -9,9 +9,11 @@ interface StepperProps {
   children?: React.ReactNode;
   title?: string;
   step?: number;
+  description?:string;
+  codeSnippet?: string;
 }
 
-const Stepper = ({ title, children, step }: StepperProps) => {
+const Stepper = ({ title, children, step,description,codeSnippet }: StepperProps) => {
   return (
     <div>
       <div className="flex items-center gap-3">
@@ -31,6 +33,11 @@ const Stepper = ({ title, children, step }: StepperProps) => {
       <div className="my-3 ml-5 border-l-2 border-l-gray-200 pl-8">
         {children}
       </div>
+      {codeSnippet && ( // Render the code snippet if it exists
+        <div className="mt-2">
+          <CodeHighlight code={codeSnippet} lang="css" />
+        </div>
+      )}
     </div>
   );
 };
