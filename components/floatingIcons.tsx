@@ -27,6 +27,7 @@ const FloatingIcon = ({ src, x, y, rotate, delay }) => {
           delay,
         },
       }}
+      style={{ left: x, top: y }}
     >
       <motion.div
         className="relative"
@@ -34,7 +35,7 @@ const FloatingIcon = ({ src, x, y, rotate, delay }) => {
         animate={{ opacity: 1 }}
         transition={{
           opacity: {
-            duration: 1.5,
+            duration: 2,
             repeat: Infinity,
             repeatType: "reverse",
             ease: "easeInOut",
@@ -42,15 +43,15 @@ const FloatingIcon = ({ src, x, y, rotate, delay }) => {
         }}
       >
         {/* Glow effect */}
-        <div className="absolute inset-0 rounded-full bg-blue-500/30 blur-lg -z-10" />
+        <div className="absolute inset-0 rounded-full bg-blue-400 blur-xl -z-10" />
         {/* Icon */}
-        <div className="relative z-10 p-2 bg-gradient-to-br from-blue-400/20 to-blue-600/20 rounded-xl border border-blue-500/30 backdrop-blur-sm">
+        <div className="relative z-10 rounded-xl backdrop-blur-sm">
           <Image 
             src={src}
             alt="Floating icon"
-            width={24}
-            height={24}
-            className="w-10 h-10 object-contain"
+            width={36} 
+            height={36}
+            className="w-9 h-9 object-contain"
           />
         </div>
       </motion.div>
@@ -59,12 +60,12 @@ const FloatingIcon = ({ src, x, y, rotate, delay }) => {
 };
 
 const FloatingIcons = () => {
-  const icons = [
-    { src: "/react.png", x: "-80px", y: "100px", rotate: -15, delay: 0 },
-    { src: "/tailwind.png", x: "900px", y: "100px", rotate: 15, delay: 0.3 },
-    { src: "/gsap.png", x: "-0px", y: "300px", rotate: -20, delay: 0.6 },
-    { src: "/framer.png", x: "820px", y: "300px", rotate: 20, delay: 0.9 },
-  ];
+    const icons = [
+        { src: "/react.png", x: 30, y: 50, rotate: -15, delay: 0 },
+        { src: "/tailwind.png", x: 400, y: 50, rotate: 15, delay: 0.3 },
+        { src: "/gsap.png", x: 0, y: 170, rotate: -20, delay: 0.6 },
+        { src: "/framer.png", x: 430, y: 170, rotate: 20, delay: 0.9 },
+      ];
 
   return (
     <div className="relative w-full">
