@@ -138,9 +138,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Analytics />
-          <div className="flex flex-row items-center justify-center">
-          <Navbar />
+          <div
+            className="flex fixed top-0 left-0 w-full h- z-50 shadow-md items-center justify-center px-4"
+          >
+            <Navbar />
           </div>
+
           <main className="sm:container mx-auto w-[90vw] md:w-[85vw] h-auto">
             {children}
           </main>

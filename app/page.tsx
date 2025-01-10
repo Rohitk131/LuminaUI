@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import Requestcomponents from "@/components/requestcomponets";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-
+import FloatingIcons from '@/components/floatingIcons'; 
 export default function Home() {
   const [star, setStar] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -146,6 +146,7 @@ export default function Home() {
       </div>
 
       <div className="text-center space-y-6">
+      <FloatingIcons />
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-white via-blue-300 to-blue-600  text-transparent bg-clip-text pb-2">
           Ready-to-Use UI Components
           <br />
