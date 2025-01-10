@@ -9,7 +9,7 @@ const Page = () => {
   return (
     <div>
       <PageTemplate title="Slide Card" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/slide-card/page.tsx">
+        <PreviewCodeCard path="app/(docs)/docs/slide-card/SlideCard.tsx">
           <SlideCardDemo />
         </PreviewCodeCard>
 
