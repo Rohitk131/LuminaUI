@@ -175,6 +175,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/slide-card",
         new: true,
       },
+      {
+        label: "Circle Showcase",
+        value: "circleshowcase",
+        url: "/docs/circleshowcase",
+        new: true,
+      },
     ],
   },
 ];
