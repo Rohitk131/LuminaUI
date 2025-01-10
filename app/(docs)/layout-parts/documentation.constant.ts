@@ -86,6 +86,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Card Deck",
+        value: "card-deck",
+        url: "/docs/card-deck",
+        new: true,
+      },
+      {
         label: "Smart Input",
         value: "smart-input",
         url: "/docs/smart-input",
@@ -95,6 +101,12 @@ export const DOCS: Documentation[] = [
         label: "Space Background",
         value: "spacebackground-demo",
         url: "/docs/spacebackground",
+        new: true,
+      },
+      {
+        label: "Stepper Wizard",
+        value: "stepper-wizard",
+        url: "/docs/stepper-wizard",
         new: true,
       },
       {
@@ -149,6 +161,18 @@ export const DOCS: Documentation[] = [
         label: "EyeOpener",
         value: "eyeopener",
         url: "/docs/eyeopener",
+        new: true,
+      },
+      {
+        label: "SocialMediaBar",
+        value: "socialmediabar",
+        url: "/docs/socialmediabar",
+        new: true,
+      },
+      {
+        label: "Slide Card",
+        value: "SlideCard",
+        url: "/docs/slide-card",
         new: true,
       },
     ],
