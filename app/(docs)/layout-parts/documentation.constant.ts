@@ -181,6 +181,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/circleshowcase",
         new: true,
       },
+      {
+        label: "Text Rain",
+        value: "TextRain",
+        url: "/docs/text-rain",
+        new: true,
+      },
     ],
   },
 ];
