@@ -19,7 +19,7 @@ const CardDeck: React.FC = () => {
       id: 1,
       title: "Quantum Leap",
       content:
-        "Exploring the frontiers of quantum computing and its potential to revolutionize data processing and cryptography.",
+        "Exploring the frontiers of quantum computing and its potential to revolutionize data processing.",
       color: "from-cyan-500 to-blue-500",
       icon: <Sparkles className="w-8 h-8" />,
       stats: [
@@ -32,7 +32,7 @@ const CardDeck: React.FC = () => {
       id: 2,
       title: "Neon Dreams",
       content:
-        "Visualizing the future of augmented reality and its impact on entertainment, education, and daily life.",
+        "Visualizing the future of augmented reality and its impact on human interaction.",
       color: "from-purple-500 to-pink-500",
       icon: <Zap className="w-8 h-8" />,
       stats: [
@@ -45,7 +45,7 @@ const CardDeck: React.FC = () => {
       id: 3,
       title: "Cyber Nexus",
       content:
-        "Connecting minds in the digital realm through advanced neural interfaces and immersive virtual environments.",
+        "Connecting minds in the digital realm through advanced neural interfaces.",
       color: "from-green-500 to-emerald-500",
       icon: <Globe className="w-8 h-8" />,
       stats: [
@@ -58,7 +58,7 @@ const CardDeck: React.FC = () => {
       id: 4,
       title: "Stellar Voyage",
       content:
-        "Charting a course through the cosmos with next-generation propulsion systems and interstellar navigation.",
+        "Charting a course through the cosmos with next-generation propulsion systems.",
       color: "from-orange-500 to-red-500",
       icon: <Rocket className="w-8 h-8" />,
       stats: [
@@ -78,90 +78,80 @@ const CardDeck: React.FC = () => {
   };
 
   return (
-    <div>
-      <div className="relative h-[32rem] mb-12">
+    <div className="bg-gray-950 flex items-center justify-center p-4">
+      <div className="relative max-w-2xl h-[400px] w-[600px]">
         <AnimatePresence>
           {cards.map((card, index) => (
             <motion.div
               key={card.id}
-              className={`absolute inset-x-0 w-full bg-gradient-to-br ${
-                card.color
-              } rounded-2xl p-8 flex flex-col justify-between shadow-2xl overflow-hidden ${
+              className={`absolute inset-0 ${
                 index === 0 ? "cursor-pointer" : ""
               }`}
               style={{
-                top: 0,
-                height: `calc(100% - ${index * 60}px)`,
                 zIndex: cards.length - index,
+                transformOrigin: "50% 100%",
               }}
-              initial={index === 0 ? { y: -50, opacity: 0 } : { y: index * 60 }}
+              initial={{
+                y: index === cards.length - 1 ? -20 : index * 50,
+                opacity: index === cards.length - 1 ? 0 : 1,
+              }}
               animate={{
-                y: index * 60,
+                y: index * 20,
                 opacity: 1,
-                scale: 1 - index * 0.05,
+                rotateX: -2,
               }}
               exit={{
-                y: -50,
+                y: cards.length * 50,
                 opacity: 0,
                 transition: { duration: 0.3 },
               }}
               transition={{
-                y: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 },
-                scale: { type: "spring", stiffness: 300, damping: 30 },
+                duration: 0.4,
+                ease: [0.4, 0.0, 0.2, 1],
               }}
               onClick={index === 0 ? moveCardToBottom : undefined}
             >
-              <div className="absolute inset-0.5 bg-gray-900 rounded-2xl z-[-1]" />
-              <div className="flex justify-between items-start mb-6">
-                <h2 className="text-4xl font-bold text-white tracking-wider">
-                  {card.title}
-                </h2>
-                <div className="bg-white bg-opacity-20 p-2 rounded-full">
-                  {card.icon}
-                </div>
-              </div>
-              <p className="text-xl text-gray-100 leading-relaxed mb-6">
-                {card.content}
-              </p>
-              <div className="grid grid-cols-3 gap-4 mb-20">
-                {card.stats.map((stat, statIndex) => (
-                  <div
-                    key={statIndex}
-                    className="bg-black bg-opacity-30 p-3 rounded-lg"
-                  >
-                    <div className="text-sm text-gray-300">{stat.label}</div>
-                    <div className="text-2xl font-bold text-white">
-                      {stat.value}
+              <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-br from-white/20 to-white/5">
+                <div
+                  className={`h-full w-full rounded-2xl bg-gradient-to-br ${card.color} p-1 overflow-hidden`}
+                >
+                  <div className="relative h-full bg-gray-900/90 rounded-xl p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <h2 className="text-2xl font-bold text-white">
+                        {card.title}
+                      </h2>
+                      <div className="bg-white/10 p-2 rounded-full">
+                        {card.icon}
+                      </div>
+                    </div>
+                    <p className="text-lg text-gray-200 mb-6">{card.content}</p>
+                    <div className="grid grid-cols-3 gap-3">
+                      {card.stats.map((stat, statIndex) => (
+                        <div
+                          key={statIndex}
+                          className="bg-black/30 rounded-lg p-2"
+                        >
+                          <div className="text-sm text-gray-400">
+                            {stat.label}
+                          </div>
+                          <div className="text-lg font-semibold text-white">
+                            {stat.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="absolute bottom-6 right-6 text-6xl font-bold text-white/5">
+                      {card.id}
                     </div>
                   </div>
-                ))}
-              </div>
-              <div className="flex justify-between items-center">
-                <div className="text-sm text-white opacity-70">
-                  Card {card.id} of {cards.length}
                 </div>
               </div>
-              {index === 0 && (
-                <div className="absolute bottom-4 right-8 text-9xl font-bold text-white opacity-10">
-                  {card.id}
-                </div>
-              )}
             </motion.div>
           ))}
         </AnimatePresence>
-      </div>
-      <div className="text-center text-white text-xl font-medium">
-        Click on the top card to reveal the next one
       </div>
     </div>
   );
 };
 
-export default function Home() {
-  return (
-    <div className="flex items-center justify-center p-4">
-      <CardDeck />
-    </div>
-  );
-}
+export default CardDeck;
