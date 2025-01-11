@@ -62,9 +62,21 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Buttons",
+        value: "buttonsDemo",
+        url: "/docs/Buttons",
+        new: true,
+      },
+      {
         label: "Perks Grid",
         value: "FeatureGridDemo",
         url: "/docs/Perks",
+        new: true,
+      },
+      {
+        label: "Plasma",
+        value: "plasmabackground",
+        url: "/docs/PlasmaBackground",
         new: true,
       },
       {
