@@ -104,6 +104,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Countdown Timer",
+        value: "countdown-timer",
+        url: "/docs/countdown-timer",
+        new: true,
+      },
+      {
         label: "Smart Input",
         value: "smart-input",
         url: "/docs/smart-input",
