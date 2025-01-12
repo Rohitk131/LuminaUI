@@ -1,120 +1,159 @@
-'use client'
-import React, { useEffect, useState } from 'react';
+'use client';
 
-const GitHubContributionChart = ({ username, from, to }) => {
-  const [contributions, setContributions] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+import Calendar, {
+  Skeleton,
+  type Props as ActivityCalendarProps,
+  type ThemeInput,
+} from 'react-activity-calendar';
+import { motion } from 'framer-motion';
 
-  useEffect(() => {
-    const fetchContributions = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        
-        // Add .json extension to the base URL
-        let apiUrl = `https://github-contributions-api.deno.dev/${username}.json`;
-        
-        // Construct query parameters
-        const params = new URLSearchParams();
-        if (from) params.append('from', from);
-        if (to) params.append('to', to);
-        
-        // Add query parameters if they exist
-        const queryString = params.toString();
-        if (queryString) {
-          apiUrl += `?${queryString}`;
-        }
+export interface Activity {
+  date: string;
+  count: number;
+  level: number;
+}
 
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch contributions: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Check if we actually got contributions data
-        if (!data || !Array.isArray(data.contributions)) {
-          throw new Error('Invalid data format received from API');
-        }
-        
-        setContributions(data.contributions);
-      } catch (error) {
-        console.error('Fetch error:', error);
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (username) {
-      fetchContributions();
-    }
-  }, [username, from, to]);
-
-  const getColorClass = (count) => {
-    if (count === 0) return 'bg-gray-100';
-    if (count < 3) return 'bg-green-200';
-    if (count < 6) return 'bg-green-400';
-    if (count < 10) return 'bg-green-600';
-    return 'bg-green-800';
+export interface ApiResponse {
+  contributions: Array<Activity>;
+  total: {
+    [year: string]: number;
   };
+}
 
-  const startDate = from ? new Date(from) : new Date(new Date().setFullYear(new Date().getFullYear() - 1));
-  const endDate = to ? new Date(to) : new Date();
+export interface ApiErrorResponse {
+  error: string;
+}
 
-  if (loading) {
-    return <div className="animate-pulse text-gray-600">Loading contributions...</div>;
-  }
+export type Year = string | 'last';
 
-  if (error) {
-    return (
-      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-        Error loading contributions: {error}
-      </div>
+export interface Props extends Omit<ActivityCalendarProps, 'data'> {
+  username: string;
+  errorMessage?: string;
+  throwOnError?: boolean;
+  transformData?: (data: Array<Activity>) => Array<Activity>;
+  transformTotalCount?: boolean;
+  year?: Year;
+}
+
+async function fetchCalendarData(username: string, year: Year): Promise<ApiResponse> {
+  const response = await fetch(
+    `https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`
+  );
+  const data = (await response.json()) as ApiResponse | ApiErrorResponse;
+
+  if (!response.ok) {
+    throw Error(
+      `Failed to fetch GitHub data for "${username}": ${(data as ApiErrorResponse).error}`
     );
   }
 
-  // Calculate the grid of contributions
-  const weeks = [];
-  let currentDate = new Date(startDate);
-  
-  while (currentDate <= endDate) {
-    const week = [];
-    for (let i = 0; i < 7; i++) {
-      if (currentDate <= endDate) {
-        const dateStr = currentDate.toISOString().split('T')[0];
-        const contribution = contributions.find(c => c.date === dateStr);
-        week.push({
-          date: dateStr,
-          count: contribution ? contribution.contributionCount : 0
-        });
-      }
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-    weeks.push(week);
-  }
+  return data as ApiResponse;
+}
 
-  return (
-    <div className="w-full max-w-4xl p-4 bg-white rounded-lg shadow-sm">
-      <h2 className="text-xl font-semibold mb-4">GitHub Contributions for {username}</h2>
-      <div className="overflow-x-auto">
-        <div className="inline-flex flex-col gap-1">
-          {weeks.map((week, weekIndex) => (
-            <div key={weekIndex} className="flex gap-1">
-              {week.map((day, dayIndex) => (
-                <div
-                  key={`${weekIndex}-${dayIndex}`}
-                  className={`w-3 h-3 rounded-sm ${getColorClass(day.count)}`}
-                  title={`${day.date}: ${day.count} contributions`}
-                />
-              ))}
-            </div>
-          ))}
+const GitHubCalendar = forwardRef<HTMLElement, Props>(
+  (
+    {
+      username,
+      year = 'last',
+      labels,
+      transformData: transformFn,
+      transformTotalCount = true,
+      throwOnError = false,
+      errorMessage = `Unable to load GitHub contributions for "${username}"`,
+      ...props
+    },
+    ref,
+  ) => {
+    const [data, setData] = useState<ApiResponse | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<Error | null>(null);
+
+    const fetchData = useCallback(() => {
+      setLoading(true);
+      fetchCalendarData(username, year)
+        .then(setData)
+        .catch((err: unknown) => {
+          if (err instanceof Error) setError(err);
+        })
+        .finally(() => setLoading(false));
+    }, [username, year]);
+
+    useEffect(fetchData, [fetchData]);
+
+    if (error) {
+      if (throwOnError) throw error;
+      return (
+        <div className="text-red-500 text-sm rounded-lg p-4 bg-red-50">
+          {errorMessage}
         </div>
-      </div>
-    </div>
-  );
+      );
+    }
+
+    if (loading || !data) {
+      return <Skeleton {...props} loading />;
+    }
+
+    const sortedData = transformFn 
+      ? transformFn(data.contributions)
+      : data.contributions.sort((a, b) => 
+          new Date(a.date).getTime() - new Date(b.date).getTime()
+        );
+
+    const defaultLabels = {
+      totalCount: `${data.total[year === 'last' ? 'lastYear' : year]} contributions in ${
+        year === 'last' ? 'the last year' : year
+      }`,
+    };
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="p-6 bg-black rounded-xl shadow-sm"
+      >
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-lg font-medium text-white">
+            {username}'s GitHub Activity
+          </h2>
+          <span className="text-sm text-gray-500">
+            {year === 'last' ? 'Past Year' : year}
+          </span>
+        </div>
+        <Calendar
+          data={sortedData}
+          labels={Object.assign({}, defaultLabels, labels)}
+          ref={ref}
+          totalCount={transformFn && transformTotalCount ? undefined : data.total[year === 'last' ? 'lastYear' : year]}
+          {...props}
+          theme={minimalistTheme}
+          loading={loading}
+          maxLevel={4}
+          fontSize={12}
+        />
+      </motion.div>
+    );
+  },
+);
+
+GitHubCalendar.displayName = 'GitHubCalendar';
+
+const minimalistTheme: ThemeInput = {
+  light: [
+    '#ebedf0', // Empty
+    '#9be9a8', // Level 1
+    '#40c463', // Level 2
+    '#30a14e', // Level 3
+    '#216e39', // Level 4
+  ],
+  dark: [
+    '#161b22', // Empty
+    '#0e4429', // Level 1
+    '#006d32', // Level 2
+    '#26a641', // Level 3
+    '#39d353', // Level 4
+  ],
 };
 
-export default GitHubContributionChart;
+export default GitHubCalendar;

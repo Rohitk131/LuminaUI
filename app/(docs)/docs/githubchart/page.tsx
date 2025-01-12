@@ -1,7 +1,7 @@
 import React from "react";
 import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
-import GitHubContributionChart from "@/app/(docs)/docs/githubchart/githubchartdemo"; // Updated import
+import GitHubCalendar from "@/app/(docs)/docs/githubchart/githubchartdemo"; // Updated import
 import { Steppers } from "@/components/ui/steppers";
 
 const page = () => {
@@ -9,11 +9,7 @@ const page = () => {
     <div>
       <PageTemplate title="Github Chart" className="mt-5">
         <PreviewCodeCard path="app/(docs)/docs/githubchart/githubchartdemo.tsx">
-        <GitHubContributionChart 
-  username="rohitk131"
-  from="2024-01-01"  // optional
-  to="2024-12-31"    // optional
-/>
+        <GitHubCalendar username="rohitk131" year="2024" />
         </PreviewCodeCard>
 
         <PageSubTitle>Installation</PageSubTitle>
