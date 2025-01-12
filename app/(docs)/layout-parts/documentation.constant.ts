@@ -68,6 +68,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Github Chart",
+        value: "githubchartdemo",
+        url: "/docs/githubchart",
+        new: true,
+      },
+      {
         label: "Perks Grid",
         value: "FeatureGridDemo",
         url: "/docs/Perks",
