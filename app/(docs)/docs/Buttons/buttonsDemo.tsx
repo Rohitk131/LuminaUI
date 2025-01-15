@@ -216,7 +216,18 @@ const LoadingButton = () => {
 }
 export default function EssentialButtons() {
     return (
-      <div className="grid grid-rows-3 max-w-8xl grid-cols-4 items-center justify-center h-1/2 0 p-8 gap-8">
+      <div className="grid grid-rows-3 max-w-8xl grid-cols-4 items-center justify-center h-1/2 0 p-8 gap-8 relative">
+         <div 
+        className="absolute inset-0 opacity-50" 
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.5) 1px, transparent 0)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" /> 
         <CTAButton />
         <SubmitButton />
         <ToggleButton />

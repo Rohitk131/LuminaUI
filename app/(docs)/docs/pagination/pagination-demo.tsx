@@ -58,7 +58,12 @@ const Pagination: React.FC<{
   };
 
   return (
-    <div className="flex items-center justify-center space-x-2 my-8 bg-gray-800 p-2 rounded-full shadow-lg border border-gray-400/10">
+    <div className="flex items-center justify-center space-x-2 my-8 bg-gray-800 p-2 rounded-full shadow-lg border border-gray-400/10 relative">
+     
+      
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
       <motion.button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}

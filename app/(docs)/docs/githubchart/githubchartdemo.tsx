@@ -111,8 +111,13 @@ const GitHubCalendar = forwardRef<HTMLElement, Props>(
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="p-6 bg-black rounded-xl shadow-sm"
+        className="p-6 bg-black rounded-xl shadow-sm relative"
       >
+      
+      
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-medium text-white">
             {username}'s GitHub Activity

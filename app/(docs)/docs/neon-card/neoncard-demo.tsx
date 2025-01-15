@@ -62,6 +62,10 @@ const NeonCard = ({
         boxShadow: `0 0 20px 2px rgba(${gradientColors[0]}15, ${glowIntensity})`,
       }}
     >
+       
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
       <div
         className="absolute -inset-[1px] rounded-2xl opacity-75 blur-xl transition-all duration-500 group-hover:opacity-100"
         style={{

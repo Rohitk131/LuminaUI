@@ -78,7 +78,18 @@ const CardDeck: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-950 flex items-center justify-center p-4">
+    <div className="flex items-center justify-center p-4 w-full  relative">
+       <div 
+        className="absolute inset-0 opacity-60" 
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.6) 1px, transparent 0)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
       <div className="relative max-w-2xl h-[400px] w-[600px]">
         <AnimatePresence>
           {cards.map((card, index) => (
