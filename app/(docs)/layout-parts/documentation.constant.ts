@@ -211,6 +211,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/text-rain",
         new: true,
       },
+      {
+        label: "Code Block",
+        value: "codeblockdemo",
+        url: "/docs/codeblock",
+        new: true,
+      },
     ],
   },
 ];
