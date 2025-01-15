@@ -217,6 +217,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/codeblock",
         new: true,
       },
+      {
+        label: "File Structure",
+        value: "filestructuredemo",
+        url: "/docs/filestructure",
+        new: true,
+      },
     ],
   },
 ];
