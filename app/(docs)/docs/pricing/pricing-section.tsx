@@ -33,7 +33,19 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="min-h-screen  py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  py-20 px-4 sm:px-6 lg:px-8 relative">
+       <div 
+        className="absolute inset-0 opacity-60 dark:opacity-40" 
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.2) 1px, transparent 0)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      
+      
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl" />
+
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent mb-4">

@@ -29,7 +29,18 @@ const BorderGradient = () => (
 
 export const SlideCardDemo = () => {
   return (
-    <div className="flex flex-wrap justify-center items-center gap-6">
+    <div className="flex flex-wrap justify-center items-center gap-6 relative">
+       <div 
+        className="absolute inset-0 opacity-60 dark:opacity-60" 
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.6) 1px, transparent 0)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      
+ 
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl" />
       <SlideCard
         name="Bertram Gilfoyle"
         role="System Architecture"

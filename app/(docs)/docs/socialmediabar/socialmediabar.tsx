@@ -69,7 +69,9 @@ const SocialMediaBar = () => {
   ];
 
   return (
-    <div className="fixed bottom-[24px] left-1/2 transform -translate-x-1/2 flex justify-center z-50">
+    //add fixed bottom-[24px] when you use it 
+    <div className=" left-1/2 transform -translate-x-1/2 flex justify-center z-50">
+     
       <motion.div
         className="flex items-center justify-center gap-[16px] p-[8px] relative"
         whileHover={{ width: "250px" }}

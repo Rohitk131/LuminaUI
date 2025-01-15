@@ -47,7 +47,10 @@ const StepperWizard: React.FC<StepperWizardProps> = ({ steps, onComplete }) => {
   }, []);
 
   return (
-    <div className="max-w-md w-full mx-auto p-8 bg-gray-900 rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.1)] border border-gray-800">
+    <div className="max-w-md w-full mx-auto p-8 bg-gray-900 rounded-2xl shadow-[0_0_15px_rgba(0,0,0,0.1)] border border-gray-800 relative">
+      
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
       <div className="flex justify-between mb-12 relative">
         {/* Connecting Line */}
         <div
