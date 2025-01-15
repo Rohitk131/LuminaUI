@@ -71,7 +71,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language, filename }) => {
               style={{
                 ...style,
                 backgroundColor: 'transparent',
-                margin: 0,
+                marginBottom: 10,
                 padding: '1rem',
               }}
             >
@@ -79,7 +79,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language, filename }) => {
                 <div 
                   key={i} 
                   {...getLineProps({ line, key: i })}
-                  className="relative whitespace-pre px-4 [&:hover]:bg-muted/50 "
+                  className="relative whitespace-pre px-4 [&:hover]:bg-muted/50  "
                 >
                   <span className="sticky left-0 inline-block w-8 select-none pr-4 text-right font-mono text-xs text-muted-foreground">
                     {i + 1}
