@@ -30,7 +30,19 @@ const ProgressBarDemo: React.FC = () => {
   }, [uploading, progress]);
 
   return (
-    <div className="p-6 max-w-96 mx-auto space-y-4 bg-gray-800/40 border border-blue-400/20 rounded-lg text-white">
+    <div className="p-6 max-w-96 mx-auto space-y-4 bg-gray-800/40 border border-blue-400/20 rounded-lg text-white relative">
+       <div 
+        className="absolute inset-0 opacity-60 dark:opacity-60" 
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.2) 1px, transparent 0)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      
+ 
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl" />
+
       <h1 className="text-xl font-bold text-center">File Upload Simulation</h1>
       <div>
         <ProgressBar progress={progress} />

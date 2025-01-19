@@ -1,8 +1,6 @@
 'use client'
-
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
 // CTA Button
 const CTAButton = () => (
   <motion.button
@@ -13,10 +11,8 @@ const CTAButton = () => (
     Get Started Now
   </motion.button>
 )
-
 const MorphingButton = () => {
   const [isCircle, setIsCircle] = useState(false)
-
   return (
     <motion.button
       className="relative w-48 h-14 bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600  border border-gray-400/40 text-white font-bold overflow-hidden backdrop-blur-md"
@@ -42,10 +38,8 @@ const MorphingButton = () => {
     </motion.button>
   )
 }
-
 const RippleButton = () => {
   const [ripples, setRipples] = useState([])
-
   const addRipple = (event) => {
     const button = event.currentTarget.getBoundingClientRect()
     const size = Math.max(button.width, button.height)
@@ -59,7 +53,6 @@ const RippleButton = () => {
     }
     setRipples([...ripples, newRipple])
   }
-
   return (
     <motion.button
       className="relative w-48 h-14 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-bold rounded-lg overflow-hidden backdrop-blur-md"
@@ -87,15 +80,12 @@ const RippleButton = () => {
     </motion.button>
   )
 }
-
 const SubmitButton = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
-
   const handleSubmit = () => {
     setIsSubmitting(true)
     setTimeout(() => setIsSubmitting(false), 2000)
   }
-
   return (
     <motion.button
       className="relative w-48 h-14  border border-green-300/50 bg-gradient-to-r from-green-500 via-emerald-600 to-green-700 text-white font-bold rounded-lg shadow-lg flex items-center justify-center space-x-2"
@@ -119,10 +109,8 @@ const SubmitButton = () => {
     </motion.button>
   )
 }
-
 const ToggleButton = () => {
   const [isOn, setIsOn] = useState(false)
-
   return (
     <motion.button
       className={`relative w-20 h-10 rounded-full p-1 flex items-center backdrop-blur-md shadow-lg transition-all duration-300 ${
@@ -138,10 +126,8 @@ const ToggleButton = () => {
     </motion.button>
   )
 }
-
 const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false)
-
   return (
     <div className="relative">
       <motion.button
@@ -189,15 +175,12 @@ const DropdownButton = () => {
     </div>
   )
 }
-
 const LoadingButton = () => {
   const [isLoading, setIsLoading] = useState(false)
-
   const handleClick = () => {
     setIsLoading(true)
     setTimeout(() => setIsLoading(false), 3000)
   }
-
   return (
     <motion.button
       className="relative w-48 h-14 bg-gradient-to-r from-blue-600  to-blue-800 text-white font-bold rounded-lg shadow-lg overflow-hidden"
@@ -231,10 +214,20 @@ const LoadingButton = () => {
     </motion.button>
   )
 }
-
 export default function EssentialButtons() {
     return (
-      <div className="grid grid-rows-3 max-w-8xl grid-cols-4 items-center justify-center h-1/2 0 p-8 gap-8">
+      <div className="grid grid-rows-3 max-w-8xl grid-cols-4 items-center justify-center h-1/2 0 p-8 gap-8 relative">
+         <div 
+        className="absolute inset-0 opacity-50" 
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.5) 1px, transparent 0)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" /> 
         <CTAButton />
         <SubmitButton />
         <ToggleButton />

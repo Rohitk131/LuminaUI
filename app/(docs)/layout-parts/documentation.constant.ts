@@ -50,6 +50,12 @@ export const DOCS: Documentation[] = [
         new: false,
       },
       {
+        label: "Stacked Cards",
+        value: "stackedcardsdemo",
+        url: "/docs/stackedcards",
+        new: false,
+      },
+      {
         label: "Grid Background",
         value: "grid-background",
         url: "/docs/grid-background",
@@ -65,6 +71,12 @@ export const DOCS: Documentation[] = [
         label: "Buttons",
         value: "buttonsDemo",
         url: "/docs/Buttons",
+        new: true,
+      },
+      {
+        label: "Github Chart",
+        value: "githubchartdemo",
+        url: "/docs/githubchart",
         new: true,
       },
       {
@@ -209,6 +221,30 @@ export const DOCS: Documentation[] = [
         label: "Text Rain",
         value: "TextRain",
         url: "/docs/text-rain",
+        new: true,
+      },
+      {
+        label: "Code Block",
+        value: "codeblockdemo",
+        url: "/docs/codeblock",
+        new: true,
+      },
+      {
+        label: "File Structure",
+        value: "filestructuredemo",
+        url: "/docs/filestructure",
+        new: true,
+      },
+      {
+        label: "Circular Slider",
+        value: "circularsliderdemo",
+        url: "/docs/circularslider",
+        new: true,
+      },
+      {
+        label: "3D Button",
+        value: "ThreeDButton",
+        url: "/docs/ThreeDButton",
         new: true,
       },
     ],
