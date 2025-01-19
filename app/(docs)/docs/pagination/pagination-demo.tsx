@@ -42,7 +42,7 @@ const Pagination: React.FC<{
           <AnimatePresence>
             {currentPage === i && (
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-purple-600 to-blue-500 rounded-full"
+                className="absolute inset-0 bg-gradient-to-br from-slate-400 to-slate-700 shadow-inner rounded-full"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
@@ -58,7 +58,7 @@ const Pagination: React.FC<{
   };
 
   return (
-    <div className="flex items-center justify-center space-x-2 my-8 bg-gray-800 p-2 rounded-full shadow-lg">
+    <div className="flex items-center justify-center space-x-2 my-8 bg-gray-800 p-2 rounded-full shadow-lg border border-gray-400/10">
       <motion.button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -93,7 +93,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center text-white p-4">
-      <h1 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+      <h1 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-b from-gray-100 to-gray-500">
         Pagination
       </h1>
       <div className="w-full max-w-md">
@@ -104,15 +104,15 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.5 }}
-            className="bg-gray-800 rounded-lg p-6 shadow-lg mb-8 relative overflow-hidden"
+            className="bg-gray-800 rounded-lg p-6 shadow-lg mb-8 relative overflow-hidden border border-gray-500/10"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-900 to-blue-900 opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black opacity-50" />
             <div className="relative z-10">
               <h2 className="text-2xl font-semibold mb-4">{card.title}</h2>
               <p className="text-gray-300">{card.content}</p>
             </div>
-            <div className="absolute top-2 right-2 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full opacity-20 filter blur-xl" />
-            <div className="absolute bottom-2 left-2 w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-full opacity-20 filter blur-xl" />
+            <div className="absolute top-2 right-2 w-16 h-16 bg-gradient-to-br from-slate-500 to-zinc-400 rounded-full opacity-20 filter blur-xl" />
+            <div className="absolute bottom-2 left-2 w-12 h-12 bg-gradient-to-br from-gray-300 to-gray-500 rounded-full opacity-20 filter blur-xl" />
           </motion.div>
         </AnimatePresence>
       </div>
