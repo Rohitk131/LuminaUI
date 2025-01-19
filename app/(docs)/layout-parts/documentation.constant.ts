@@ -229,6 +229,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/filestructure",
         new: true,
       },
+      {
+        label: "Circular Slider",
+        value: "circularsliderdemo",
+        url: "/docs/circularslider",
+        new: true,
+      },
     ],
   },
 ];
