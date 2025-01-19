@@ -170,6 +170,12 @@ export const DOCS: Documentation[] = [
         new: false,
       },
       {
+        label: "Dynamic Gradient",
+        value: "dynamic-gradient",
+        url: "/docs/dynamic-gradient",
+        new: true,
+      },
+      {
         label: "Gradient Circle",
         value: "GradientCircleDemo",
         url: "/docs/gradient-circle",
