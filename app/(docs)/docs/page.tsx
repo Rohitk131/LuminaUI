@@ -14,7 +14,7 @@ export default function IntroductionPage() {
     <div className="max-w-4xl mx-auto space-y-12 py-8">
       {/* Hero Section */}
       <div className="space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Spectrum UI</h1>
+        <h1 className="text-4xl font-bold tracking-tight">Lumina UI</h1>
         <p className="text-xl text-muted-foreground">
           Beautifully designed components built with Aceternity UI ,ShadCN UI and MAGIC UI a that you can copy and
           paste into your apps. Accessible. Customizable. Open Source.

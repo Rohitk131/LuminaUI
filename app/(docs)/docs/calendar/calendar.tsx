@@ -47,8 +47,8 @@ const Calendar = () => {
           } 
           ${
             isSameDay(day, selectedDate)
-              ? "bg-zinc-900  font-bold" 
-              : "hover:bg-zinc-800"
+              ? "bg-zinc-500  font-bold" 
+              : "hover:bg-zinc-400"
           }
           ${isSameDay(day, new Date()) 
             ? "bg-yellow-500 text-white font-bold" 
@@ -67,7 +67,11 @@ const Calendar = () => {
   };
 
   return (
-    <div className="max-w-md font-oswald mx-auto mt-10 p-4 border rounded-lg shadow-md">
+    <div className="max-w-md font-oswald mx-auto mt-10 p-4 border rounded-lg shadow-md relative">
+       
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={prevMonth}

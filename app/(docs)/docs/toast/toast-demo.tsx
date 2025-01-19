@@ -24,7 +24,18 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-1/2 p-10  text-white">
+    <div className="flex flex-col items-center justify-center h-1/2 p-10  text-white relative w-full">
+       <div 
+        className="absolute inset-0 opacity-50 " 
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.6) 1px, transparent 0)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      
+      {/* Gradient orbs */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
       <h1 className="mb-10 text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
         Toast Notifications
       </h1>
