@@ -235,6 +235,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/circularslider",
         new: true,
       },
+      {
+        label: "3D Button",
+        value: "ThreeDButton",
+        url: "/docs/ThreeDButton",
+        new: true,
+      },
     ],
   },
 ];
