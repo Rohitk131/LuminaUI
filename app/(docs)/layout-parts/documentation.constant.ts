@@ -50,6 +50,12 @@ export const DOCS: Documentation[] = [
         new: false,
       },
       {
+        label: "Stacked Cards",
+        value: "stackedcardsdemo",
+        url: "/docs/stackedcards",
+        new: false,
+      },
+      {
         label: "Grid Background",
         value: "grid-background",
         url: "/docs/grid-background",

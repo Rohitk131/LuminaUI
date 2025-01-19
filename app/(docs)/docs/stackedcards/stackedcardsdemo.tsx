@@ -101,7 +101,7 @@ const StackedCards = () => {
   return (
     <div
       ref={stackAreaRef}
-      className="w-full h-[300vh] relative bg-gradient-to-br from-slate-950 via-black to-slate-950 flex"
+      className="w-full h-[100vh] relative bg-gradient-to-br from-slate-950 via-black to-slate-950 flex"
     >
       {/* Animated background effect */}
       <div className="absolute inset-0 opacity-20">
@@ -120,7 +120,7 @@ const StackedCards = () => {
             </div>
           </div>
 
-          <h1 className="text-8xl font-bold leading-[0.9] tracking-tight">
+          <h1 className="text-6xl font-bold leading-[0.9] tracking-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/50 inline-block mb-2">
               Future of
             </span>
@@ -133,7 +133,7 @@ const StackedCards = () => {
             </span>
           </h1>
 
-          <p className="text-lg text-slate-400 mt-8 leading-relaxed max-w-[480px] font-light">
+          <p className="text-base text-slate-400 mt-8 leading-relaxed max-w-[480px] font-light">
             Experience quantum-level computing with our next-generation
             platform. Built for those who see beyond the limitations of
             traditional systems.
@@ -164,69 +164,74 @@ const StackedCards = () => {
       </div>
 
       <div className="h-screen sticky top-0 basis-1/2 perspective-[1500px]">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            ref={(el) => (cardRefs.current[index] = el)}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            className={`w-[460px] h-[460px] rounded-[3rem] mb-3 absolute top-[calc(50%-230px)] left-[calc(50%-230px)]
+        <div className="h-full overflow-y-auto">
+          <div className="min-h-screen flex justify-center items-center">
+            {cards.map((card, index) => (
+              <div
+                key={index}
+                ref={(el) => (cardRefs.current[index] = el)}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`w-[360px] h-[360px] rounded-[3rem] mb-3 absolute top-[calc(50%-230px)] left-[calc(50%-230px)]
               transition-all duration-500 ease-out origin-bottom-left ${card.bgGradient}
               hover:scale-[1.02] group cursor-pointer border border-white/10`}
-            style={{
-              transformStyle: "preserve-3d",
-            }}
-          >
-            {/* Glass effect overlay */}
-            <div className="absolute inset-0 rounded-[3rem] bg-white/5 backdrop-blur-sm opacity-50" />
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                {/* Glass effect overlay */}
+                <div className="absolute inset-0 rounded-[3rem] bg-white/5 backdrop-blur-sm opacity-50" />
 
-            {/* Content wrapper */}
-            <div className="relative h-full p-10 flex flex-col">
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`p-4 rounded-2xl bg-white/10 backdrop-blur-xl border ${card.border}`}
-                  >
-                    {card.icon}
-                  </div>
-                  <div>
-                    <p className="text-lg font-medium text-white/80">
-                      {card.subtitle}
-                    </p>
-                    <p className="text-sm text-white/50 mt-0.5">
-                      {card.description}
-                    </p>
-                  </div>
-                </div>
-                <span className="text-4xl font-bold text-white/90">
-                  {card.metric}
-                </span>
-              </div>
-
-              <div className="mt-auto">
-                <h3 className="text-4xl font-bold text-white leading-tight mb-6">
-                  {card.content}
-                </h3>
-                <div className="flex justify-between items-end">
-                  <div className="flex gap-3">
-                    {[...Array(3)].map((_, i) => (
+                {/* Content wrapper */}
+                <div className="relative h-full p-10 flex flex-col">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-4">
                       <div
-                        key={i}
-                        className={`w-2 h-2 rounded-full transition-all duration-300
+                        className={`p-4 rounded-2xl bg-white/10 backdrop-blur-xl border ${card.border}`}
+                      >
+                        {card.icon}
+                      </div>
+                      <div>
+                        <p className="text-lg font-medium text-white/80">
+                          {card.subtitle}
+                        </p>
+                        <p className="text-sm text-white/50 mt-0.5">
+                          {card.description}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="text-4xl font-bold text-white/90">
+                      {card.metric}
+                    </span>
+                  </div>
+
+                  <div className="mt-auto">
+                    <h3 className="text-4xl font-bold text-white leading-tight mb-6">
+                      {card.content}
+                    </h3>
+                    <div className="flex justify-between items-end">
+                      <div className="flex gap-3">
+                        {[...Array(3)].map((_, i) => (
+                          <div
+                            key={i}
+                            className={`w-2 h-2 rounded-full transition-all duration-300
                           ${hoveredIndex === index ? "bg-white" : "bg-white/30"}
                           ${i === 0 ? "group-hover:h-4" : i === 1 ? "group-hover:h-3" : ""}`}
+                          />
+                        ))}
+                      </div>
+                      <ArrowRight
+                        size={24}
+                        className="text-white/80 group-hover:translate-x-1 transition-transform"
                       />
-                    ))}
+                    </div>
+
                   </div>
-                  <ArrowRight
-                    size={24}
-                    className="text-white/80 group-hover:translate-x-1 transition-transform"
-                  />
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

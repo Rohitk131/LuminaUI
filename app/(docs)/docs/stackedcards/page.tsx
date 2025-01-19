@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       <PageTemplate title="Stacked Cards" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/stackedcards/stackedcardsdemo.tsx">
+        <PreviewCodeCard path="app/(docs)/docs/stackedcards/stackedcardsdemo.tsx" >
           <StackedCards />
         </PreviewCodeCard>
 
