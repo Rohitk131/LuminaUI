@@ -61,7 +61,7 @@ const CircularSlider = () => {
     };
 
     return (
-        <div className="w-full h-96  relative overflow-hidden">
+        <div className="w-full h-96 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
             <div className="absolute inset-0 opacity-50">
@@ -77,13 +77,13 @@ const CircularSlider = () => {
                 >
                     <div
                         ref={knobRef}
-                        className="knob w-[220px] h-[220px] bg-gradient-to-br from-slate-50 to-slate-200 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer"
+                        className="knob w-[220px] h-[220px] bg-gradient-to-br from-slate-300 to-slate-100 dark:from-slate-700 dark:to-slate-900 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer"
                         onMouseDown={handleMouseDown}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                     >
                         <motion.div 
-                            className="w-[180px] h-[180px] bg-gradient-to-br from-white to-slate-100 rounded-full shadow-lg flex items-center justify-center relative z-[1]"
+                            className="w-[180px] h-[180px] bg-gradient-to-br from-white to-slate-200 dark:from-slate-600 dark:to-slate-800 rounded-full shadow-lg flex items-center justify-center relative z-[1]"
                             animate={{
                                 boxShadow: isHovered 
                                     ? '0 10px 30px -10px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.9)'
@@ -126,7 +126,7 @@ const CircularSlider = () => {
                             cx="150"
                             cy="150"
                             r="140"
-                            className="fill-none stroke-slate-700/20 stroke-[15px]"
+                            className="fill-none stroke-slate-300/20 dark:stroke-slate-700/20 stroke-[15px]"
                             style={{
                                 strokeDasharray: 660,
                                 transformOrigin: 'center',
