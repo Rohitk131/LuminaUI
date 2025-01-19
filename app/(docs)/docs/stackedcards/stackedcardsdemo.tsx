@@ -77,7 +77,7 @@ const StackedCards = () => {
     const handleScroll = () => {
       if (!stackAreaRef.current) return;
 
-      const distance = window.innerHeight * 0.5;
+      const distance = window.innerHeight * 0.2;
       const topVal = stackAreaRef.current.getBoundingClientRect().top;
       const index = Math.floor(-1 * (topVal / distance + 1));
 
@@ -101,7 +101,7 @@ const StackedCards = () => {
   return (
     <div
       ref={stackAreaRef}
-      className="w-full h-[100vh] relative bg-gradient-to-br from-slate-950 via-black to-slate-950 flex"
+      className="w-full  relative  bg-gradient-to-br from-slate-950 via-black to-slate-950 flex"
     >
       {/* Animated background effect */}
       <div className="absolute inset-0 opacity-20">
