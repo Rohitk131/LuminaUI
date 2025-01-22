@@ -24,70 +24,43 @@ const PasswordForm = () => {
     >
       <style>
         {`
-          @keyframes beamGlow {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-          }
-
           .beam {
             position: absolute;
             top: 50%;
             right: 15px;
             transform: translate(0, -50%) rotate(${beamRotation}deg);
             clip-path: polygon(0 0, 0% 100%, 100% 50%);
-            background: linear-gradient(90deg, 
-              rgba(255,255,0,0) 0%,
-              rgba(255,255,0,0.3) 50%,
-              rgba(255,255,0,0.8) 100%
-            );
+            background: rgba(255, 255, 0, 0.5);
             width: 100vw;
             height: 25vh;
             z-index: 1;
-            transition: transform 0.2s ease-out;
+            transition: 0.2s ease-out;
             transform-origin: 100% 50%;
             pointer-events: none;
             max-height: 0;
             overflow: hidden;
-            animation: beamGlow 2s infinite;
           }
-
           .beam.on {
             max-height: 25vh;
           }
-
-          .input-container {
-            position: relative;
-            z-index: 2;
-          }
-
           .input-outline {
             border: 0.6mm dashed white;
             box-shadow: inset 0 0 0 2px black;
-            transition: all 0.3s ease;
           }
-
           .input-outline:focus {
             border-color: yellow;
           }
-
+          .password-wrapper {
+            position: relative;
+            z-index: 2;
+          }
           .password-input {
-            position: relative;
-            background: transparent !important;
-          }
-
-          .password-input.beam-visible {
-            background: rgba(255, 255, 0, 0.1) !important;
             color: white !important;
-            text-shadow: 0 0 8px rgba(0,0,0,0.5);
+            background: transparent;
           }
-
-          .eye-button {
-            position: relative;
-            z-index: 3;
-          }
-
-          .eye-button svg {
-            filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+          .password-input.beam-visible {
+            color: white !important;
+            background: rgba(0, 0, 0, 0.2);
           }
         `}
       </style>
@@ -97,11 +70,10 @@ const PasswordForm = () => {
           <label className="font-poppins text-xl text-white mb-1">
             Password
           </label>
-          <div className="input-container relative w-full">
+          <div className="password-wrapper relative w-full">
             <input
               type={showPassword ? "text" : "password"}
-              placeholder="Enter password"
-              className={`password-input w-full h-14 px-4 pr-12 input-outline font-poppins text-lg tracking-wider outline-none text-white ${
+              className={`password-input w-full h-14 px-4 pr-12 input-outline font-poppins text-lg tracking-wider outline-none ${
                 showPassword ? 'beam-visible' : ''
               }`}
             />
@@ -109,7 +81,7 @@ const PasswordForm = () => {
               <button
                 type="button"
                 onClick={togglePassword}
-                className="eye-button text-white hover:text-yellow-400 transition-colors"
+                className="text-white"
               >
                 {showPassword ? (
                   <Eye className="w-6 h-6" />
