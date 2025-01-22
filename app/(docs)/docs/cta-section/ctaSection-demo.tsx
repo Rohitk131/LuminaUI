@@ -1,71 +1,54 @@
-'use client'
+"use client";
 
-import React, { useEffect, useState, useRef } from 'react'
-import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react'
-import { motion, useAnimation, useSpring } from 'framer-motion'
+import React, { useEffect, useState, useRef } from "react";
+import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
+import { motion, useSpring, MotionValue } from "framer-motion";
 
 export default function EnhancedCTASection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const springConfig = { stiffness: 100, damping: 30 }
-  const mouseSpring = useSpring(mousePosition, springConfig)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const springConfig = { stiffness: 100, damping: 30 };
 
-  const containerRef = useRef<HTMLDivElement>(null)
-  const controls = useAnimation()
+  const mouseSpringX: MotionValue<number> = useSpring(
+    mousePosition.x,
+    springConfig
+  );
+  const mouseSpringY: MotionValue<number> = useSpring(
+    mousePosition.y,
+    springConfig
+  );
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect()
+        const rect = containerRef.current.getBoundingClientRect();
         setMousePosition({
           x: e.clientX - rect.left - 200,
           y: e.clientY - rect.top - 200,
-        })
+        });
       }
-    }
+    };
 
-    const element = containerRef.current
-    element?.addEventListener('mousemove', handleMouseMove)
-    return () => element?.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+    const element = containerRef.current;
+    element?.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      element?.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <div
       ref={containerRef}
       className="relative w-full min-h-[700px] bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center overflow-hidden rounded-3xl px-6 py-20"
     >
-      {/* Animated gradient blob */}
       <motion.div
         className="absolute pointer-events-none w-[400px] h-[400px] bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-[100px]"
         style={{
-          x: mouseSpring.x,
-          y: mouseSpring.y,
+          x: mouseSpringX,
+          y: mouseSpringY,
         }}
       />
-
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              scale: Math.random() * 0.5 + 0.5,
-              opacity: Math.random() * 0.5 + 0.25
-            }}
-            animate={{
-              y: [null, '-100%'],
-              opacity: [null, 0]
-            }}
-            transition={{
-              duration: Math.random() * 10 + 20,
-              repeat: Infinity,
-              ease: 'linear'
-            }}
-          />
-        ))}
-      </div>
 
       <div className="relative z-10 text-center max-w-4xl">
         <motion.div
@@ -94,7 +77,8 @@ export default function EnhancedCTASection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-gray-300 text-xl mb-10 leading-relaxed"
         >
-          Harness the power of AI to streamline tasks, boost productivity, and unlock your team's full potential.
+          Harness the power of AI to streamline tasks, boost productivity, and
+          unlock your team's full potential.
         </motion.p>
 
         <motion.button
@@ -119,9 +103,18 @@ export default function EnhancedCTASection() {
           className="mt-12 flex flex-wrap justify-center gap-4"
         >
           {[
-            { icon: <CheckCircle className="text-green-400 w-5 h-5" />, text: 'Free 30-day trial' },
-            { icon: <CheckCircle className="text-green-400 w-5 h-5" />, text: 'No credit card required' },
-            { icon: <CheckCircle className="text-green-400 w-5 h-5" />, text: '24/7 premium support' },
+            {
+              icon: <CheckCircle className="text-green-400 w-5 h-5" />,
+              text: "Free 30-day trial",
+            },
+            {
+              icon: <CheckCircle className="text-green-400 w-5 h-5" />,
+              text: "No credit card required",
+            },
+            {
+              icon: <CheckCircle className="text-green-400 w-5 h-5" />,
+              text: "24/7 premium support",
+            },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -137,6 +130,5 @@ export default function EnhancedCTASection() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
-

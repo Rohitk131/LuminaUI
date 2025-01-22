@@ -66,7 +66,9 @@ const StackedCards = () => {
       if (card.classList.contains("away")) {
         card.style.transform = `translateY(-120vh) rotate(-48deg)`;
       } else {
-        card.style.transform = `rotate(${angle}deg) translateZ(${index * 10}px)`;
+        card.style.transform = `rotate(${angle}deg) translateZ(${
+          index * 10
+        }px)`;
         angle = angle - 10;
         card.style.zIndex = String(cards.length - index);
       }
@@ -169,7 +171,9 @@ const StackedCards = () => {
             {cards.map((card, index) => (
               <div
                 key={index}
-                ref={(el) => (cardRefs.current[index] = el)}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`w-[360px] h-[360px] rounded-[3rem] mb-3 absolute top-[calc(50%-230px)] left-[calc(50%-230px)]
@@ -216,7 +220,13 @@ const StackedCards = () => {
                             key={i}
                             className={`w-2 h-2 rounded-full transition-all duration-300
                           ${hoveredIndex === index ? "bg-white" : "bg-white/30"}
-                          ${i === 0 ? "group-hover:h-4" : i === 1 ? "group-hover:h-3" : ""}`}
+                          ${
+                            i === 0
+                              ? "group-hover:h-4"
+                              : i === 1
+                              ? "group-hover:h-3"
+                              : ""
+                          }`}
                           />
                         ))}
                       </div>
@@ -225,7 +235,6 @@ const StackedCards = () => {
                         className="text-white/80 group-hover:translate-x-1 transition-transform"
                       />
                     </div>
-
                   </div>
                 </div>
               </div>
