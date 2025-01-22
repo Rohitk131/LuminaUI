@@ -122,6 +122,12 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
+        label: "Password Torch",
+        value: "passwordtorchdemo",
+        url: "/docs/passwordtorch",
+        new: true,
+      },
+      {
         label: "Smart Input",
         value: "smart-input",
         url: "/docs/smart-input",
