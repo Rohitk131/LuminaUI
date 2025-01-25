@@ -9,7 +9,7 @@ const page = () => {
     <div>
       <PageTemplate title="Github Chart" className="mt-5">
         <PreviewCodeCard path="app/(docs)/docs/githubchart/githubchartdemo.tsx">
-        <GitHubCalendar username="rohitk131" year="2024" />
+        <GitHubCalendar username="torvalds" year="2024" />
         </PreviewCodeCard>
 
         <PageSubTitle>Installation</PageSubTitle>
