@@ -68,6 +68,12 @@ export const DOCS: Documentation[] = [
         new: false,
       },
       {
+        label: "Animated Icons Orbit",
+        value: "animatediconsorbitdemo",
+        url: "/docs/animatediconorbit",
+        new: false,
+      },
+      {
         label: "Buttons",
         value: "buttonsDemo",
         url: "/docs/Buttons",
