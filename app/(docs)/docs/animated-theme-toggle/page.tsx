@@ -14,18 +14,20 @@ const page = () => {
 
         <PageSubTitle>Installation</PageSubTitle>
         <p className="text-gray-400">
-          Make Utils.ts file in lib and paste the code from Step-2
+          Create an animated-theme-toggle.tsx file inside the
+          components/luminaui folder at the root of your project, and paste the
+          code from Step 2.
         </p>
         <Steppers
           className=""
           installScript="npm i framer-motion lucide-react next-themes"
           steps={[
             {
-              title: "Create animated-theme-toggle component & paste the code",
+              title: "Implement the code as demonstrated in the preview",
             },
           ]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/animated-theme-toggle.tsx"
         />
       </PageTemplate>
     </div>
