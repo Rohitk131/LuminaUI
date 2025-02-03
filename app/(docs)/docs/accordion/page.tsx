@@ -13,23 +13,16 @@ const page = () => {
                 </PreviewCodeCard>
 
                 <PageSubTitle>Installation</PageSubTitle>
-                <p className="text-gray-400">
-                    To get started with the Accordion, first install the necessary dependencies:
-                </p>
-                <code className="block mb-4">npm install framer-motion gsap lucide-react</code>
-                <p className="text-gray-400">
-                    Make Utils.ts file in lib and paste the code from above steps.
-                </p>
+           
                 <Steppers
                     className="my-4"
                     installScript="npm i gsap framer-motion lucide-react"
                     steps={[
                         { title: "Install dependencies" },
-                        { title: "Create feedback component & paste the code" },
-                        { title: "Customize as needed" }
+                    
                     ]}
                     withInstall
-                    codePath="lib/utils.ts"
+                    codePath="components/luminaui/accordion.tsx"
                 />
             </PageTemplate>
         </div>
