@@ -8,28 +8,21 @@ const page = () => {
     return (
         <div>
             <PageTemplate title="3D Button" className="mt-5">
-                <PreviewCodeCard path="app/(docs)/docs/accordion/accordion.tsx">
+                <PreviewCodeCard path="app/(docs)/docs/ThreeDButton/ThreeDButtonDemo.tsx">
                     <ThreeDButton/>
                 </PreviewCodeCard>
 
                 <PageSubTitle>Installation</PageSubTitle>
-                <p className="text-gray-400">
-                    To get started with the Accordion, first install the necessary dependencies:
-                </p>
-                <code className="block mb-4">npm install framer-motion gsap lucide-react</code>
-                <p className="text-gray-400">
-                    Make Utils.ts file in lib and paste the code from above steps.
-                </p>
+                
                 <Steppers
                     className="my-4"
                     installScript="npm i gsap framer-motion lucide-react"
                     steps={[
-                        { title: "Install dependencies" },
-                        { title: "Create feedback component & paste the code" },
-                        { title: "Customize as needed" }
+                        { title: "Implement the code as demonstrated in the previe" },
+                      
                     ]}
                     withInstall
-                    codePath="lib/utils.ts"
+                    codePath="components/luminaui/threeDbutton.tsx"
                 />
             </PageTemplate>
         </div>
