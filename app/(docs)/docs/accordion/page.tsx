@@ -18,7 +18,7 @@ const page = () => {
                     className="my-4"
                     installScript="npm i gsap framer-motion lucide-react"
                     steps={[
-                        { title: "Install dependencies" },
+                        { title: "Implement the code as demonstrated in the preview" },
                     
                     ]}
                     withInstall
