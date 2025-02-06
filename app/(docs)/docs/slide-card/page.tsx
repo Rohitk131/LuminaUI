@@ -75,7 +75,7 @@ const Page = () => {
             },
           ]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/slidecard.tsx"
         />
       </PageTemplate>
     </div>
