@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import FileStructure from './filestructure'
+import FileStructure from '@/components/luminaui/filestructure'
 
 const fileStructureData = {
   name: 'project-root',

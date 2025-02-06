@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div>
       <PageTemplate title="File Structure" className="mt-5">
-        <PreviewCodeCard path="app/(docs)/docs/filestructure/filestructure.tsx">
+        <PreviewCodeCard path="app/(docs)/docs/filestructure/filestructuredemo.tsx">
           <FileStructure />
         </PreviewCodeCard>
 
@@ -22,7 +22,7 @@ const page = () => {
           installScript="npm i framer-motion lucide-react"
           steps={[{ title: "Create feedback component & paste the code" }]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/filestructure.tsx"
         />
         
       </PageTemplate>
