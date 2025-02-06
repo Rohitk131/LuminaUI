@@ -29,7 +29,7 @@ const page = () => {
                         { title: "Customize as needed" }
                     ]}
                     withInstall
-                    codePath="lib/utils.ts"
+                    codePath="components/luminaui/circularslider.tsx"
                 />
             </PageTemplate>
         </div>

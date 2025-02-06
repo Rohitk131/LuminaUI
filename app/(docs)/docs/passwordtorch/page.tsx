@@ -21,7 +21,7 @@ const page = () => {
           installScript="npm i framer-motion lucide-react"
           steps={[{ title: "Create Neon Card component & paste the code" }]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/passwordtorch.tsx"
         />
       </PageTemplate>
     </div>
