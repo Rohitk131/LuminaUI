@@ -23,7 +23,7 @@ const page = () => {
             { title: "Create countdown-timer component & paste the code" },
           ]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/countdown-timer.tsx"
         />
       </PageTemplate>
     </div>

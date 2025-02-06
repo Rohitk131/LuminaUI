@@ -18,10 +18,10 @@ const page = () => {
         </p>
         <Steppers
           className=""
-          installScript="npm i framer-motion lucide-react"
+          installScript="npm i framer-motion"
           steps={[{ title: "Create card-deck component & paste the code" }]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/card-deck.tsx"
         />
       </PageTemplate>
     </div>
