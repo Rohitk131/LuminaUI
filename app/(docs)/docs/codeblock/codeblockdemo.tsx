@@ -1,4 +1,4 @@
-import CodeBlock from './codeblock';
+import CodeBlock from '@/components/luminaui/codeblock';
 
 // Example code snippets
 const jsCode = `function greeting(name) {

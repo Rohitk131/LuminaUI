@@ -22,14 +22,14 @@ const page = () => {
                 </p>
                 <Steppers
                     className="my-4"
-                    installScript="npm i framer-motion lucide-react"
+                    installScript="npm i framer-motion lucide-react prism-react-renderer"
                     steps={[
                         { title: "Install dependencies" },
                         { title: "Create feedback component & paste the code" },
                         { title: "Customize as needed" }
                     ]}
                     withInstall
-                    codePath="lib/utils.ts"
+                    codePath="components/luminaui/codeblock.tsx"
                 />
             </PageTemplate>
         </div>
