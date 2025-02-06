@@ -22,7 +22,7 @@ const page = () => {
           installScript="npm i framer-motion lucide-react"
           steps={[{ title: "Create feedback component & paste the code" }]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/spacebackground.tsx"
         />
         
       </PageTemplate>

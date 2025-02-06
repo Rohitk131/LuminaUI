@@ -1,5 +1,5 @@
 import React from "react";
-import SpaceBackground from "./spacebackground-demoUI";
+import SpaceBackground from "@/components/luminaui/spacebackground";
 
 const HomePage = () => {
     return (
