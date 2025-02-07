@@ -29,7 +29,6 @@ const CardDeck: React.FC<CardDeckProps> = ({ cards: initialCards }) => {
 
   return (
     <div className="flex items-center justify-center p-4 w-full relative">
-      <div className="absolute inset-0 opacity-60" />
       <div className="relative max-w-2xl h-[400px] w-[600px]">
         <AnimatePresence>
           {cards.map((card, index) => (
