@@ -47,6 +47,7 @@
     "@tsparticles/slim": "^3.5.0",
     "@types/mdx": "^2.0.13",
     "@types/stripe": "^8.0.416",
+    "@uidotdev/usehooks": "^2.4.1",
     "@vercel/analytics": "^1.3.1",
     "@vercel/speed-insights": "^1.0.14",
     "axios": "^1.7.9",
