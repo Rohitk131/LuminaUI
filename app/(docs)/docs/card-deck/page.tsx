@@ -13,9 +13,6 @@ const page = () => {
         </PreviewCodeCard>
 
         <PageSubTitle>Installation</PageSubTitle>
-        <p className="text-gray-400">
-          Make Utils.ts file in lib and paste the code from Step-2
-        </p>
         <Steppers
           className=""
           installScript="npm i framer-motion"

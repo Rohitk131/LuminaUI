@@ -13,11 +13,6 @@ const page = () => {
         </PreviewCodeCard>
 
         <PageSubTitle>Installation</PageSubTitle>
-        <p className="text-gray-400">
-          Create an animated-theme-toggle.tsx file inside the
-          components/luminaui folder at the root of your project, and paste the
-          code from Step 2.
-        </p>
         <Steppers
           className=""
           installScript="npm i framer-motion lucide-react next-themes"
