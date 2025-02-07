@@ -23,7 +23,7 @@ const page = () => {
             { title: "Create dynamic-gradient component & paste the code" },
           ]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/dynamic-gradient.tsx"
         />
       </PageTemplate>
     </div>
