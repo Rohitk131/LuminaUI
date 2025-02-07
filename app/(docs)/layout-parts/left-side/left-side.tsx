@@ -1,104 +1,150 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { ChevronDown, ChevronRight, Search } from "lucide-react";
+import { ChevronDown, Search, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-
-// Assuming DOCS is imported from your constant file
+import { motion, AnimatePresence } from "framer-motion";
+import { Input } from "@/components/ui/input";
 import { DOCS } from "@/app/(docs)/layout-parts/documentation.constant";
-
+const SidebarItem = ({ children, isActive, href, isNew }) => (
+  <motion.div
+    whileHover={{ x: 4 }}
+    className={cn(
+      "relative group",
+      isActive && "bg-blue-500/10 dark:bg-blue-500/20"
+    )}
+  >
+    <div
+      className={cn(
+        "absolute left-0 top-0 w-0.5 h-full bg-blue-500 opacity-0 transition-all",
+        isActive && "opacity-100"
+      )}
+    />
+    <Link
+      href={href}
+      className={cn(
+        "flex items-center gap-2 px-4 py-2.5 text-sm rounded-r-lg transition-colors",
+        isActive
+          ? "text-blue-600 dark:text-blue-400 font-medium"
+          : "text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+      )}
+    >
+      {children}
+      {isNew && (
+        <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30 rounded-full">
+          New
+        </span>
+      )}
+    </Link>
+  </motion.div>
+);
 export default function EnhancedSidebar() {
-  const [openGroups, setOpenGroups] = useState<string[]>(
-    DOCS.map((group) => group.groupKey)
-  );
+  const [openGroups, setOpenGroups] = useState(DOCS.map(g => g.groupKey));
   const [searchTerm, setSearchTerm] = useState("");
   const pathname = usePathname();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-  useEffect(() => {
-    // Ensure the group of the active link is open
-    const activeGroup = DOCS.find((group) =>
-      group.children.some((child) => child.url === pathname)
-    );
-    if (activeGroup && !openGroups.includes(activeGroup.groupKey)) {
-      setOpenGroups((prev) => [...prev, activeGroup.groupKey]);
-    }
-  }, [pathname]);
-
-  const toggleGroup = (groupKey: string) => {
-    setOpenGroups((prev) =>
-      prev.includes(groupKey)
-        ? prev.filter((key) => key !== groupKey)
-        : [...prev, groupKey]
-    );
-  };
-
-  const filteredDocs = DOCS.map((group) => ({
+  const filteredDocs = DOCS.map(group => ({
     ...group,
-    children: group.children
-      .filter((child) =>
-        child.label.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .sort((a, b) => a.label.localeCompare(b.label)),
-  })).filter((group) => group.children.length > 0);
+    children: group.children.filter(child => 
+      child.label.toLowerCase().includes(searchTerm.toLowerCase())
+    ),
+  })).filter(group => group.children.length > 0);
 
   return (
-    <aside className="hidden lg:flex flex-col w-64 h-screen sticky top-0 border-r border-gray-200 dark:border-gray-800">
-      <ScrollArea className="flex-1">
-        <nav className="p-4 space-y-2">
-          {filteredDocs.map((group) => (
-            <Collapsible
-              key={group.groupKey}
-              open={openGroups.includes(group.groupKey)}
-              onOpenChange={() => toggleGroup(group.groupKey)}
+    <aside className={cn(
+      "hidden lg:flex flex-col h-screen sticky top-0 transition-all duration-300",
+      isCollapsed ? "w-20" : "w-72",
+      "border-r border-white/10"
+    )}>
+      <div className="p-4 border-b border-white/10">
+        <div className="flex items-center justify-between mb-4">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className="p-2 rounded-lg hover:bg-white/5 text-white/80"
+          >
+            <Menu className="w-5 h-5" />
+          </motion.button>
+          {!isCollapsed && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="relative flex-1 ml-2"
             >
-              <CollapsibleTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between font-semibold mb-2"
-                >
-                  {group.groupValue}
-                  {openGroups.includes(group.groupKey) ? (
-                    <ChevronDown className="h-4 w-4" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4" />
-                  )}
-                </Button>
-              </CollapsibleTrigger>
-              <CollapsibleContent className="space-y-1 ml-2 dark:text-gray-400">
-                {group.children.map((child) => (
-                  <Link
-                    key={child.value}
-                    href={child.url}
-                    className={cn(
-                      "flex items-center gap-2 px-4 py-2 text-sm rounded-md transition-colors",
-                      pathname === child.url
-                        ? "dark:text-gray-200"
-                        : "hover:text-gray-500 dark:hover:text-gray-200"
+              <Search className="absolute left-2 top-2.5 w-4 h-4 text-white/50" />
+              <Input
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-8 bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-white/20"
+              />
+            </motion.div>
+          )}
+        </div>
+      </div>
+
+      <ScrollArea className="flex-1 py-4">
+        <AnimatePresence mode="wait">
+          {!isCollapsed && (
+            <motion.nav
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="space-y-1"
+            >
+              {filteredDocs.map((group) => (
+                <div key={group.groupKey} className="mb-4">
+                  <Button
+                    variant="ghost"
+                    onClick={() => setOpenGroups(prev => 
+                      prev.includes(group.groupKey)
+                        ? prev.filter(k => k !== group.groupKey)
+                        : [...prev, group.groupKey]
                     )}
+                    className="w-full justify-between font-medium text-white/90 hover:bg-white/5 hover:text-white"
                   >
-                    {child.label}
-                    {child.new && (
-                      <span className="text-xs text-black bg-lime-400 px-1.5 py-0.5 rounded-full">
-                        New
-                      </span>
+                    <span className="text-sm">{group.groupValue}</span>
+                    <motion.div
+                      animate={{ rotate: openGroups.includes(group.groupKey) ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="w-4 h-4 opacity-50" />
+                    </motion.div>
+                  </Button>
+                  
+                  <AnimatePresence>
+                    {openGroups.includes(group.groupKey) && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        {group.children.map((child) => (
+                          <SidebarItem
+                            key={child.value}
+                            href={child.url}
+                            isActive={pathname === child.url}
+                            isNew={child.new}
+                          >
+                            {child.label}
+                          </SidebarItem>
+                        ))}
+                      </motion.div>
                     )}
-                  </Link>
-                ))}
-              </CollapsibleContent>
-            </Collapsible>
-          ))}
-        </nav>
+                  </AnimatePresence>
+                </div>
+              ))}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </ScrollArea>
     </aside>
   );
