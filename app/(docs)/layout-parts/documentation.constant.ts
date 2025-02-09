@@ -259,6 +259,12 @@ export const DOCS: Documentation[] = [
         url: "/docs/ThreeDButton",
         new: true,
       },
+      {
+        label: "Cards Queue",
+        value: "queuecards",
+        url: "/docs/queuecards",
+        new: true,
+      },
     ],
   },
 ];

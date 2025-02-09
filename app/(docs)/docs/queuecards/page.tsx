@@ -2,19 +2,19 @@ import React from "react";
 import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
 import { Steppers } from "@/components/ui/steppers";
-import CircleShowcase from "./circleshowcase";
+import CardsQueue from "./queuecards";
 
 const page = () => {
     return (
         <div>
-            <PageTemplate title="Circle Showcase Section" className="mt-5">
-                <PreviewCodeCard path="app/(docs)/docs/circleshowcase/circleshowcase.tsx">
-                    <CircleShowcase />
+            <PageTemplate title="Cards Queue Section" className="mt-5">
+                <PreviewCodeCard path="app/(docs)/docs/queuecards/queuecards.tsx">
+                    <CardsQueue />
                 </PreviewCodeCard>
 
                 <PageSubTitle>Installation</PageSubTitle>
                 <p className="text-gray-400">
-                    To get started with the Circle Showcase, first install the necessary dependencies:
+                    To get started with the Cards Queue, first install the necessary dependencies:
                 </p>
                 <code className="block mb-4">npm install framer-motion lucide-react</code>
                 <p className="text-gray-400">
@@ -29,7 +29,7 @@ const page = () => {
                         { title: "Customize as needed" }
                     ]}
                     withInstall
-                    codePath="components/luminaui/circle-showcase.tsx"
+                    codePath="components/luminaui/queue-cards.tsx"
                 />
             </PageTemplate>
         </div>
