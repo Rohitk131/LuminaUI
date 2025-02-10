@@ -11,7 +11,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 
-
 inject();
 
 export const metadata: Metadata = {
@@ -21,38 +20,11 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
-  keywords: [
-    "Vercel",
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
-    "Spectrum UI",
-    "UI Components",
-    "Design",
-    "100xdevs",
-    "web development",
-    "web design",
-    "starter template",
-    "Rohit",
-    "spectrum",
-    "bootstrap",
-    "tailwind",
-    "aceternity",
-    "shadcn ui",
-    ...siteConfig.keywords,
-  ],
-  authors: [
-    {
-      name: "Lumina UI",
-      url: siteConfig.url,
-    },
-    {
-      name: siteConfig.author.name,
-      url: siteConfig.author.url,
-    },
-  ],
+  keywords: siteConfig.keywords,
+  authors: siteConfig.authors.map((author) => ({
+    name: author.name,
+    url: author.url,
+  })),
   creator: "Rohit",
   openGraph: {
     type: "website",
@@ -70,7 +42,6 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage.url],
     creator: "@gutsy_coder",
   },
-
   manifest: `${siteConfig.url}/site.webmanifest`,
   robots: {
     index: true,
@@ -105,7 +76,10 @@ export default function RootLayout({
     <html lang={siteConfig.locale.split("-")[0]} suppressHydrationWarning>
       <head>
         <link rel="canonical" href={siteConfig.url} />
-        <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Rubik+Bubbles&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&family=Rubik+Bubbles&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        ></link>
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -116,11 +90,11 @@ export default function RootLayout({
               name: siteConfig.name,
               url: siteConfig.url,
               description: siteConfig.description,
-              author: {
+              author: siteConfig.authors.map((author) => ({
                 "@type": "Person",
-                name: siteConfig.author.name,
-                url: siteConfig.author.url,
-              },
+                name: author.name,
+                url: author.url,
+              })),
               license: siteConfig.license,
               version: siteConfig.version,
             }),
@@ -138,9 +112,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Analytics />
-          <div
-            className="flex fixed top-0 left-0 w-full h- z-50 shadow-md items-center justify-center px-4"
-          >
+          <div className="flex fixed top-0 left-0 w-full h- z-50 shadow-md items-center justify-center px-4">
             <Navbar />
           </div>
 

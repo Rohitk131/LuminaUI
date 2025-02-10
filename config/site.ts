@@ -1,35 +1,56 @@
 export const siteConfig = {
   name: "Lumina UI",
-  url: "https://spectrumui.arihant.us",
+  url: "https://luminaui.in",
   ogImage: {
-    url: "https://spectrumui.arihant.us/og.png",
+    url: "https://luminaui.in/og.png",
 
-    alt: "Lumina UI - Beautiful and accessible React components",
+    alt: "Lumina UI - Ready-to-Use UI Components for Next.js",
   },
   description:
-    "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
-  links: {
-    twitter: "https://x.com/arihantcodes",
-    github: "https://github.com/arihantcodes",
-    linkedin: "https://www.linkedin.com/in/arihantcodes", // Update with your actual LinkedIn profile
-    // Update if you have a Facebook page
-    instagram: "https://www.instagram.com/arihantjainn18", // Update with your actual Instagram profile
-  },
-  author: {
-    name: "Rohit Kumar",
-    url: "https://rohitk.me",
-  },
+    "Ready-to-Use UI Components for Next.js. Accelerate your project's growth with UI components that save time and elevate quality.",
+  authors: [
+    {
+      name: "Rohit Kumar",
+      url: "https://rohitk.me",
+    },
+    {
+      name: "Aryan Pahuja",
+      url: "https://aryan-pahuja.vercel.app",
+    },
+    {
+      name: "Rohit Nayak",
+      url: "https://x.com/rohitn_2312",
+    },
+    {
+      name: "Murtaza Khan",
+      url: "https://x.com/murtazakhan1910",
+    },
+  ],
   keywords: [
+    "Lumina UI",
+    "luminaui",
+    "UI Components",
     "UI components",
-    "React",
+    "Next.js components",
+    "Tailwind components",
     "Next.js",
     "Tailwind CSS",
+    "React",
+    "Server Components",
+    "Vercel",
+    "Radix UI",
+    "Design",
+    "100xdevs",
+    "web development",
+    "web design",
+    "bootstrap",
+    "tailwind",
+    "aceternity",
+    "shadcn ui",
     "Accessible design",
-    "Open source",
     "Web development",
     "Frontend",
     "Design system",
-    "Spectrum UI",
   ],
   locale: "en-US",
   version: "1.0.0",
