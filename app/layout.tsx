@@ -42,7 +42,6 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage.url],
     creator: "@gutsy_coder",
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
   robots: {
     index: true,
     follow: true,

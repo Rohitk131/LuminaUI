@@ -6,9 +6,8 @@ import { Icons } from "@/components/icon";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Requestcomponents from "@/components/requestcomponets";
-import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import FloatingIcons from '@/components/floatingIcons';
+import FloatingIcons from "@/components/floatingIcons";
 
 // Animations config moved outside component to prevent recreating on each render
 const animations = {
@@ -24,30 +23,34 @@ const animations = {
   },
   item: {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   },
 };
 
 export default function Home() {
-  const [star, setStar] = useState(0);
   const canvasRef = useRef(null);
   const animationFrameRef = useRef(null);
 
-  useEffect(() => {
-    const controller = new AbortController();
-    
-    axios.get("https://api.github.com/repos/arihantcodes/spectrum-ui", {
-      signal: controller.signal
-    })
-      .then((response) => setStar(response.data.stargazers_count))
-      .catch((error) => {
-        if (error.name !== 'AbortError') {
-          console.error("Error fetching GitHub data:", error);
-        }
-      });
+  // useEffect(() => {
+  //   const controller = new AbortController();
 
-    return () => controller.abort();
-  }, []);
+  //   axios
+  //     .get("https://api.github.com/repos/rohitk131/luminaui", {
+  //       signal: controller.signal,
+  //     })
+  //     .then((response) => setStar(response.data.stargazers_count))
+  //     .catch((error) => {
+  //       if (error.name !== "AbortError") {
+  //         console.error("Error fetching GitHub data:", error);
+  //       }
+  //     });
+
+  //   return () => controller.abort();
+  // }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -68,14 +71,17 @@ export default function Home() {
       ctx.scale(dpr, dpr);
     };
 
-    const stars = Array.from({ length: Math.min(200, window.innerWidth / 5) }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * (canvas.height * 0.8),
-      size: Math.random() * 1,
-      speed: 0.1 + Math.random() * 0.2,
-      opacity: Math.random() * 0.5 + 0.5,
-      pulse: Math.random() * Math.PI,
-    }));
+    const stars = Array.from(
+      { length: Math.min(200, window.innerWidth / 5) },
+      () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * (canvas.height * 0.8),
+        size: Math.random() * 1,
+        speed: 0.1 + Math.random() * 0.2,
+        opacity: Math.random() * 0.5 + 0.5,
+        pulse: Math.random() * Math.PI,
+      })
+    );
 
     const animate = () => {
       if (!animating) return;
@@ -84,10 +90,10 @@ export default function Home() {
       const time = Date.now() * 0.0008;
 
       // Optimized star rendering
-      stars.forEach(star => {
+      stars.forEach((star) => {
         star.pulse += 0.02;
         const opacity = star.opacity * (0.7 + 0.3 * Math.sin(star.pulse));
-        
+
         ctx.beginPath();
         ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
@@ -103,11 +109,15 @@ export default function Home() {
       // Optimized glow effect
       const centerX = canvas.width / 2;
       const centerY = canvas.height * 1.6;
-      const radius = (canvas.width * 0.8) + Math.sin(time) * 80;
+      const radius = canvas.width * 0.8 + Math.sin(time) * 80;
 
       const glow = ctx.createRadialGradient(
-        centerX, centerY, 0,
-        centerX, centerY, radius
+        centerX,
+        centerY,
+        0,
+        centerX,
+        centerY,
+        radius
       );
 
       glow.addColorStop(0, "rgba(96, 165, 250, 0.2)");
@@ -122,7 +132,7 @@ export default function Home() {
 
     const resizeObserver = new ResizeObserver(setCanvasSize);
     resizeObserver.observe(canvas);
-    
+
     setCanvasSize();
     animate();
 
@@ -137,10 +147,10 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden ">
-      <canvas 
-        ref={canvasRef} 
+      <canvas
+        ref={canvasRef}
         className="fixed inset-0 w-full h-full"
-        style={{ touchAction: 'none' }}
+        style={{ touchAction: "none" }}
       />
 
       <motion.div
@@ -168,20 +178,25 @@ export default function Home() {
             </h1>
 
             <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Accelerate your project's growth with ready-to-use UI components that save time and elevate quality.
+              Accelerate your project's growth with ready-to-use UI components
+              that save time and elevate quality.
             </p>
           </div>
 
           <div className="space-y-6 md:space-y-8 w-full">
             <div className="text-center">
-              <h2 className="text-lg md:text-xl font-semibold text-gray-400 mb-4 md:mb-6">Built With</h2>
+              <h2 className="text-lg md:text-xl font-semibold text-gray-400 mb-4 md:mb-6">
+                Built With
+              </h2>
               <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-                {['nextjs', 'shadcn', 'tailwind'].map((tech) => (
+                {["nextjs", "shadcn", "tailwind"].map((tech) => (
                   <Image
                     key={tech}
                     src={`./${tech}.svg`}
                     height={40}
-                    width={tech === 'shadcn' ? 140 : tech === 'tailwind' ? 120 : 90}
+                    width={
+                      tech === "shadcn" ? 140 : tech === "tailwind" ? 120 : 90
+                    }
                     alt={`${tech} logo`}
                     className="hover:scale-110 transition-transform"
                     loading="lazy"
@@ -199,8 +214,11 @@ export default function Home() {
                   Explore Components
                 </Button>
               </Link>
-              
-              <Link href="https://github.com/arihantcodes/spectrum-ui" className="w-full sm:w-auto">
+
+              <Link
+                href="https://github.com/arihantcodes/spectrum-ui"
+                className="w-full sm:w-auto"
+              >
                 <Button
                   className="w-full gap-3 rounded-2xl group hover:bg-white/20 transition-colors border border-gray-800/10"
                   variant="secondary"
@@ -208,9 +226,9 @@ export default function Home() {
                 >
                   <Icons.gitHub className="w-5 h-5" />
                   <span>Star on GitHub</span>
-                  <span className="bg-white/10 px-2 py-1 rounded-lg text-sm">
+                  {/* <span className="bg-white/10 px-2 py-1 rounded-lg text-sm">
                     {star}
-                  </span>
+                  </span> */}
                 </Button>
               </Link>
             </div>
