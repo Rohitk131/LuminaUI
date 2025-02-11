@@ -2,19 +2,19 @@ import React from "react";
 import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
 import { Steppers } from "@/components/ui/steppers";
-import SocialMediaBar from "./socialmediabar";
+import SocialMedia from "./socialmediabar";
 
 const page = () => {
     return (
         <div>
             <PageTemplate title="Social Media Bar" className="mt-5">
                 <PreviewCodeCard path="app/(docs)/docs/socialmediabar/socialmediabar.tsx">
-                    <SocialMediaBar />
+                    <SocialMedia />
                 </PreviewCodeCard>
 
                 <PageSubTitle>Installation</PageSubTitle>
                 <p className="text-gray-400">
-                    To get started with the SocialMediaBar, first install the necessary dependencies:
+                    To get started with th, first install the necessary dependencies:
                 </p>
                 <code className="block mb-4">npm install framer-motion lucide-react</code>
                 <p className="text-gray-400">
