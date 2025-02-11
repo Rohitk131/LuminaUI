@@ -160,7 +160,7 @@ export default function Home() {
         animate="visible"
       >
         <motion.div
-          className="max-w-4xl w-full space-y-6 md:space-y-8 flex flex-col items-center justify-center"
+          className="max-w-4xl w-full space-y-6 md:space-y-8 flex flex-col items-center justify-center md:mt-0 mt-8"
           variants={animations.item}
         >
           <div className="w-full flex justify-center">
@@ -168,8 +168,11 @@ export default function Home() {
           </div>
 
           <div className="text-center space-y-4 md:space-y-6">
-            <FloatingIcons />
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-gray-300 via-gray-500 to-gray-700 text-transparent bg-clip-text pb-2">
+            <div className="lg:flex hidden">
+              <FloatingIcons />
+            </div>
+            
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-white via-blue-300 to-blue-600 text-transparent bg-clip-text pb-2">
               Ready-to-Use UI Components
               <br />
               <span className="font-serif font-light italic text-2xl md:text-4xl lg:text-5xl">

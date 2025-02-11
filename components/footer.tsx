@@ -11,7 +11,12 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-8 md:mb-0">
             <Link href="/" className="flex items-center gap-2">
-              <img src="https://raw.githubusercontent.com/Rohitk131/LuminaUI/refs/heads/main/public/logomain.png?token=GHSAT0AAAAAAC3MSSNKYKRMSZQMIO3RCC44Z3JTORQ" width={25} height={25}></img>
+              <img
+                src="/logomain.png"
+                width={25}
+                height={25}
+                alt="Lumina UI Logo"
+              ></img>
               <h2 className="text-lg font-bold">Lumina UI</h2>
             </Link>
 
@@ -25,7 +30,7 @@ export default function Footer() {
               <Link href="https://x.com/compose/tweet?text=I%27ve%20been%20using%20%23SpectrumUI%20 share%20yourtought%20%40arihantCodes%20">
                 <Button variant="secondary">
                   Share Your Thoughts On
-                  <Icons.twitter className="icon-class ml-1 w-3.5" />
+                  <Icons.twitter className="icon-class ml-1 w-3.5 " />
                 </Button>
               </Link>
             </div>
@@ -33,32 +38,47 @@ export default function Footer() {
               © {new Date().getFullYear()} Lumina UI. All rights reserved.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
               <h3 className="font-semibold mb-4">Pages</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/docs" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="/docs"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Docs
                   </Link>
                 </li>
                 <li>
-                  <Link href="/docs" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="/docs"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Components
                   </Link>
                 </li>
                 <li>
-                  <Link href="/examples" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="/examples"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Examples
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pricing" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="/pricing"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Pricing
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://blog.arihant.us/" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="https://blog.arihant.us/"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Blog
                   </Link>
                 </li>
@@ -68,17 +88,26 @@ export default function Footer() {
               <h3 className="font-semibold mb-4">Socials</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="https://github.com/arihantcodes/spectrum-ui" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="https://github.com/arihantcodes/spectrum-ui"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Github
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.linkedin.com/in/arihantcodes" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="https://www.linkedin.com/in/arihantcodes"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     LinkedIn
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://x.com/arihantcodes" className="text-gray-400 hover:text-white">
+                  <Link
+                    href="https://x.com/arihantcodes"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     X
                   </Link>
                 </li>
@@ -88,12 +117,12 @@ export default function Footer() {
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/privacy-policy" className="text-gray-400 hover:text-white">
+                  <Link href="/privacy-policy" className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/tos" className="text-gray-400 hover:text-white">
+                  <Link href="/tos" className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
                     Terms of Service
                   </Link>
                 </li>
