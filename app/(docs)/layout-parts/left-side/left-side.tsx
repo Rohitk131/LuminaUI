@@ -48,7 +48,12 @@ export default function EnhancedSidebar() {
   const pathname = usePathname();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const filteredDocs = DOCS.map(group => ({
+  const sortedDocs = DOCS.map(group => ({
+    ...group,
+    children: group.children.sort((a, b) => a.label.localeCompare(b.label)),
+  })).sort((a, b) => a.groupValue.localeCompare(b.groupValue));
+
+  const filteredDocs = sortedDocs.map(group => ({
     ...group,
     children: group.children.filter(child => 
       child.label.toLowerCase().includes(searchTerm.toLowerCase())

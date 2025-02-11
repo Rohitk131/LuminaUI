@@ -1,6 +1,6 @@
 'use client';
 
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { Globe, Rocket, Sparkles, Zap } from 'lucide-react';
 import { motion } from "framer-motion";
@@ -8,6 +8,19 @@ import gsap from 'gsap';
 import exploreone from "../../public/assets/exploreone.webp";
 import explorethree from "../../public/assets/explorethree.webp";
 import exploretwo from "../../public/assets/exploretwo.webp";
+
+const icons = {
+  Sparkles: <Sparkles className="w-8 h-8" />,
+  Zap: <Zap className="w-8 h-8" />,
+  Globe: <Globe className="w-8 h-8" />,
+  Rocket: <Rocket className="w-8 h-8" />
+};
+
+const images = {
+  exploreone,
+  explorethree,
+  exploretwo
+};
 
 const Cursor = ({ cardRef, isHovered }) => {
     const size = isHovered ? 60 : 30;
@@ -130,165 +143,111 @@ const Cursor = ({ cardRef, isHovered }) => {
     );
 };
 
-const CardQueue = () => {
-    interface Card {
-        id: number;
-        title: string;
-        content: string;
-        color: string;
-        icon: React.ReactNode;
-        rotation: number;
-        img: StaticImageData;
-    }
+const CardQueue = ({ cards }) => {
+  const random = () => Math.random() * 10 - 5;
 
-    const random = () => Math.random() * 10 - 5;
+  const cardRotations = useRef(cards.map(() => random()));
 
-    const cardRotations = useRef([
-        random(),
-        random(),
-        random(),
-        random()
-    ]);
+  const [hoveredStates, setHoveredStates] = useState(Array(cards.length).fill(false));
 
-    const [hoveredStates, setHoveredStates] = useState(Array(4).fill(false));
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<Array<React.RefObject<HTMLDivElement>>>(
+    Array(cards.length).fill(null).map(() => React.createRef<HTMLDivElement>())
+  );
 
-    const cards: Card[] = [
-        {
-            id: 1,
-            title: "Quantum Leap",
-            content: "Exploring the frontiers of quantum computing and its potential to revolutionize data processing.",
-            color: "from-cyan-500 to-blue-500",
-            icon: <Sparkles className="w-8 h-8" />,
-            rotation: cardRotations.current[0],
-            img: exploreone
-        },
-        {
-            id: 2,
-            title: "Neon Dreams",
-            content: "Visualizing the future of augmented reality and its impact on human interaction.",
-            color: "from-purple-500 to-pink-500",
-            icon: <Zap className="w-8 h-8" />,
-            rotation: cardRotations.current[1],
-            img: explorethree
-        },
-        {
-            id: 3,
-            title: "Cyber Nexus",
-            content: "Connecting minds in the digital realm through advanced neural interfaces.",
-            color: "from-green-500 to-emerald-500",
-            icon: <Globe className="w-8 h-8" />,
-            rotation: cardRotations.current[2],
-            img: exploretwo
-        },
-        {
-            id: 4,
-            title: "Stellar Voyage",
-            content: "Charting a course through the cosmos with next-generation propulsion systems.",
-            color: "from-orange-500 to-red-500",
-            icon: <Rocket className="w-8 h-8" />,
-            rotation: cardRotations.current[3],
-            img: explorethree
-        },
-    ];
+  useEffect(() => {
+    if (!containerRef.current) return;
 
-    const containerRef = useRef<HTMLDivElement | null>(null);
-    const cardRefs = useRef<Array<React.RefObject<HTMLDivElement>>>(
-    Array(4).fill(null).map(() => React.createRef<HTMLDivElement>())
-);
+    const ctx = gsap.context(() => {
+      gsap.from("h2 span", {
+        y: 100,
+        opacity: 0,
+        stagger: 0.25,
+        duration: 0.25,
+        ease: "power3.out",
+      });
+    }, containerRef);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
+    return () => ctx.revert();
+  }, []);
 
-        const ctx = gsap.context(() => {
-            gsap.from("h2 span", {
-                y: 100,
-                opacity: 0,
-                stagger: 0.25,
-                duration: 0.25,
-                ease: "power3.out",
-            });
-        }, containerRef);
+  const handleHover = (index: number, isHovered: boolean) => {
+    setHoveredStates(prev => {
+      const newStates = [...prev];
+      newStates[index] = isHovered;
+      return newStates;
+    });
+  };
 
-        return () => ctx.revert();
-    }, []);
-
-    const handleHover = (index: number, isHovered: boolean) => {
-        setHoveredStates(prev => {
-            const newStates = [...prev];
-            newStates[index] = isHovered;
-            return newStates;
-        });
-    };
-
-    return (
-        <div className="w-full lg:h-[70vh] overflow-y-auto hide-scrollbar p-20" ref={containerRef}>
-            <div className="flex flex-col items-center justify-center gap-10 font-oswald">
-                {cards.map((card, index) => (
-                    <motion.div
-                        key={card.id}
-                        ref={cardRefs.current[index]}
-                        className={`flex flex-col md:flex-row h-auto lg:h-[50vh] w-[40vh] md:w-[50vw] bg-black rounded-[1rem] sticky top-0 relative overflow-hidden isolation`}
-                        style={{ rotate: `${card.rotation}deg` }}
-                    >
-                        <div className="absolute inset-0 -z-10 overflow-hidden rounded-[1rem]">
-                            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-screen h-full dark:[mask-image:linear-gradient(white,transparent)]">
-                                <div className={`absolute inset-0 bg-gradient-to-r ${card.color} opacity-40 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-[#36b49f]/30 dark:to-[#DBFF75]/30 dark:opacity-100`}>
-                                    <svg
-                                        aria-hidden="true"
-                                        className="absolute inset-x-0 inset-y-[-50%] h-[200%] w-full skew-y-[-18deg] fill-black/40 stroke-black/50 mix-blend-overlay dark:fill-white/2.5 dark:stroke-white/5"
-                                    >
-                                        <defs>
-                                            <pattern
-                                                id="grid-pattern"
-                                                width="72"
-                                                height="56"
-                                                patternUnits="userSpaceOnUse"
-                                                x="-12"
-                                                y="4"
-                                            >
-                                                <path d="M.5 56V.5H72" fill="none" />
-                                            </pattern>
-                                        </defs>
-                                        <rect
-                                            width="100%"
-                                            height="100%"
-                                            strokeWidth="0"
-                                            fill="url(#grid-pattern)"
-                                        />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="left w-full md:w-1/2 h-full text-white flex flex-col items-center justify-center gap-6 absolute z-10">
-                            <h2 className="text-lg md:text-2xl font-bold text-center overflow-hidden">
-                                {card.title.split('').map((char, index) => (
-                                    <span className="inline-block" key={index}>{char}</span>
-                                ))}
-                            </h2>
-                            <h5 
-                                onMouseEnter={() => handleHover(index, true)} 
-                                onMouseLeave={() => handleHover(index, false)} 
-                                className="text-xs md:text-sm text-center px-4 md:px-10"
-                            >
-                                {card.content}
-                            </h5>
-                            <h3>
-                                {card.icon}
-                            </h3>
-                            <button onClick={() => window.open("https://Murtazadev-one.vercel.app", "_blank")} className="bg-white text-black rounded-lg py-1 px-4 font-bold text-sm">
-                                Tap
-                            </button>
-                        </div>
-                        <div className="right w-full md:w-1/2 flex items-center justify-center mt-4 md:mt-0 absolute top-10 right-2 z-10">
-                            <Image className="" src={card.img} width={150} alt="" />
-                        </div>
-                        <Cursor isHovered={hoveredStates[index]} cardRef={cardRefs.current[index]} />
-                    </motion.div>
-                ))}
+  return (
+    <div className="w-full lg:h-[70vh] overflow-y-auto hide-scrollbar p-20" ref={containerRef}>
+      <div className="flex flex-col items-center justify-center gap-10 ">
+        {cards.map((card, index) => (
+          <motion.div
+            key={card.id}
+            ref={cardRefs.current[index]}
+            className={`flex flex-col md:flex-row h-auto lg:h-[50vh] w-[40vh] md:w-[50vw] bg-black rounded-[1rem] sticky top-0 relative overflow-hidden isolation`}
+            style={{ rotate: `${cardRotations.current[index]}deg` }}
+          >
+            <div className="absolute inset-0 -z-10 overflow-hidden rounded-[1rem]">
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 w-screen h-full dark:[mask-image:linear-gradient(white,transparent)]">
+                <div className={`absolute inset-0 bg-gradient-to-r ${card.color} opacity-40 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-[#36b49f]/30 dark:to-[#DBFF75]/30 dark:opacity-100`}>
+                  <svg
+                    aria-hidden="true"
+                    className="absolute inset-x-0 inset-y-[-50%] h-[200%] w-full skew-y-[-18deg] fill-black/40 stroke-black/50 mix-blend-overlay dark:fill-white/2.5 dark:stroke-white/5"
+                  >
+                    <defs>
+                      <pattern
+                        id="grid-pattern"
+                        width="72"
+                        height="56"
+                        patternUnits="userSpaceOnUse"
+                        x="-12"
+                        y="4"
+                      >
+                        <path d="M.5 56V.5H72" fill="none" />
+                      </pattern>
+                    </defs>
+                    <rect
+                      width="100%"
+                      height="100%"
+                      strokeWidth="0"
+                      fill="url(#grid-pattern)"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
-        </div>
-    );
+
+            <div className="left w-full md:w-1/2 h-full text-white flex flex-col items-center justify-center gap-6 absolute z-10">
+              <h2 className="text-lg md:text-2xl font-bold text-center overflow-hidden">
+                {card.title.split('').map((char, index) => (
+                  <span className="inline-block" key={index}>{char}</span>
+                ))}
+              </h2>
+              <h5 
+                onMouseEnter={() => handleHover(index, true)} 
+                onMouseLeave={() => handleHover(index, false)} 
+                className="text-xs md:text-sm text-center px-4 md:px-10"
+              >
+                {card.content}
+              </h5>
+              <h3>
+                {icons[card.icon]}
+              </h3>
+              <button onClick={() => window.open("https://luminaui.in", "_blank")} className="bg-white text-black rounded-lg py-1 px-4 font-bold text-sm">
+                Tap
+              </button>
+            </div>
+            <div className="right w-full md:w-1/2 flex items-center justify-center mt-4 md:mt-0 absolute top-10 right-2 z-10">
+              <Image className="" src={images[card.img]} width={200} alt="" />
+            </div>
+            <Cursor isHovered={hoveredStates[index]} cardRef={cardRefs.current[index]} />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default CardQueue;
