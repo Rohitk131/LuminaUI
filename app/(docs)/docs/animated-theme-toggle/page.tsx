@@ -11,10 +11,9 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/animated-theme-toggle/animated-theme-toggle-demo.tsx">
           <AnimatedThemeToggle />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
         <Steppers
-          className=""
+          className="my-4"
           installScript="npm i framer-motion lucide-react next-themes"
           steps={[
             {

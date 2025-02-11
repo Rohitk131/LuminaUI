@@ -11,13 +11,12 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/countdown-timer/countdown-timer-demo.tsx">
           <CountdownTimer />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
         <Steppers
-          className=""
+          className="my-4"
           installScript="npm i framer-motion"
           steps={[
-            { title: "Create countdown-timer component & paste the code" },
+            { title: "Implement the code as demonstrated in the preview" },
           ]}
           withInstall
           codePath="components/luminaui/countdown-timer.tsx"
