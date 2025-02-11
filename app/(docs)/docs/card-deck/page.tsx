@@ -11,12 +11,13 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/card-deck/card-deck-demo.tsx">
           <CardDeck />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
         <Steppers
           className=""
           installScript="npm i framer-motion"
-          steps={[{ title: "Create card-deck component & paste the code" }]}
+          steps={[
+            { title: "Implement the code as demonstrated in the preview" },
+          ]}
           withInstall
           codePath="components/luminaui/card-deck.tsx"
         />

@@ -11,13 +11,12 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/dynamic-gradient/dynamic-gradient-demo.tsx">
           <DynamicGradient />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
         <Steppers
           className=""
           installScript="npm i framer-motion"
           steps={[
-            { title: "Create dynamic-gradient component & paste the code" },
+            { title: "Implement the code as demonstrated in the preview" },
           ]}
           withInstall
           codePath="components/luminaui/dynamic-gradient.tsx"

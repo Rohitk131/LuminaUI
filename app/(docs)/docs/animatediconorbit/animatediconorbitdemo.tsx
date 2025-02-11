@@ -1,5 +1,4 @@
-// ./app/page.tsx or ./components/HeroAnimationPreview.tsx
-import AnimatedIconOrbit from '@/components/luminaui/animatediconorbit';
+import AnimatedIconOrbit from "@/components/luminaui/animatediconorbit";
 
 export default function HeroAnimationPreview() {
   const urls = [
@@ -7,9 +6,9 @@ export default function HeroAnimationPreview() {
     "https://www.svgrepo.com/show/353486/bitbucket.svg",
     "https://www.svgrepo.com/show/475681/snapchat-color.svg",
     "https://www.svgrepo.com/show/353964/kickstarter-icon.svg",
-    "https://www.svgrepo.com/show/353709/eslint.svg", 
+    "https://www.svgrepo.com/show/353709/eslint.svg",
     "https://www.svgrepo.com/show/353428/atlassian.svg",
   ];
 
-  return <AnimatedIconOrbit  url={urls} />; 
+  return <AnimatedIconOrbit url={urls} />;
 }
