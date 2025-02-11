@@ -19,7 +19,7 @@ const page = () => {
             { title: "Implement the code as demonstrated in the preview" },
           ]}
           withInstall
-          codePath=""
+          codePath="components/luminaui/calendar.tsx"
         />
       </PageTemplate>
     </div>
