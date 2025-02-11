@@ -1,6 +1,6 @@
-'use client';
-import { useState } from 'react';
-import { EyeOff, Eye } from 'lucide-react';
+"use client";
+import { useState } from "react";
+import { EyeOff, Eye } from "lucide-react";
 
 const PasswordForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -9,7 +9,8 @@ const PasswordForm = () => {
   const handleMouseMove = (event: React.MouseEvent) => {
     const mouseY = event.clientY;
     const rotationRange = 8;
-    const rotationAngle = (mouseY / window.innerHeight) * rotationRange - rotationRange / 2;
+    const rotationAngle =
+      (mouseY / window.innerHeight) * rotationRange - rotationRange / 2;
     setBeamRotation(-rotationAngle);
   };
 
@@ -18,7 +19,7 @@ const PasswordForm = () => {
   };
 
   return (
-    <div 
+    <div
       className="w-full h-60 bg-black flex items-center justify-center transform-gpu"
       onMouseMove={handleMouseMove}
     >
@@ -53,6 +54,7 @@ const PasswordForm = () => {
           .password-wrapper {
             position: relative;
             z-index: 2;
+            overflow: hidden;
           }
           .password-input {
             color: white !important;
@@ -74,7 +76,7 @@ const PasswordForm = () => {
             <input
               type={showPassword ? "text" : "password"}
               className={`password-input w-full h-14 px-4 pr-12 input-outline font-poppins text-lg tracking-wider outline-none ${
-                showPassword ? 'beam-visible' : ''
+                showPassword ? "beam-visible" : ""
               }`}
             />
             <div className="absolute right-5 top-1/2 -translate-y-1/2 cursor-pointer">
@@ -89,7 +91,7 @@ const PasswordForm = () => {
                   <EyeOff className="w-6 h-6" />
                 )}
               </button>
-              <div className={`beam ${showPassword ? 'on' : ''}`} />
+              <div className={`beam ${showPassword ? "on" : ""}`} />
             </div>
           </div>
         </div>

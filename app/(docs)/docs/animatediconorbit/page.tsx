@@ -7,7 +7,7 @@ import AnimatedIconsOrbit from "./animatediconorbitdemo";
 const page = () => {
     return (
         <div>
-            <PageTemplate title="Buttons" className="mt-5">
+            <PageTemplate title="Animated Icons Orbit" className="mt-5">
                 <PreviewCodeCard path="app/(docs)/docs/animatediconorbit/animatediconorbitdemo.tsx">
                     <AnimatedIconsOrbit/>
                 </PreviewCodeCard>

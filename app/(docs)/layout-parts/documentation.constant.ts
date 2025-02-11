@@ -152,12 +152,6 @@ export const DOCS: Documentation[] = [
         new: true,
       },
       {
-        label: "Flying Button",
-        value: "flying-button",
-        url: "/docs/flyingbutton",
-        new: false,
-      },
-      {
         label: "Pagination",
         value: "pagination",
         url: "/docs/pagination",
