@@ -17,25 +17,21 @@ export const NAVLINKS = [
 
 export function Navbar() {
   return (
-    <nav className="w-2/3  h-16 sticky top-0 z-50 px-4 backdrop-filter backdrop-blur-sm bg-opacity-30 rounded-full mx-4 mt-2 border border-gray-300/20 bg-slate-500/10  [@supports(backdrop-filter:blur(0))]:bg-opacity-60 [@supports(not(backdrop-filter:blur(0)))]:bg-gray-200/95 shadow-2xl">
+    <nav className="w-2/3 h-16 sticky top-0 z-50 px-4 backdrop-filter backdrop-blur-sm bg-opacity-30 rounded-full mx-4 mt-2 border border-gray-300/20 bg-slate-500/10 shadow-2xl">
       <div className="sm:px-3 px-2 max-w-[1530px] mx-auto h-full flex items-center justify-between">
         <div className="flex items-center gap-5">
-
           <SheetLeftbar />
-
           <div className="flex items-center gap-8">
             {/* Logo */}
             <div className="sm:flex">
               <Logo />
             </div>
-
             {/* Navigation Links */}
             <div className="lg:flex hidden items-center gap-5 text-sm font-medium text-muted-foreground">
               <NavMenu />
             </div>
           </div>
         </div>
-
         {/* Right Section */}
         <div className="flex items-center gap-3">
           {/* Search and Icons */}
@@ -77,7 +73,7 @@ export function NavMenu({ isSheet = false }) {
         const Comp = (
           <Anchor
             key={item.title + item.href}
-            activeClassName="text-black dark:text-white font-semibold"
+            activeClassName="text-white font-semibold"
             absolute
             href={item.href}
           >

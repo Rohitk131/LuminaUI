@@ -146,7 +146,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden ">
+    <div className="relative min-h-screen w-full overflow-hidden  text-black dark:text-white">
       <canvas
         ref={canvasRef}
         className="fixed inset-0 w-full h-full"
@@ -169,7 +169,7 @@ export default function Home() {
 
           <div className="text-center space-y-4 md:space-y-6">
             <FloatingIcons />
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-white via-blue-300 to-blue-600 text-transparent bg-clip-text pb-2">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-gray-300 via-gray-500 to-gray-700 text-transparent bg-clip-text pb-2">
               Ready-to-Use UI Components
               <br />
               <span className="font-serif font-light italic text-2xl md:text-4xl lg:text-5xl">
@@ -226,9 +226,7 @@ export default function Home() {
                 >
                   <Icons.gitHub className="w-5 h-5" />
                   <span>Star on GitHub</span>
-                  {/* <span className="bg-white/10 px-2 py-1 rounded-lg text-sm">
-                    {star}
-                  </span> */}
+                  
                 </Button>
               </Link>
             </div>
