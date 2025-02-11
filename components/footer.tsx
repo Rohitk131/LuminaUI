@@ -11,21 +11,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-8 md:mb-0">
             <Link href="/" className="flex items-center gap-2">
-              <img
-                src="/logomain.png"
-                width={25}
-                height={25}
-                alt="Lumina UI Logo"
-              ></img>
+              <img src="/logomain.png" width={25} height={25} alt="logo"></img>
               <h2 className="text-lg font-bold">Lumina UI</h2>
             </Link>
-
-            <h1 className="text-gray-300 mt-4">
-              Build by{" "}
-              <span className="text-[#039ee4]">
-                <Link href="https://x.com/arihantCodes"></Link>
-              </span>
-            </h1>
             <div className="mt-2">
               <Link href="https://x.com/compose/tweet?text=I%27ve%20been%20using%20%23SpectrumUI%20 share%20yourtought%20%40arihantCodes%20">
                 <Button variant="secondary">
@@ -117,12 +105,18 @@ export default function Footer() {
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/privacy-policy" className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
+                  <Link
+                    href="/privacy-policy"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/tos" className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
+                  <Link
+                    href="/tos"
+                    className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                  >
                     Terms of Service
                   </Link>
                 </li>
