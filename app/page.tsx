@@ -146,7 +146,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden ">
+    <div className="relative min-h-screen w-full overflow-hidden  text-black dark:text-white">
       <canvas
         ref={canvasRef}
         className="fixed inset-0 w-full h-full"
@@ -229,9 +229,7 @@ export default function Home() {
                 >
                   <Icons.gitHub className="w-5 h-5" />
                   <span>Star on GitHub</span>
-                  {/* <span className="bg-white/10 px-2 py-1 rounded-lg text-sm">
-                    {star}
-                  </span> */}
+                  
                 </Button>
               </Link>
             </div>

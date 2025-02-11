@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
-    <footer className=" py-12 px-4 md:px-6">
+    <footer className="py-12 px-4 md:px-6">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-8 md:mb-0">
@@ -22,7 +22,7 @@ export default function Footer() {
                 </Button>
               </Link>
             </div>
-            <p className="text-sm dark:text-gray-400 mt-5">
+            <p className="text-sm text-gray-400 mt-5">
               © {new Date().getFullYear()} Lumina UI. All rights reserved.
             </p>
           </div>

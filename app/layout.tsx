@@ -102,17 +102,17 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-regular`}
+        className={`${GeistSans.variable} ${GeistMono.variable} font-regular bg-black text-white`}
         suppressHydrationWarning
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Analytics />
-          <div className="flex fixed top-0 left-0 w-full h- z-50 shadow-md items-center justify-center px-4">
+          <div className="flex fixed top-0 left-0 w-full h- z-50 items-center justify-center px-4">
             <Navbar />
           </div>
 

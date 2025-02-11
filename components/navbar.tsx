@@ -34,7 +34,6 @@ export function Navbar() {
             </div>
           </div>
         </div>
-
         {/* Right Section */}
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Search Bar (Hidden on Small Screens) */}
@@ -84,7 +83,7 @@ export function NavMenu({ isSheet = false }) {
         const Comp = (
           <Anchor
             key={item.title + item.href}
-            activeClassName="text-black dark:text-white font-semibold"
+            activeClassName="text-white font-semibold"
             absolute
             href={item.href}
           >
