@@ -171,7 +171,7 @@ export default function Home() {
             <div className="lg:flex hidden">
               <FloatingIcons />
             </div>
-            
+
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-white via-blue-300 to-blue-600 text-transparent bg-clip-text pb-2">
               Ready-to-Use UI Components
               <br />
@@ -219,7 +219,7 @@ export default function Home() {
               </Link>
 
               <Link
-                href="https://github.com/arihantcodes/spectrum-ui"
+                href="https://github.com/rohitk131/luminaui"
                 className="w-full sm:w-auto"
               >
                 <Button

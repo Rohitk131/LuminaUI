@@ -4,10 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Sparkles, Upload, Check } from "lucide-react";
 import {
   AlertDialog,
- 
   AlertDialogContent,
   AlertDialogDescription,
- 
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
@@ -173,7 +171,7 @@ export default function RequestComponents() {
   const [isOpen, setIsOpen] = React.useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event:any) => {
+  const handleClickOutside = (event: any) => {
     if (dialogRef.current && !dialogRef.current.contains(event.target)) {
       setIsOpen(false);
     }
