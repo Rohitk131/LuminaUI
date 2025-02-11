@@ -1,7 +1,7 @@
 
 import EyeOpener from '@/components/luminaui/eyeopener';
 
-export default function AccordionPreview() {
+export default function Eyes() {
 
   return <EyeOpener />;
 }
