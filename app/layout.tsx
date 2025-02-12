@@ -102,7 +102,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-regular relative min-h-screen text-zinc-800 dark:text-white`}
+        className={`${GeistSans.variable} ${GeistMono.variable} font-regular text-black dark:text-white`}
         suppressHydrationWarning
       >
         <ThemeProvider
@@ -111,26 +111,17 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {/* Background Pattern */}
-          <div className="fixed inset-0 bg-background dark:bg-transparent">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f7ff_1px,transparent_1px),linear-gradient(to_bottom,#f0f7ff_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] dark:opacity-0" />
-          </div>
-
-          <div className="relative z-10">
-            <div className="fixed top-0 left-0 w-full z-50">
-              <Navbar />
-            </div>
-
-            <main className="sm:container mx-auto w-[90vw] md:w-[85vw] h-auto mt-16 relative">
-              {children}
-            </main>
-
-            <Footer />
-          </div>
-
           <Analytics />
-          <SpeedInsights />
+          <div className="fixed top-0 left-0 w-full z-50">
+            <Navbar />
+          </div>
+
+          <main className="sm:container mx-auto w-[90vw] md:w-[85vw] h-auto mt-16">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
