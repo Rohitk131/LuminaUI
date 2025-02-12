@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
 
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: process.env.EMAIL || "arihantjain7000@gmail.com",
+      to: process.env.EMAIL || "rohitkumar13103@gmail.com",
       subject: "New Component Request",
       html: `
         <h1>New Component Request</h1>
