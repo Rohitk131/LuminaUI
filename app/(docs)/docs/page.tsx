@@ -1,32 +1,30 @@
-
-import Link from "next/link"
-import { ArrowRight, Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { ArrowRight, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
 
 export default function IntroductionPage() {
   return (
-    <div className="max-w-4xl mx-auto space-y-12 py-8">
+    <div className="max-w-4xl mx-auto space-y-12 py-8 px-6">
       {/* Hero Section */}
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Lumina UI</h1>
-        <p className="text-xl text-muted-foreground">
-          Beautifully designed components built with Aceternity UI ,ShadCN UI and MAGIC UI a that you can copy and
-          paste into your apps. Accessible. Customizable. Open Source.
+      <div className="text-start space-y-4">
+        <h1 className="text-5xl font-bold tracking-tight">Lumina UI</h1>
+        <p className="text-lg text-gray-600">
+          A collection of elegant, reusable UI components designed for modern web apps. Fully customizable and easy to integrate.
         </p>
-        <div className="flex gap-4">
+        <div className="flex justify-start gap-4">
           <Button asChild>
             <Link href="/docs/installation">
               Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="https://github.com/arihantcodes/spectrum-ui">
+            <Link href="https://github.com/Rohitk131/LuminaUI">
               <Github className="mr-2 h-4 w-4" />
               GitHub
             </Link>
@@ -34,105 +32,82 @@ export default function IntroductionPage() {
         </div>
       </div>
 
-      {/* Introduction Section */}
+      {/* About Section */}
       <div className="space-y-4">
-        <h2 className="text-3xl font-bold tracking-tight">Introduction</h2>
-        <div className="text-muted-foreground space-y-4">
-          <p>
-            Spectrum UI is a collection of re-usable components built using{" "}
-            <Link href="https://ui.aceternity.com/" className="font-medium underline underline-offset-4">
-              Aceternity UI
-            </Link>{" "}
-            <Link href="https://magicui.design/" className="font-medium underline underline-offset-4">
-              Magic UI
-            </Link>{" "}
-            and{" "}
-            <Link href="https://ui.shadcn.com" className="font-medium underline underline-offset-4">
-              ShadCN UI
-            </Link>{" "}
-            that you can copy and paste into your apps.
-          </p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border p-4">
-              <h3 className="font-semibold mb-2">What do you mean by copy and paste?</h3>
-              <p>
-                Spectrum UI is not a component library. It&apos;s a collection of re-usable components that
-                you can copy and paste into your projects.
-              </p>
-            </div>
-            <div className="rounded-lg border p-4">
-              <h3 className="font-semibold mb-2">What? Why?</h3>
-              <p>
-                The goal is to give you a set of beautiful, accessible, and customizable components that
-                you can use in your projects. Use this as a reference implementation or copy and paste
-                the code into your project and customize it to your needs.
-              </p>
-            </div>
+        <h2 className="text-3xl font-bold tracking-tight">Why Lumina UI?</h2>
+        <p className="text-gray-600">
+          Lumina UI provides a carefully crafted selection of components that you can copy and integrate into your projects effortlessly. Built for performance, accessibility, and ease of use.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg border p-4 shadow-sm">
+            <h3 className="font-semibold mb-2">Plug & Play</h3>
+            <p>
+              No need to install a package—just copy, paste, and tweak to fit your project’s needs.
+            </p>
+          </div>
+          <div className="rounded-lg border p-4 shadow-sm">
+            <h3 className="font-semibold mb-2">Fully Customizable</h3>
+            <p>
+              Every component is designed to be easily styled and adapted to your design system.
+            </p>
           </div>
         </div>
       </div>
 
       {/* FAQ Section */}
       <div className="space-y-4">
-        <h2 className="text-3xl font-bold tracking-tight">FAQ</h2>
+        <h2 className="text-3xl font-bold tracking-tight">Frequently Asked Questions</h2>
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger>Is this a component library?</AccordionTrigger>
+            <AccordionTrigger>Is Lumina UI a component library?</AccordionTrigger>
             <AccordionContent>
-              No. Spectrum UI is not a component library. It&apos;s a collection of re-usable components
-              that you can copy and paste into your projects.
+              No, it’s a collection of high-quality, reusable components that you can copy and integrate into your projects.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>Can I use this in my project?</AccordionTrigger>
+            <AccordionTrigger>Can I use Lumina UI in commercial projects?</AccordionTrigger>
             <AccordionContent>
-              Yes. Free to use for personal and commercial projects. No attribution required.
+              Yes, all components are free to use for both personal and commercial projects.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>Which frameworks are supported?</AccordionTrigger>
+            <AccordionTrigger>What frameworks are supported?</AccordionTrigger>
             <AccordionContent>
-              You can use these components in any framework that supports React. This includes Next.js,
-              Gatsby, and others.
+              Lumina UI components work with any React-based framework, including Next.js, Remix, and Gatsby.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
-            <AccordionTrigger>Can I use this with JavaScript?</AccordionTrigger>
+            <AccordionTrigger>Do I need TypeScript?</AccordionTrigger>
             <AccordionContent>
-              Yes. You can use these components in your JavaScript projects. We use TypeScript for type
-              checking and documentation.
+              No, you can use Lumina UI with JavaScript. However, TypeScript support ensures better maintainability and developer experience.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>
 
       {/* Credits Section */}
-      <div className="space-y-4 ">
-        <h2 className="text-3xl font-bold tracking-tight">Credits</h2>
-        <p className="text-muted-foreground gap-4">
-          Built with{" "}
-          <Link href="https://ui.aceternity.com/" className="font-medium underline underline-offset-4 mr-2">
-            Aceternity UI 
+      <div className="space-y-4">
+        <h2 className="text-3xl font-bold tracking-tight">Built With</h2>
+        <p className="text-gray-600">
+          Powered by modern technologies like {" "}
+          <Link href="https://react.dev" className="font-medium underline underline-offset-4">
+            React
           </Link>
-          ,{" "}
-          <Link href="https://magicui.design/" className="font-medium underline underline-offset-4">
-             Magic UI
-          </Link>
-          ,{" "}
-          <Link href="https://ui.shadcn.com" className="font-medium underline underline-offset-4">
-            ShadCN UI
-          </Link>
-          ,{" "}
+          , {" "}
           <Link href="https://nextjs.org" className="font-medium underline underline-offset-4">
             Next.js
           </Link>
-          , and{" "}
+          , {" "}
           <Link href="https://www.typescriptlang.org" className="font-medium underline underline-offset-4">
             TypeScript
           </Link>
-          .
+          , and {" "}
+          <Link href="https://tailwindcss.com" className="font-medium underline underline-offset-4">
+            Tailwind CSS
+          </Link>
+          , ensuring a seamless development experience.
         </p>
       </div>
     </div>
-  )
+  );
 }
