@@ -9,12 +9,8 @@ import Requestcomponents from "@/components/requestcomponets";
 import { useEffect, useRef, useState } from "react";
 import FloatingIcons from "@/components/floatingIcons";
 import GradientCircle from "./(docs)/docs/gradient-circle/GradientCircleDemo";
-<<<<<<< HEAD
 import Component from './examples/page';
 
-=======
-import Component from "./examples/page";
->>>>>>> 2be686695674f51c0186938e54940570c5689602
 // Animations config moved outside component to prevent recreating on each render
 const animations = {
   container: {
@@ -88,47 +84,51 @@ export default function Home() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d", { alpha: true });
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
-    let animating = true;
-
     const setCanvasSize = () => {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
+      const dpr = window.devicePixelRatio || 1;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
       ctx.scale(dpr, dpr);
     };
 
-    const stars = Array.from(
-      { length: Math.min(200, window.innerWidth / 5) },
-      () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * (canvas.height * 0.8),
-        size: Math.random() * 1,
-        speed: 0.1 + Math.random() * 0.2,
-        opacity: Math.random() * 0.5 + 0.5,
-        pulse: Math.random() * Math.PI,
-      })
-    );
+    setCanvasSize();
+    window.addEventListener("resize", setCanvasSize);
+
+    const stars = Array.from({ length: 200 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * (canvas.height * 0.8),
+      size: Math.random() * 1 + 0,
+      speed: 0.1 + Math.random() * 0.2,
+      opacity: Math.random() * 0.5 + 0.5,
+      pulse: Math.random() * Math.PI,
+    }));
 
     const animate = () => {
-      if (!animating) return;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const time = Date.now() * 0.0008;
 
-      // Optimized star rendering
+      // Enhanced star animation
       stars.forEach((star) => {
         star.pulse += 0.02;
-        const opacity = star.opacity * (0.7 + 0.3 * Math.sin(star.pulse));
+        const currentOpacity = star.opacity * (0.7 + 0.3 * Math.sin(star.pulse));
 
         ctx.beginPath();
-        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        const gradient = ctx.createRadialGradient(
+          star.x, star.y, 0,
+          star.x, star.y, star.size * 3
+        );
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity})`);
+        gradient.addColorStop(0.5, `rgba(200, 220, 255, ${currentOpacity * 0.5})`);
+        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.arc(star.x, star.y, star.size * 3, 0, Math.PI * 2);
         ctx.fill();
 
         star.x -= star.speed;
@@ -138,44 +138,37 @@ export default function Home() {
         }
       });
 
-      // Optimized glow effect
+      // Enhanced glow effect
+      const time = Date.now() * 0.0008;
       const centerX = canvas.width / 2;
       const centerY = canvas.height * 1.6;
-      const radius = canvas.width * 0.8 + Math.sin(time) * 80;
+      const baseRadius = canvas.width * 0.8;
+      const radius = baseRadius + Math.sin(time) * 80;
 
       const glow = ctx.createRadialGradient(
-        centerX,
-        centerY,
-        0,
-        centerX,
-        centerY,
-        radius
+        centerX, centerY, 0,
+        centerX, centerY, radius
       );
 
-      glow.addColorStop(0, "rgba(96, 165, 250, 0.2)");
-      glow.addColorStop(0.6, "rgba(37, 99, 235, 0.3)");
+      glow.addColorStop(0, "rgba(96, 165, 250, 0.4)");
+      glow.addColorStop(0.3, "rgba(59, 130, 246, 0.0)");
+      glow.addColorStop(0.5, "rgba(0, 0, 0, 0)");
+      glow.addColorStop(0.6, "rgba(37, 99, 235, 0.6)");
+      glow.addColorStop(0.8, "rgba(0, 0, 0, 0)");
       glow.addColorStop(1, "rgba(0, 0, 0, 0)");
 
+      ctx.beginPath();
       ctx.fillStyle = glow;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.fill();
 
-      animationFrameRef.current = requestAnimationFrame(animate);
+      requestAnimationFrame(animate);
     };
 
-    const resizeObserver = new ResizeObserver(setCanvasSize);
-    resizeObserver.observe(canvas);
-
-    setCanvasSize();
     animate();
-
-    return () => {
-      animating = false;
-      resizeObserver.disconnect();
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-    };
+    return () => window.removeEventListener("resize", setCanvasSize);
   }, []);
+
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-zinc-800 dark:text-white">
@@ -206,14 +199,14 @@ export default function Home() {
             </div>
 
             <motion.h1
-              className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans text-zinc-800 dark:text-white pb-2"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-white via-blue-300 to-blue-600  text-transparent bg-clip-text pb-2"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               Ready-to-Use UI Components
               <br />
               <motion.span
-                className="font-serif font-light italic text-2xl md:text-4xl lg:text-5xl text-zinc-600 dark:text-gray-200"
+                className="font-serif font-light italic"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -300,7 +293,7 @@ export default function Home() {
           </div>
         </motion.div>
       </motion.div>
-      <div className="relative flex flex-col items-center w-1/2 bg-slate-800 z-50 py-10 rounded-xl border border-gray-300/20">
+      <div className="relative flex flex-col items-center w-1/2  bg-slate-800 z-50 py-10 rounded-xl border border-gray-300/20">
         <h1 className="pointer-events-none bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-5xl font-semibold text-transparent dark:from-white dark:to-slate-900/10 text-center mt-4">
           Hover me
         </h1>
