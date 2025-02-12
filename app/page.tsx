@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
 import FloatingIcons from "@/components/floatingIcons";
 import GradientCircle from "./(docs)/docs/gradient-circle/GradientCircleDemo";
 import Component from './examples/page';
+
 // Animations config moved outside component to prevent recreating on each render
 const animations = {
   container: {
@@ -236,13 +237,19 @@ export default function Home() {
           </div>
         </motion.div>
       </motion.div>
-      <div className="w-full flex justify-center mt-8">
-        <GradientCircle
-          size="300px"
-          gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
-          logoSrc="/logomain.png"
-        />
+      <div className="relative flex flex-col items-center w-1/2 bg-slate-800 z-50 py-10 rounded-xl border border-gray-300/20">
+        <h1 className="pointer-events-none bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-5xl font-semibold text-transparent dark:from-white dark:to-slate-900/10 text-center mt-4">
+          Hover me
+        </h1>
+        <div className="flex justify-center items-center flex-grow mt-10">
+          <GradientCircle
+            size="300px"
+            gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
+            logoSrc="/logomain.png"
+          />
+        </div>
       </div>
+
     </div>
   );
 }
