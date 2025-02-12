@@ -102,7 +102,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-regular bg-black text-white`}
+        className={`${GeistSans.variable} ${GeistMono.variable} font-regular text-black dark:text-white`}
         suppressHydrationWarning
       >
         <ThemeProvider
