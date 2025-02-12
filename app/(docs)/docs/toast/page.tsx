@@ -11,12 +11,13 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/toast/toast-demo.tsx">
           <Toast />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
         <Steppers
           className=""
           installScript="npm i framer-motion lucide-react"
-          steps={[{ title: "Create toast component & paste the code" }]}
+          steps={[
+            { title: "Implement the code as demonstrated in the preview" },
+          ]}
           withInstall
           codePath="components/luminaui/toast.tsx"
         />
