@@ -8,7 +8,8 @@ import { Button } from "@/components/ui/button";
 import Requestcomponents from "@/components/requestcomponets";
 import { useEffect, useRef, useState } from "react";
 import FloatingIcons from "@/components/floatingIcons";
-
+import GradientCircle from "./(docs)/docs/gradient-circle/GradientCircleDemo";
+import Component from './examples/page';
 // Animations config moved outside component to prevent recreating on each render
 const animations = {
   container: {
@@ -146,7 +147,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden  text-black dark:text-white">
+    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-black dark:text-white">
       <canvas
         ref={canvasRef}
         className="fixed inset-0 w-full h-full"
@@ -154,7 +155,7 @@ export default function Home() {
       />
 
       <motion.div
-        className="relative z-10 container mx-auto px-4 py-6 md:py-12 min-h-screen flex flex-col items-center justify-start mt-8 md:mt-12"
+        className="relative z-10 mx-auto w-full max-w-screen-xl px-4 py-6 md:py-12 min-h-screen flex flex-col items-center justify-start mt-8 md:mt-12"
         variants={animations.container}
         initial="hidden"
         animate="visible"
@@ -229,13 +230,19 @@ export default function Home() {
                 >
                   <Icons.gitHub className="w-5 h-5" />
                   <span>Star on GitHub</span>
-                  
                 </Button>
               </Link>
             </div>
           </div>
         </motion.div>
       </motion.div>
+      <div className="w-full flex justify-center mt-8">
+        <GradientCircle
+          size="300px"
+          gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
+          logoSrc="/logomain.png"
+        />
+      </div>
     </div>
   );
 }

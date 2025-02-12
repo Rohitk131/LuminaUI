@@ -207,6 +207,9 @@ const GradientCircle = ({
 export const GradientCircleDemo = () => {
   return (
     <div className="flex h-[500px] w-full flex-col items-center justify-center">
+      <span className="pointer-events-none py-2 mb-7 whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-5xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
+        Touch me! 
+      </span>
       <GradientCircle 
         size="300px"
         gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
