@@ -50,7 +50,7 @@ export function Navbar() {
             <Icons.gitHub className="w-5 h-5" />
           </Link>
           <Link
-            href="https://x.com/arihantcodes"
+            href="https://x.com/rohitkdev"
             className={buttonVariants({ variant: "ghost", size: "icon" })}
             aria-label="x profile"
           >

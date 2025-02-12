@@ -155,7 +155,7 @@ export default function Home() {
       />
 
       <motion.div
-        className="relative z-10 mx-auto w-full max-w-screen-xl px-4 py-6 md:py-12 min-h-screen flex flex-col items-center justify-start mt-8 md:mt-12"
+        className="relative z-10 mx-auto w-full max-w-screen-xl px-4 py-6 md:py-12 min-h-screen flex flex-col items-center justify-start mt-8 md:mt-12 lg:mt-0"
         variants={animations.container}
         initial="hidden"
         animate="visible"
