@@ -1,9 +1,8 @@
-import React from "react";
 import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
-
 import { Steppers } from "@/components/ui/steppers";
 import StepperWizard from "./stepper-wizard-demo";
+
 const page = () => {
   return (
     <div>
@@ -11,16 +10,12 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/stepper-wizard/stepper-wizard-demo.tsx">
           <StepperWizard />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
-        <p className="text-gray-400">
-          Make Utils.ts file in lib and paste the code from Step-2
-        </p>
         <Steppers
-          className=""
+          className="my-5"
           installScript="npm i framer-motion lucide-react"
           steps={[
-            { title: "Create stepper-wizard component & paste the code" },
+            { title: "Implement the code as demonstrated in the preview" },
           ]}
           withInstall
           codePath="lib/utils.ts"
