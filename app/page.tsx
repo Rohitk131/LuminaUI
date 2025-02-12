@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { Icons } from "@/components/icon";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import Requestcomponents from "@/components/requestcomponets";
 import { useEffect, useRef, useState } from "react";
 import FloatingIcons from "@/components/floatingIcons";
 import GradientCircle from "./(docs)/docs/gradient-circle/GradientCircleDemo";
-import Component from './examples/page';
+import Component from "./examples/page";
 // Animations config moved outside component to prevent recreating on each render
 const animations = {
   container: {
@@ -30,11 +30,37 @@ const animations = {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   },
+  floating: {
+    initial: { y: 0 },
+    animate: {
+      y: [-10, 10, -10],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  },
+  shine: {
+    initial: { backgroundPosition: "200% 0" },
+    animate: {
+      backgroundPosition: ["-200% 0", "200% 0"],
+      transition: {
+        duration: 8,
+        repeat: Infinity,
+        ease: "linear",
+      },
+    },
+  },
 };
 
 export default function Home() {
   const canvasRef = useRef(null);
   const animationFrameRef = useRef(null);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 300], [0, -100]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
 
   // useEffect(() => {
   //   const controller = new AbortController();
@@ -147,14 +173,15 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-black dark:text-white">
+    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-zinc-800 dark:text-white">
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 w-full h-full"
+        className="fixed inset-0 w-full h-full opacity-20 dark:opacity-100"
         style={{ touchAction: "none" }}
       />
 
       <motion.div
+        style={{ y, opacity, scale }}
         className="relative z-10 mx-auto w-full max-w-screen-xl px-4 py-6 md:py-12 min-h-screen flex flex-col items-center justify-start mt-8 md:mt-12 lg:mt-0"
         variants={animations.container}
         initial="hidden"
@@ -173,76 +200,113 @@ export default function Home() {
               <FloatingIcons />
             </div>
 
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans bg-gradient-to-b from-white via-blue-300 to-blue-600 text-transparent bg-clip-text pb-2">
+            <motion.h1
+              className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight font-sans text-zinc-800 dark:text-white pb-2"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               Ready-to-Use UI Components
               <br />
-              <span className="font-serif font-light italic text-2xl md:text-4xl lg:text-5xl">
+              <motion.span
+                className="font-serif font-light italic text-2xl md:text-4xl lg:text-5xl text-zinc-600 dark:text-gray-200"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 Copy, Paste, and Relax
-              </span>
-            </h1>
+              </motion.span>
+            </motion.h1>
 
-            <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
+            <motion.p
+              className="text-base md:text-xl text-zinc-600 dark:text-gray-400 max-w-2xl mx-auto px-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
               Accelerate your project's growth with ready-to-use UI components
               that save time and elevate quality.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="space-y-6 md:space-y-8 w-full">
+          <div className="space-y-6 md:space-y-8 w-full backdrop-blur-sm bg-transparent dark:bg-transparent p-8 rounded-2xl border border-zinc-200 dark:border-gray-800/10">
             <div className="text-center">
-              <h2 className="text-lg md:text-xl font-semibold text-gray-400 mb-4 md:mb-6">
+              <motion.h2
+                className="text-lg md:text-xl font-semibold text-zinc-700 dark:text-gray-400 mb-4 md:mb-6"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 Built With
-              </h2>
+              </motion.h2>
               <div className="flex flex-wrap justify-center gap-4 md:gap-8">
                 {["nextjs", "shadcn", "tailwind"].map((tech) => (
-                  <Image
+                  <motion.div
                     key={tech}
-                    src={`./${tech}.svg`}
-                    height={40}
-                    width={
-                      tech === "shadcn" ? 140 : tech === "tailwind" ? 120 : 90
-                    }
-                    alt={`${tech} logo`}
-                    className="hover:scale-110 transition-transform"
-                    loading="lazy"
-                  />
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Image
+                      src={`./${tech}.svg`}
+                      height={40}
+                      width={
+                        tech === "shadcn" ? 140 : tech === "tailwind" ? 120 : 90
+                      }
+                      alt={`${tech} logo`}
+                      className="transition-transform filter dark:brightness-100 brightness-75"
+                      loading="lazy"
+                    />
+                  </motion.div>
                 ))}
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center px-4">
               <Link href="/docs" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="w-full rounded-2xl bg-gradient-to-r from-blue-400 to-blue-300 hover:from-blue-500 hover:to-blue-400 border border-blue-500/70 shadow-lg hover:shadow-blue-500/50 transition-all"
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  Explore Components
-                </Button>
+                  <Button
+                    size="lg"
+                    className="w-full rounded-2xl bg-zinc-800 hover:bg-zinc-900 dark:bg-blue-500/80 dark:hover:bg-blue-500 border border-zinc-700 dark:border-blue-500/70 shadow-lg shadow-zinc-200 hover:shadow-zinc-300 dark:shadow-blue-500/20 dark:hover:shadow-blue-500/50 transition-all text-white"
+                  >
+                    Explore Components
+                  </Button>
+                </motion.div>
               </Link>
 
               <Link
                 href="https://github.com/rohitk131/luminaui"
                 className="w-full sm:w-auto"
               >
-                <Button
-                  className="w-full gap-3 rounded-2xl group hover:bg-white/20 transition-colors border border-gray-800/10"
-                  variant="secondary"
-                  size="lg"
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <Icons.gitHub className="w-5 h-5" />
-                  <span>Star on GitHub</span>
-                </Button>
+                  <Button
+                    className="w-full gap-3 rounded-2xl group hover:bg-zinc-100 dark:hover:bg-white/20 transition-colors border border-zinc-200 dark:border-gray-800/10 bg-white/80 dark:bg-transparent backdrop-blur-sm"
+                    variant="secondary"
+                    size="lg"
+                  >
+                    <Icons.gitHub className="w-5 h-5" />
+                    <span>Star on GitHub</span>
+                  </Button>
+                </motion.div>
               </Link>
             </div>
           </div>
         </motion.div>
       </motion.div>
-      <div className="w-full flex justify-center mt-8">
+
+      <motion.div
+        className="w-full flex justify-center mt-8"
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
         <GradientCircle
           size="300px"
-          gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
+          gradientColors={["#18181B", "#3F3F46", "#71717A"]}
           logoSrc="/logomain.png"
         />
-      </div>
+      </motion.div>
     </div>
   );
 }
