@@ -1,4 +1,3 @@
-import React from "react";
 import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
 
@@ -11,15 +10,13 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/pagination/pagination-demo.tsx">
           <Pagination />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
-        <p className="text-gray-400">
-          Make Utils.ts file in lib and paste the code from Step-2
-        </p>
         <Steppers
           className=""
           installScript="npm i framer-motion lucide-react"
-          steps={[{ title: "Create pagination component & paste the code" }]}
+          steps={[
+            { title: "Implement the code as demonstrated in the preview" },
+          ]}
           withInstall
           codePath="lib/utils.ts"
         />

@@ -19,7 +19,7 @@ const page = () => {
             { title: "Implement the code as demonstrated in the preview" },
           ]}
           withInstall
-          codePath="components/luminaui/gradient-circle.tsx"
+          codePath="lib/utils.ts"
         />
       </PageTemplate>
     </div>
