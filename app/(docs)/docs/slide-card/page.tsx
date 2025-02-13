@@ -12,21 +12,11 @@ const Page = () => {
         <PreviewCodeCard path="app/(docs)/docs/slide-card/SlideCard.tsx">
           <SlideCardDemo />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
-        <p className="text-gray-400">
-          This component requires the Framer Motion library for animations and
-          Lucide React for icons.
-        </p>
         <Steppers
           className=""
           installScript="npm install framer-motion lucide-react"
           steps={[
-            {
-              title: "Create SlideCard component",
-              description:
-                "Create a new file called SlideCard.tsx in your components directory and copy the component code.",
-            },
             {
               title: "Add required animations in globals.css file",
               description:
@@ -72,6 +62,11 @@ const Page = () => {
   100% { transform: translateY(-500%); }
 }
               `,
+            },
+            {
+              title: "Implement the code as demonstrated in the preview",
+              description:
+                "Copy the code from the preview and paste it into your project.",
             },
           ]}
           withInstall
