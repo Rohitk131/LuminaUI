@@ -1,6 +1,6 @@
 import Button3D from "@/components/luminaui/threeDbutton";
 
-function App() {
+function ThreeD() {
   return (
     <div>
       <Button3D text="Click me" className="custom-margin" />
@@ -8,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default ThreeD;

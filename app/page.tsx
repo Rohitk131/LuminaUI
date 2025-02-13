@@ -14,6 +14,8 @@ import CardsQueuePreview from "./(docs)/docs/queuecards/queuecards";
 import Spacebackground from "./(docs)/docs/spacebackground/spacebackground-demo";
 import PerksCard from './(docs)/docs/Perks/FeatureGridDemo';
 import SlideCard from './(docs)/docs/slide-card/SlideCard';
+import ThreeD from "./(docs)/docs/ThreeDButton/ThreeDButtonDemo";
+import StackedCards from "./(docs)/docs/stackedcards/stackedcardsdemo";
 
 // Animations config moved outside component to prevent recreating on each render
 const animations = {
@@ -175,7 +177,7 @@ export default function Home() {
 
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-zinc-800 dark:text-white">
+    <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-zinc-800 dark:text-white ">
       <canvas
         ref={canvasRef}
         className="fixed inset-0 w-full h-full opacity-20 dark:opacity-100"
@@ -190,7 +192,7 @@ export default function Home() {
         animate="visible"
       >
         <motion.div
-          className="max-w-4xl w-full space-y-6 md:space-y-8 flex flex-col items-center justify-center md:mt-0 mt-8"
+          className="max-w-4xl w-full space-y-6 md:space-y-8 flex flex-col items-center justify-center md:mt-16 mt-10"
           variants={animations.item}
         >
           <div className="w-full flex justify-center">
@@ -310,31 +312,36 @@ export default function Home() {
           </p>
 
           <div className="space-y-16">
-          <motion.div
+            <motion.div
               className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-            
-              <Spacebackground/>
+
+              <Spacebackground />
             </motion.div>
             <motion.div
               className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-            
-              <PerksCard/>
+
+              <PerksCard />
             </motion.div>
             <motion.div
               className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-              <h3 className="text-2xl font-semibold text-center text-white mb-8">
-                Scroll me
-              </h3>
+
               <CardsQueuePreview />
             </motion.div>
             <motion.div
-              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              className="p-8 rounded-2xl bg-black/30 border border-gray-300/20"
+              variants={animations.item}
+            >
+
+              <StackedCards />
+            </motion.div>
+            <motion.div
+              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20 pb-36 pt-16"
               variants={animations.item}
             >
               <h3 className="text-2xl font-semibold text-center text-white mb-8">
@@ -349,19 +356,28 @@ export default function Home() {
               </div>
             </motion.div>
 
-          
+
             <motion.div
               className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-          
-              <SlideCard/>
+
+              <SlideCard />
             </motion.div>
-            
+           
+            <motion.div
+              className="p-8 rounded-2xl bg-black/30 border border-gray-300/20"
+              variants={animations.item}
+            >
+
+              <ThreeD />
+            </motion.div>
+
           </div>
+
         </div>
       </section>
-      
+
     </div>
   );
 }

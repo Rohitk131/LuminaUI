@@ -101,10 +101,10 @@ const StackedCards = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen overflow-auto">
+    <div className="w-full h-1/2 overflow-auto">
       <div
         ref={stackAreaRef}
-        className="w-full lg:h-[120vh] overflow-y-auto hide-scrollbar relative bg-gradient-to-br from-slate-950 via-black to-slate-950 flex"
+        className="w-full h-full overflow-y-auto hide-scrollbar relative bg-gradient-to-br from-slate-950 via-black to-slate-950 flex"
       >
         <div className="h-screen sticky top-0 left-0 basis-1/2 flex items-center justify-center flex-col px-8">
           <div className="max-w-[600px] relative group">
