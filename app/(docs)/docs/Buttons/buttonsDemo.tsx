@@ -1,6 +1,6 @@
-'use client'
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+"use client";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 // CTA Button
 const CTAButton = () => (
   <motion.button
@@ -10,13 +10,13 @@ const CTAButton = () => (
   >
     Get Started Now
   </motion.button>
-)
+);
 const MorphingButton = () => {
-  const [isCircle, setIsCircle] = useState(false)
+  const [isCircle, setIsCircle] = useState(false);
   return (
     <motion.button
       className="relative w-48 h-14 bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600  border border-gray-400/40 text-white font-bold overflow-hidden backdrop-blur-md"
-      animate={{ 
+      animate={{
         borderRadius: isCircle ? "50%" : "8px",
         width: isCircle ? "56px" : "192px",
       }}
@@ -36,23 +36,23 @@ const MorphingButton = () => {
         </motion.span>
       </AnimatePresence>
     </motion.button>
-  )
-}
+  );
+};
 const RippleButton = () => {
-  const [ripples, setRipples] = useState([])
+  const [ripples, setRipples] = useState([]);
   const addRipple = (event) => {
-    const button = event.currentTarget.getBoundingClientRect()
-    const size = Math.max(button.width, button.height)
-    const x = event.clientX - button.left - size / 2
-    const y = event.clientY - button.top - size / 2
+    const button = event.currentTarget.getBoundingClientRect();
+    const size = Math.max(button.width, button.height);
+    const x = event.clientX - button.left - size / 2;
+    const y = event.clientY - button.top - size / 2;
     const newRipple = {
       x,
       y,
       size,
       id: new Date().getTime(),
-    }
-    setRipples([...ripples, newRipple])
-  }
+    };
+    setRipples([...ripples, newRipple]);
+  };
   return (
     <motion.button
       className="relative w-48 h-14 bg-gradient-to-r from-gray-800 to-gray-900 text-white font-bold rounded-lg overflow-hidden backdrop-blur-md"
@@ -74,18 +74,20 @@ const RippleButton = () => {
           initial={{ opacity: 0.8, scale: 0 }}
           animate={{ opacity: 0, scale: 1 }}
           transition={{ duration: 0.8 }}
-          onAnimationComplete={() => setRipples(ripples.filter((r) => r.id !== ripple.id))}
+          onAnimationComplete={() =>
+            setRipples(ripples.filter((r) => r.id !== ripple.id))
+          }
         />
       ))}
     </motion.button>
-  )
-}
+  );
+};
 const SubmitButton = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleSubmit = () => {
-    setIsSubmitting(true)
-    setTimeout(() => setIsSubmitting(false), 2000)
-  }
+    setIsSubmitting(true);
+    setTimeout(() => setIsSubmitting(false), 2000);
+  };
   return (
     <motion.button
       className="relative w-48 h-14  border border-green-300/50 bg-gradient-to-r from-green-500 via-emerald-600 to-green-700 text-white font-bold rounded-lg shadow-lg flex items-center justify-center space-x-2"
@@ -99,7 +101,7 @@ const SubmitButton = () => {
           <motion.div
             className="w-5 h-5 border-t-2 border-white rounded-full"
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           />
           <span>Submitting...</span>
         </>
@@ -107,27 +109,27 @@ const SubmitButton = () => {
         <span>Submit Form</span>
       )}
     </motion.button>
-  )
-}
+  );
+};
 const ToggleButton = () => {
-  const [isOn, setIsOn] = useState(false)
+  const [isOn, setIsOn] = useState(false);
   return (
     <motion.button
       className={`relative w-20 h-10 rounded-full p-1 flex items-center backdrop-blur-md shadow-lg transition-all duration-300 ${
-        isOn ? 'bg-blue-600 justify-end' : 'bg-gray-600 justify-start'
+        isOn ? "bg-blue-600 justify-end" : "bg-gray-600 justify-start"
       }`}
       onClick={() => setIsOn(!isOn)}
     >
       <motion.div
         className="w-8 h-8 bg-white rounded-full shadow-md"
         layout
-        transition={{ type: 'spring', stiffness: 700, damping: 30 }}
+        transition={{ type: "spring", stiffness: 700, damping: 30 }}
       />
     </motion.button>
-  )
-}
+  );
+};
 const DropdownButton = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="relative">
       <motion.button
@@ -160,7 +162,7 @@ const DropdownButton = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
           >
-            {['Option 1', 'Option 2', 'Option 3'].map((option) => (
+            {["Option 1", "Option 2", "Option 3"].map((option) => (
               <button
                 key={option}
                 className="w-full text-left px-4 py-2 hover:bg-gray-700 transition-colors duration-150"
@@ -173,14 +175,14 @@ const DropdownButton = () => {
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 const LoadingButton = () => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const handleClick = () => {
-    setIsLoading(true)
-    setTimeout(() => setIsLoading(false), 3000)
-  }
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 3000);
+  };
   return (
     <motion.button
       className="relative w-48 h-14 bg-gradient-to-r from-blue-600  to-blue-800 text-white font-bold rounded-lg shadow-lg overflow-hidden"
@@ -189,7 +191,9 @@ const LoadingButton = () => {
       onClick={handleClick}
       disabled={isLoading}
     >
-      <span className={`${isLoading ? 'invisible' : 'visible'}`}>Load More</span>
+      <span className={`${isLoading ? "invisible" : "visible"}`}>
+        Load More
+      </span>
       {isLoading && (
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
@@ -200,7 +204,7 @@ const LoadingButton = () => {
           <motion.div
             className="w-6 h-6 border-t-2 border-white rounded-full"
             animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           />
         </motion.div>
       )}
@@ -208,34 +212,22 @@ const LoadingButton = () => {
         className="absolute bottom-0 left-0 right-0 h-1 bg-sky-500"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isLoading ? 1 : 0 }}
-        transition={{ duration: 3, ease: 'linear' }}
-        style={{ transformOrigin: '0% 50%' }}
+        transition={{ duration: 3, ease: "linear" }}
+        style={{ transformOrigin: "0% 50%" }}
       />
     </motion.button>
-  )
-}
+  );
+};
 export default function EssentialButtons() {
-    return (
-      <div className="grid grid-rows-3 max-w-8xl grid-cols-4 items-center justify-center h-1/2 0 p-8 gap-8 relative">
-         <div 
-        className="absolute inset-0 opacity-50" 
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.5) 1px, transparent 0)`,
-          backgroundSize: '24px 24px',
-        }}
-      />
-      
-      {/* Gradient orbs */}
-      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" /> 
-        <CTAButton />
-        <SubmitButton />
-        <ToggleButton />
-        <DropdownButton />
-        <LoadingButton />
-        <MorphingButton />
-        <RippleButton />
-      </div>
-    );
-  }
-  
+  return (
+    <div className="grid grid-rows-3 max-w-8xl grid-cols-4 items-center justify-center h-1/2 0 p-8 gap-8 relative">
+      <CTAButton />
+      <SubmitButton />
+      <ToggleButton />
+      <DropdownButton />
+      <LoadingButton />
+      <MorphingButton />
+      <RippleButton />
+    </div>
+  );
+}

@@ -3,20 +3,7 @@ import { Check, Gauge, Code, Cpu } from "lucide-react";
 
 const FeatureCards = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 space-y-12 relative">
-      {/* Background patterns */}
-      <div
-        className="absolute inset-0 opacity-60 dark:opacity-40"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(99 102 241 / 0.2) 1px, transparent 0)`,
-          backgroundSize: "24px 24px",
-        }}
-      />
-
-      {/* Gradient orbs */}
-      <div className="absolute top-20 left-20 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl" />
-
+    <div className="w-full max-w-6xl mx-auto p-6 space-y-12 relative">
       <div className="text-center space-y-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-b from-gray-900 to-gray-700 dark:from-white dark:to-white/60 bg-clip-text text-transparent tracking-tight">
           Why Developers Choose Us
