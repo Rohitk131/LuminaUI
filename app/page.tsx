@@ -302,8 +302,8 @@ export default function Home() {
         </motion.div>
 
       </motion.div>
-      <section className="relative z-10 bg-gradient-to-b from-transparent to-black/90 dark:to-black/50 py-24 rounded-2xl border-gray-400/20 border">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative z-10 ">
+        <div className="max-w-full mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-b from-zinc-900 to-zinc-500 dark:from-white dark:to-gray-500 bg-clip-text text-transparent">
             Component Demos
           </h2>
@@ -313,35 +313,35 @@ export default function Home() {
 
           <div className="space-y-16">
             <motion.div
-              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              className=" rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
 
               <Spacebackground />
             </motion.div>
             <motion.div
-              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              className=" rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
 
               <PerksCard />
             </motion.div>
             <motion.div
-              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              className=" rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
 
               <CardsQueuePreview />
             </motion.div>
             <motion.div
-              className="p-8 rounded-2xl bg-black/30 border border-gray-300/20"
+              className=" rounded-2xl bg-black/30 border border-gray-300/20"
               variants={animations.item}
             >
 
               <StackedCards />
             </motion.div>
             <motion.div
-              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20 pb-36 pt-16"
+              className=" rounded-2xl bg-black/80 border border-gray-300/20 pb-36 pt-16"
               variants={animations.item}
             >
               <h3 className="text-2xl font-semibold text-center text-white mb-8">
@@ -358,7 +358,7 @@ export default function Home() {
 
 
             <motion.div
-              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              className="rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
 
@@ -366,7 +366,7 @@ export default function Home() {
             </motion.div>
            
             <motion.div
-              className="p-8 rounded-2xl bg-black/30 border border-gray-300/20"
+              className=" rounded-2xl bg-black/30 border border-gray-300/20"
               variants={animations.item}
             >
 
