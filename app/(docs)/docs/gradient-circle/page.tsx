@@ -11,17 +11,15 @@ const page = () => {
         <PreviewCodeCard path="app/(docs)/docs/gradient-circle/GradientCircleDemo.tsx">
           <GradientCircleDemo />
         </PreviewCodeCard>
-
         <PageSubTitle>Installation</PageSubTitle>
-        <p className="text-gray-400">
-          No additional packages required. Just copy the component code.
-        </p>
         <Steppers
-          className=""
+          className="my-5"
           installScript="npm i framer-motion lucide-react"
-          steps={[{ title: "Create Gradient Circle component & paste the code" }]}
+          steps={[
+            { title: "Implement the code as demonstrated in the preview" },
+          ]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/gradient-circle.tsx"
         />
       </PageTemplate>
     </div>
