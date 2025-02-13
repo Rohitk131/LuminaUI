@@ -10,6 +10,10 @@ import { useEffect, useRef, useState } from "react";
 import FloatingIcons from "@/components/floatingIcons";
 import GradientCircle from "./(docs)/docs/gradient-circle/GradientCircleDemo";
 import Component from './examples/page';
+import CardsQueuePreview from "./(docs)/docs/queuecards/queuecards";
+import Spacebackground from "./(docs)/docs/spacebackground/spacebackground-demo";
+import PerksCard from './(docs)/docs/Perks/FeatureGridDemo';
+import SlideCard from './(docs)/docs/slide-card/SlideCard';
 
 // Animations config moved outside component to prevent recreating on each render
 const animations = {
@@ -291,21 +295,73 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
-      <div className="relative flex flex-col items-center w-1/2  bg-slate-800 z-50 py-10 rounded-xl border border-gray-300/20">
-        <h1 className="pointer-events-none bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-5xl font-semibold text-transparent dark:from-white dark:to-slate-900/10 text-center mt-4">
-          Hover me
-        </h1>
-        <div className="flex justify-center items-center flex-grow mt-10">
-          <GradientCircle
-            size="300px"
-            gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
-            logoSrc="/logomain.png"
-          />
-        </div>
-      </div>
 
+
+        </motion.div>
+
+      </motion.div>
+      <section className="relative z-10 bg-gradient-to-b from-transparent to-black/90 dark:to-black/50 py-24 rounded-2xl border-gray-400/20 border">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-b from-zinc-900 to-zinc-500 dark:from-white dark:to-gray-500 bg-clip-text text-transparent">
+            Component Demos
+          </h2>
+          <p className="text-center text-lg text-zinc-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto">
+            Discover our collection of beautiful, ready-to-use components for your next project.
+          </p>
+
+          <div className="space-y-16">
+          <motion.div
+              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              variants={animations.item}
+            >
+            
+              <Spacebackground/>
+            </motion.div>
+            <motion.div
+              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              variants={animations.item}
+            >
+            
+              <PerksCard/>
+            </motion.div>
+            <motion.div
+              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              variants={animations.item}
+            >
+              <h3 className="text-2xl font-semibold text-center text-white mb-8">
+                Scroll me
+              </h3>
+              <CardsQueuePreview />
+            </motion.div>
+            <motion.div
+              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              variants={animations.item}
+            >
+              <h3 className="text-2xl font-semibold text-center text-white mb-8">
+                Hover me
+              </h3>
+              <div className="flex justify-center">
+                <GradientCircle
+                  size="300px"
+                  gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
+                  logoSrc="/logomain.png"
+                />
+              </div>
+            </motion.div>
+
+          
+            <motion.div
+              className="p-8 rounded-2xl bg-black/80 border border-gray-300/20"
+              variants={animations.item}
+            >
+          
+              <SlideCard/>
+            </motion.div>
+            
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }

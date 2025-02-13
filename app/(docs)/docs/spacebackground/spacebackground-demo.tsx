@@ -1,7 +1,7 @@
 import React from "react";
 import SpaceBackground from "@/components/luminaui/spacebackground";
 
-const HomePage = () => {
+const spacebackground = () => {
     return (
         <div className="relative w-full ">
 
@@ -17,4 +17,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default spacebackground;

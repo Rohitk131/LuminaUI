@@ -19,9 +19,9 @@ const page = () => {
         <Steppers
           className=""
           installScript="npm i framer-motion lucide-react"
-          steps={[{ title: "Create Neon Card component & paste the code" }]}
+         
           withInstall
-          codePath="components/luminaui/perkscard.tsx"
+          codePath=""
         />
       </PageTemplate>
     </div>

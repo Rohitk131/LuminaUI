@@ -27,9 +27,7 @@ export const SlideCardDemo = () => {
         }}
       />
 
-      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/10 dark:bg-purple-600/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/10 rounded-full blur-3xl" />
-
+    
       {teamMembers.map((member) => (
         <SlideCard key={member.name} {...member} />
       ))}
