@@ -1,13 +1,13 @@
-'use client'
-import React from 'react';
-import CircularSlider from '@/components/luminaui/circularslider';
+"use client";
+import React from "react";
+import CircularSlider from "@/components/luminaui/circularslider";
 
 const Preview = () => {
-    return (
-        <div className="w-full flex items-center justify-center bg-gray-900 text-white">
-            <CircularSlider />
-        </div>
-    );
+  return (
+    <div className="w-full flex items-center justify-center text-white">
+      <CircularSlider />
+    </div>
+  );
 };
 
 export default Preview;

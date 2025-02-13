@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useState } from "react";
 import Calendar, {
   Skeleton,
   type Props as ActivityCalendarProps,
   type ThemeInput,
-} from 'react-activity-calendar';
-import { motion } from 'framer-motion';
+} from "react-activity-calendar";
+import { motion } from "framer-motion";
 
 export interface Activity {
   date: string;
@@ -25,9 +25,9 @@ export interface ApiErrorResponse {
   error: string;
 }
 
-export type Year = string | 'last';
+export type Year = string | "last";
 
-export interface Props extends Omit<ActivityCalendarProps, 'data'> {
+export interface Props extends Omit<ActivityCalendarProps, "data"> {
   username: string;
   errorMessage?: string;
   throwOnError?: boolean;
@@ -36,7 +36,10 @@ export interface Props extends Omit<ActivityCalendarProps, 'data'> {
   year?: Year;
 }
 
-async function fetchCalendarData(username: string, year: Year): Promise<ApiResponse> {
+async function fetchCalendarData(
+  username: string,
+  year: Year
+): Promise<ApiResponse> {
   const response = await fetch(
     `https://github-contributions-api.jogruber.de/v4/${username}?y=${year}`
   );
@@ -44,7 +47,9 @@ async function fetchCalendarData(username: string, year: Year): Promise<ApiRespo
 
   if (!response.ok) {
     throw Error(
-      `Failed to fetch GitHub data for "${username}": ${(data as ApiErrorResponse).error}`
+      `Failed to fetch GitHub data for "${username}": ${
+        (data as ApiErrorResponse).error
+      }`
     );
   }
 
@@ -55,7 +60,7 @@ const GitHubCalendar = forwardRef<HTMLElement, Props>(
   (
     {
       username,
-      year = 'last',
+      year = "last",
       labels,
       transformData: transformFn,
       transformTotalCount = true,
@@ -63,7 +68,7 @@ const GitHubCalendar = forwardRef<HTMLElement, Props>(
       errorMessage = `Unable to load GitHub contributions for "${username}"`,
       ...props
     },
-    ref,
+    ref
   ) => {
     const [data, setData] = useState<ApiResponse | null>(null);
     const [loading, setLoading] = useState(true);
@@ -94,16 +99,16 @@ const GitHubCalendar = forwardRef<HTMLElement, Props>(
       return <Skeleton {...props} loading />;
     }
 
-    const sortedData = transformFn 
+    const sortedData = transformFn
       ? transformFn(data.contributions)
-      : data.contributions.sort((a, b) => 
-          new Date(a.date).getTime() - new Date(b.date).getTime()
+      : data.contributions.sort(
+          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
         );
 
     const defaultLabels = {
-      totalCount: `${data.total[year === 'last' ? 'lastYear' : year]} contributions in ${
-        year === 'last' ? 'the last year' : year
-      }`,
+      totalCount: `${
+        data.total[year === "last" ? "lastYear" : year]
+      } contributions in ${year === "last" ? "the last year" : year}`,
     };
 
     return (
@@ -113,24 +118,23 @@ const GitHubCalendar = forwardRef<HTMLElement, Props>(
         transition={{ duration: 0.4 }}
         className="p-6 bg-black rounded-xl shadow-sm relative"
       >
-      
-      
-      {/* Gradient orbs */}
-      <div className="absolute top-20 left-20 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl" />
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-medium text-white">
             {username}'s GitHub Activity
           </h2>
           <span className="text-sm text-gray-500">
-            {year === 'last' ? 'Past Year' : year}
+            {year === "last" ? "Past Year" : year}
           </span>
         </div>
         <Calendar
           data={sortedData}
           labels={Object.assign({}, defaultLabels, labels)}
           ref={ref}
-          totalCount={transformFn && transformTotalCount ? undefined : data.total[year === 'last' ? 'lastYear' : year]}
+          totalCount={
+            transformFn && transformTotalCount
+              ? undefined
+              : data.total[year === "last" ? "lastYear" : year]
+          }
           {...props}
           theme={minimalistTheme}
           loading={loading}
@@ -139,25 +143,25 @@ const GitHubCalendar = forwardRef<HTMLElement, Props>(
         />
       </motion.div>
     );
-  },
+  }
 );
 
-GitHubCalendar.displayName = 'GitHubCalendar';
+GitHubCalendar.displayName = "GitHubCalendar";
 
 const minimalistTheme: ThemeInput = {
   light: [
-    '#ebedf0', // Empty
-    '#9be9a8', // Level 1
-    '#40c463', // Level 2
-    '#30a14e', // Level 3
-    '#216e39', // Level 4
+    "#ebedf0", // Empty
+    "#9be9a8", // Level 1
+    "#40c463", // Level 2
+    "#30a14e", // Level 3
+    "#216e39", // Level 4
   ],
   dark: [
-    '#161b22', // Empty
-    '#0e4429', // Level 1
-    '#006d32', // Level 2
-    '#26a641', // Level 3
-    '#39d353', // Level 4
+    "#161b22", // Empty
+    "#0e4429", // Level 1
+    "#006d32", // Level 2
+    "#26a641", // Level 3
+    "#39d353", // Level 4
   ],
 };
 
