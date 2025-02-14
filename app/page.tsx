@@ -9,11 +9,11 @@ import Requestcomponents from "@/components/requestcomponets";
 import { useEffect, useRef, useState } from "react";
 import FloatingIcons from "@/components/floatingIcons";
 import GradientCircle from "./(docs)/docs/gradient-circle/GradientCircleDemo";
-import Component from './examples/page';
+import Component from "./examples/page";
 import CardsQueuePreview from "./(docs)/docs/queuecards/queuecards";
 import Spacebackground from "./(docs)/docs/spacebackground/spacebackground-demo";
-import PerksCard from './(docs)/docs/Perks/FeatureGridDemo';
-import SlideCard from './(docs)/docs/slide-card/SlideCard';
+import PerksCard from "./(docs)/docs/Perks/FeatureGridDemo";
+import SlideCard from "./(docs)/docs/slide-card/SlideCard";
 import ThreeD from "./(docs)/docs/ThreeDButton/ThreeDButtonDemo";
 import StackedCards from "./(docs)/docs/stackedcards/stackedcardsdemo";
 
@@ -122,15 +122,23 @@ export default function Home() {
       // Enhanced star animation
       stars.forEach((star) => {
         star.pulse += 0.02;
-        const currentOpacity = star.opacity * (0.7 + 0.3 * Math.sin(star.pulse));
+        const currentOpacity =
+          star.opacity * (0.7 + 0.3 * Math.sin(star.pulse));
 
         ctx.beginPath();
         const gradient = ctx.createRadialGradient(
-          star.x, star.y, 0,
-          star.x, star.y, star.size * 3
+          star.x,
+          star.y,
+          0,
+          star.x,
+          star.y,
+          star.size * 3
         );
         gradient.addColorStop(0, `rgba(255, 255, 255, ${currentOpacity})`);
-        gradient.addColorStop(0.5, `rgba(200, 220, 255, ${currentOpacity * 0.5})`);
+        gradient.addColorStop(
+          0.5,
+          `rgba(200, 220, 255, ${currentOpacity * 0.5})`
+        );
         gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
 
         ctx.fillStyle = gradient;
@@ -152,8 +160,12 @@ export default function Home() {
       const radius = baseRadius + Math.sin(time) * 80;
 
       const glow = ctx.createRadialGradient(
-        centerX, centerY, 0,
-        centerX, centerY, radius
+        centerX,
+        centerY,
+        0,
+        centerX,
+        centerY,
+        radius
       );
 
       glow.addColorStop(0, "rgba(96, 165, 250, 0.4)");
@@ -174,7 +186,6 @@ export default function Home() {
     animate();
     return () => window.removeEventListener("resize", setCanvasSize);
   }, []);
-
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center overflow-hidden text-zinc-800 dark:text-white ">
@@ -297,10 +308,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
-
         </motion.div>
-
       </motion.div>
       <section className="relative z-10 ">
         <div className="max-w-full mx-auto px-4">
@@ -308,7 +316,8 @@ export default function Home() {
             Component Demos
           </h2>
           <p className="text-center text-lg text-zinc-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto">
-            Discover our collection of beautiful, ready-to-use components for your next project.
+            Discover our collection of beautiful, ready-to-use components for
+            your next project.
           </p>
 
           <div className="space-y-16">
@@ -316,28 +325,24 @@ export default function Home() {
               className=" rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-
               <Spacebackground />
             </motion.div>
             <motion.div
               className=" rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-
               <PerksCard />
             </motion.div>
             <motion.div
               className=" rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-
               <CardsQueuePreview />
             </motion.div>
             <motion.div
               className=" rounded-2xl bg-black/30 border border-gray-300/20"
               variants={animations.item}
             >
-
               <StackedCards />
             </motion.div>
             <motion.div
@@ -356,42 +361,39 @@ export default function Home() {
               </div>
             </motion.div>
 
-
             <motion.div
               className="rounded-2xl bg-black/80 border border-gray-300/20"
               variants={animations.item}
             >
-
               <SlideCard />
             </motion.div>
-           
+
             <motion.div
               className=" rounded-2xl bg-black/30 border border-gray-300/20"
               variants={animations.item}
             >
-
               <ThreeD />
             </motion.div>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-b from-zinc-900 to-zinc-500 dark:from-white dark:to-gray-500 bg-clip-text text-transparent">
-            any many more...
-          </h2>
-          <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="justify-center items-center flex"
+              any many more...
+            </h2>
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="justify-center items-center flex"
+            >
+              <Link href="/docs">
+                <Button
+                  size="lg"
+                  className=" rounded-2xl bg-zinc-800 hover:bg-zinc-900 dark:bg-blue-500/80 dark:hover:bg-blue-500 border border-zinc-700 dark:border-blue-500/70 shadow-lg shadow-zinc-200 hover:shadow-zinc-300 dark:shadow-blue-500/20 dark:hover:shadow-blue-500/50 transition-all text-white"
                 >
-                  <Button
-                    size="lg"
-                    className=" rounded-2xl bg-zinc-800 hover:bg-zinc-900 dark:bg-blue-500/80 dark:hover:bg-blue-500 border border-zinc-700 dark:border-blue-500/70 shadow-lg shadow-zinc-200 hover:shadow-zinc-300 dark:shadow-blue-500/20 dark:hover:shadow-blue-500/50 transition-all text-white"
-                  >
-                    Browse Components
-                  </Button>
-                </motion.div>
+                  Browse Components
+                </Button>
+              </Link>
+            </motion.div>
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }
