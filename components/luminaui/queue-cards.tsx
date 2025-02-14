@@ -154,7 +154,7 @@ const CardQueue = ({ cards }) => {
   };
 
   return (
-    <div className="w-full lg:h-[70vh] md:h-[60vh] sm:h-[55vh] h-[50vh] overflow-y-auto hide-scrollbar p-20" ref={containerRef}>
+    <div className="w-full lg:h-[70vh] md:h-[38vh] sm:h-[55vh] h-[55vh] overflow-y-auto hide-scrollbar p-20" ref={containerRef}>
       <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-10">
         {cards.map((card, index) => (
           <motion.div
