@@ -20,7 +20,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="mt-24 flex flex-col lg:flex-row">
+    <main className="mt-24 flex flex-col lg:flex-row ">
       <LeftSide />
       <section className="flex flex-1 flex-col overflow-auto px-4 sm:px-6" role="main" aria-label="Main content">
         <div className="flex-1">

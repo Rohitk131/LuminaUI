@@ -6,7 +6,7 @@ import Accordion from "./accordion";
 
 const page = () => {
   return (
-    <div>
+    <div className="">
       <PageTemplate title="Accordion Section" className="mt-5">
         <PreviewCodeCard path="app/(docs)/docs/accordion/accordion.tsx">
           <Accordion />
