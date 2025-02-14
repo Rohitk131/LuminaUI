@@ -372,7 +372,21 @@ export default function Home() {
 
               <ThreeD />
             </motion.div>
-
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-gradient-to-b from-zinc-900 to-zinc-500 dark:from-white dark:to-gray-500 bg-clip-text text-transparent">
+            any many more...
+          </h2>
+          <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="justify-center items-center flex"
+                >
+                  <Button
+                    size="lg"
+                    className=" rounded-2xl bg-zinc-800 hover:bg-zinc-900 dark:bg-blue-500/80 dark:hover:bg-blue-500 border border-zinc-700 dark:border-blue-500/70 shadow-lg shadow-zinc-200 hover:shadow-zinc-300 dark:shadow-blue-500/20 dark:hover:shadow-blue-500/50 transition-all text-white"
+                  >
+                    Browse Components
+                  </Button>
+                </motion.div>
           </div>
 
         </div>

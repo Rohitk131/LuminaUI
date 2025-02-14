@@ -5,6 +5,7 @@ import { Button, buttonVariants } from "./ui/button";
 import { Icons } from "./icon";
 import Anchor from "./anchor";
 import Search from "./search";
+import { SheetClose } from "./ui/sheet";
 
 export const NAVLINKS = [
   { title: "Docs", href: "/docs" },
