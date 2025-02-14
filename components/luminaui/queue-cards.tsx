@@ -10,10 +10,10 @@ import explorethree from "../../public/assets/explorethree.webp";
 import exploretwo from "../../public/assets/exploretwo.webp";
 
 const icons = {
-  Sparkles: <Sparkles className="w-10 h-10 text-white" />,
-  Zap: <Zap className="w-10 h-10 text-white" />,
-  Globe: <Globe className="w-10 h-10 text-white" />,
-  Rocket: <Rocket className="w-10 h-10 text-white" />
+  Sparkles: <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />,
+  Zap: <Zap className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />,
+  Globe: <Globe className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />,
+  Rocket: <Rocket className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white" />
 };
 
 const images = {
@@ -154,80 +154,83 @@ const CardQueue = ({ cards }) => {
   };
 
   return (
-    <div className="w-full lg:h-[70vh] overflow-y-auto hide-scrollbar p-20" ref={containerRef}>
-      <div className="flex flex-col items-center justify-center gap-10">
+    <div className="w-full lg:h-[70vh] md:h-[60vh] sm:h-[55vh] h-[50vh] overflow-y-auto hide-scrollbar p-20" ref={containerRef}>
+      <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-10">
         {cards.map((card, index) => (
-          
           <motion.div
             key={card.id}
             ref={cardRefs.current[index]}
             className="flex flex-col md:flex-row h-auto lg:h-[50vh] w-[40vh] md:w-[50vw] bg-black rounded-2xl sticky top-0 relative overflow-hidden isolation"
+
             style={{ rotate: `${cardRotations.current[index]}deg` }}
           >
             <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-screen h-full dark:[mask-image:linear-gradient(white,transparent)]">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#36b49f] to-[#DBFF75] opacity-40 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-[#36b49f]/30 dark:to-[#DBFF75]/30 dark:opacity-100">
-            <svg
-              aria-hidden="true"
-              className="absolute inset-x-0 inset-y-[-50%] h-[200%] w-full skew-y-[-18deg] fill-black/40 stroke-black/50 mix-blend-overlay dark:fill-white/2.5 dark:stroke-white/5"
-            >
-              <defs>
-                <pattern
-                  id="grid-pattern"
-                  width="72"
-                  height="56"
-                  patternUnits="userSpaceOnUse"
-                  x="-12"
-                  y="4"
-                >
-                  <path d="M.5 56V.5H72" fill="none" />
-                </pattern>
-              </defs>
-              <rect
-                width="100%"
-                height="100%"
-                strokeWidth="0"
-                fill="url(#grid-pattern)"
-              />
-            </svg>
-          </div>
-        </div>
-      </div>
-
-            <div className="left w-full md:w-1/2 h-full text-white flex flex-col items-center justify-center gap-6 absolute z-10 px-6 md:px-12">
-              <h2 className="text-xl md:text-3xl font-extrabold tracking-wide text-center leading-tight">
-                {card.title.split('').map((char, index) => (
-                  <span className="inline-block" key={index}>{char}</span>
-                ))}
-              </h2>
-
-              <h5 
-                onMouseEnter={() => handleHover(index, true)} 
-                onMouseLeave={() => handleHover(index, false)} 
-                className="text-sm md:text-lg text-center px-6 md:px-14 leading-relaxed text-gray-200"
-              >
-                {card.content}
-              </h5>
-              <div className='flex flex-row gap-3'>
-
-              <h3 className="mt-2">
-                <div className=" rounded-full bg-white/10 flex items-center justify-center">
-                  {icons[card.icon]}
+              <div className="absolute left-1/2 top-0 -translate-x-1/2 w-screen h-full dark:[mask-image:linear-gradient(white,transparent)]">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#36b49f] to-[#DBFF75] opacity-40 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-[#36b49f]/30 dark:to-[#DBFF75]/30 dark:opacity-100">
+                  <svg
+                    aria-hidden="true"
+                    className="absolute inset-x-0 inset-y-[-50%] h-[200%] w-full skew-y-[-18deg] fill-black/40 stroke-black/50 mix-blend-overlay dark:fill-white/2.5 dark:stroke-white/5"
+                  >
+                    <defs>
+                      <pattern
+                        id="grid-pattern"
+                        width="72"
+                        height="56"
+                        patternUnits="userSpaceOnUse"
+                        x="-12"
+                        y="4"
+                      >
+                        <path d="M.5 56V.5H72" fill="none" />
+                      </pattern>
+                    </defs>
+                    <rect
+                      width="100%"
+                      height="100%"
+                      strokeWidth="0"
+                      fill="url(#grid-pattern)"
+                    />
+                  </svg>
                 </div>
-              </h3>
-
-              <button 
-                onClick={() => window.open("https://luminaui.in", "_blank")} 
-                className="bg-white text-black rounded-lg py-0 px-6 font-semibold text-base md:text-lg shadow-lg hover:scale-105 transition-transform"
-                >
-                Explore
-              </button>
-             
-                </div>
+              </div>
             </div>
 
-            <div className="right w-full md:w-1/2 flex items-center justify-center absolute top-1/2 right-0 md:right-8 -translate-y-1/2 z-10">
-              <Image className="w-[160px] md:w-[240px] object-contain drop-shadow-lg" src={images[card.img]} alt="" />
+            <div className="flex flex-col lg:flex-row w-full h-full">
+              <div className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 text-white flex flex-col items-center justify-center gap-4 sm:gap-6 relative z-10">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wide text-center leading-tight">
+                  {card.title.split('').map((char, index) => (
+                    <span className="inline-block text-[1.4rem] font-sans" key={index}>{char}</span>
+                  ))}
+                </h2>
+
+                <h5 
+                  onMouseEnter={() => handleHover(index, true)} 
+                  onMouseLeave={() => handleHover(index, false)} 
+                  className="text-sm sm:text-base md:text-lg text-center leading-relaxed text-gray-200"
+                >
+                  {card.content}
+                </h5>
+
+                <div className='flex flex-row items-center gap-3 sm:gap-4 mt-4'>
+                  <div className="rounded-full bg-white/10 p-2 sm:p-3">
+                    {icons[card.icon]}
+                  </div>
+
+                  <button 
+                    onClick={() => window.open("https://luminaui.in", "_blank")} 
+                    className="bg-white text-black rounded-lg py-2 px-4 sm:px-6 text-sm sm:text-base font-semibold shadow-lg hover:scale-105 transition-transform"
+                  >
+                    Explore
+                  </button>
+                </div>
+              </div>
+
+              <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-8 lg:p-0 relative z-10 hidden lg:flex">
+                <Image 
+                  className="w-[120px] sm:w-[160px] md:w-[200px] lg:w-[240px] object-contain drop-shadow-lg" 
+                  src={images[card.img]} 
+                  alt="" 
+                />
+              </div>
             </div>
 
             <Cursor isHovered={hoveredStates[index]} cardRef={cardRefs.current[index]} />
