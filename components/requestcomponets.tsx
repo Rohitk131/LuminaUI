@@ -98,7 +98,7 @@ const RequestForm = () => {
               name="url"
               type="url"
               className="bg-black border-gray-800 focus:border-gray-700"
-              placeholder="spectrumui.arihant.us"
+              placeholder="luminaui.in"
             />
           </div>
 
