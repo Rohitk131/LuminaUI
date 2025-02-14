@@ -1,7 +1,7 @@
 import { PageSubTitle, PageTemplate } from "../components/page-template";
 import PreviewCodeCard from "../components/preview-code-card";
 import { Steppers } from "@/components/ui/steppers";
-import Plasma from "./plasmabackgrounddemo";
+import PlasmaPreview from "./plasmabackgrounddemo";
 
 const page = () => {
   return (
@@ -9,18 +9,17 @@ const page = () => {
       <PageTemplate title="Plasma" className="mt-5 overflow-hidden">
         <PreviewCodeCard path="app/(docs)/docs/PlasmaBackground/plasmabackgrounddemo.tsx">
           <div className="w-full h-[800px]">
-            <Plasma />
+            <PlasmaPreview />
           </div>
         </PreviewCodeCard>
         <PageSubTitle>Installation</PageSubTitle>
         <Steppers
           className="my-5"
-          installScript="npm i framer-motion lucide-react"
           steps={[
             { title: "Implement the code as demonstrated in the preview" },
           ]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/plasma.tsx"
         />
       </PageTemplate>
     </div>
