@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
 import { Icons } from "./icon";
 import Anchor from "./anchor";
-import { SheetLeftbar } from "./leftbar";
-import { SheetClose } from "@/components/ui/sheet";
 import Search from "./search";
 
 export const NAVLINKS = [
@@ -21,7 +19,6 @@ export function Navbar() {
       <div className="max-w-[1530px] mx-auto h-full flex items-center justify-between px-2 sm:px-4">
         {/* Left Section */}
         <div className="flex items-center gap-3 sm:gap-5">
-          <SheetLeftbar />
           <div className="flex items-center gap-3 sm:gap-8">
             {/* Logo */}
             <div className="flex">

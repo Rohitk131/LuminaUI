@@ -3,7 +3,7 @@ import { Check, Gauge, Code, Cpu } from "lucide-react";
 
 const FeatureCards = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 space-y-12 relative">
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 space-y-12 relative">
       <div className="text-center space-y-4">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-b from-gray-900 to-gray-700 dark:from-white dark:to-white/60 bg-clip-text text-transparent tracking-tight">
           Why Developers Choose Us
