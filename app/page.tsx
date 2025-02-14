@@ -186,13 +186,13 @@ export default function Home() {
 
       <motion.div
         style={{ y, opacity, scale }}
-        className="relative z-10 mx-auto w-full max-w-screen-xl px-4 py-6 md:py-12 min-h-screen flex flex-col items-center justify-start mt-8 md:mt-12 lg:mt-0"
+        className="relative z-10 mx-auto w-full max-w-screen-xl px-4 py-6 md:py-12 min-h-screen flex flex-col items-center justify-start  md:mt-0 lg:mt-0"
         variants={animations.container}
         initial="hidden"
         animate="visible"
       >
         <motion.div
-          className="max-w-4xl w-full space-y-6 md:space-y-8 flex flex-col items-center justify-center md:mt-16 mt-10"
+          className="max-w-4xl w-full space-y-6 md:space-y-8 flex flex-col items-center justify-center sm:mt-20 md:mt-0 lg:mt-4 mt-10"
           variants={animations.item}
         >
           <div className="w-full flex justify-center">
