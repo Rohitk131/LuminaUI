@@ -18,7 +18,7 @@ const page = () => {
             { title: "Implement the code as demonstrated in the preview" },
           ]}
           withInstall
-          codePath="lib/utils.ts"
+          codePath="components/luminaui/navbar.tsx"
         />
       </PageTemplate>
     </div>
