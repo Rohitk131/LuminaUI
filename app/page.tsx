@@ -354,9 +354,7 @@ export default function Home() {
               </h3>
               <div className="flex justify-center">
                 <GradientCircle
-                  size="300px"
-                  gradientColors={["#FF0080", "#7928CA", "#00FFFF"]}
-                  logoSrc="/logomain.png"
+                  
                 />
               </div>
             </motion.div>
