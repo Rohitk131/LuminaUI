@@ -9,9 +9,8 @@ import { SheetClose } from "./ui/sheet";
 
 export const NAVLINKS = [
   { title: "Docs", href: "/docs" },
-  { title: "Components", href: "/docs" },
-  { title: "Examples", href: "/examples" },
-  { title: "Colors", href: "/colors" },
+  { title: "Components", href: "/docs/ThreeDButton" },
+ 
 ];
 
 export function Navbar() {
