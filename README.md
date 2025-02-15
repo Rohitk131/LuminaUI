@@ -11,12 +11,14 @@ Follow these steps to get started with contributing to LuminaUI:
 
 ---
 
-#### 1. **Fork the Repository**  
+#### 1. **Fork the Repository**
+
 Click the "Fork" button at the top-right of the repository page to create your own copy of the project.
 
 ---
 
-#### 2. **Clone Your Fork**  
+#### 2. **Clone Your Fork**
+
 Clone your forked repository to your local machine:
 
 ```bash
@@ -26,7 +28,8 @@ cd LuminaUI
 
 ---
 
-#### 3. **Install Dependencies**  
+#### 3. **Install Dependencies**
+
 Run the following command to install the project's dependencies:
 
 ```bash
@@ -35,7 +38,8 @@ npm install
 
 ---
 
-#### 4. **Start the Development Server**  
+#### 4. **Start the Development Server**
+
 Run the development server to test your changes locally:
 
 ```bash
@@ -44,7 +48,8 @@ npm run dev
 
 ---
 
-#### 5. **Create a New Branch**  
+#### 5. **Create a New Branch**
+
 Create a branch for your feature or fix:
 
 ```bash
@@ -53,12 +58,14 @@ git checkout -b feature-name
 
 ---
 
-#### 6. **Make Your Changes**  
+#### 6. **Make Your Changes**
+
 Edit the code to implement your feature or fix the bug.
 
 ---
 
-#### 7. **Commit Your Changes**  
+#### 7. **Commit Your Changes**
+
 After making your changes, commit them with a descriptive message:
 
 ```bash
@@ -67,7 +74,8 @@ git commit -m "Add feature-name"
 
 ---
 
-#### 8. **Push Your Changes**  
+#### 8. **Push Your Changes**
+
 Push your branch to your forked repository:
 
 ```bash
@@ -76,10 +84,11 @@ git push origin feature-name
 
 ---
 
-#### 9. **Create a Pull Request (PR)**  
-- Go to the [Pull Requests](https://github.com/your-username/LuminaUI/pulls) section of the original repository.  
-- Click **"New Pull Request"**.  
-- Select your branch and submit your PR.  
+#### 9. **Create a Pull Request (PR)**
+
+- Go to the [Pull Requests](https://github.com/your-username/LuminaUI/pulls) section of the original repository.
+- Click **"New Pull Request"**.
+- Select your branch and submit your PR.
 - Provide a clear description of your changes, including why they are beneficial.
 
 ---
@@ -91,6 +100,5 @@ git push origin feature-name
 - Test your changes thoroughly to avoid introducing bugs.
 
 ---
-
 
 # LuminaUI
