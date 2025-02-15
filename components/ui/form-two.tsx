@@ -16,7 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Card } from "../ui/card";
+import { Card } from "./card";
 import { Check, Eye, EyeOff, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import EmojiPicker from "emoji-picker-react";
@@ -26,7 +26,9 @@ export default function Inputcollection() {
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [chosenEmoji, setChosenEmoji] = useState("");
 
-  const onEmojiClick = (emojiObject: { emoji: React.SetStateAction<string>; }) => {
+  const onEmojiClick = (emojiObject: {
+    emoji: React.SetStateAction<string>;
+  }) => {
     setChosenEmoji(emojiObject.emoji);
     setIsPickerOpen(false); // close picker after selecting
   };

@@ -1,12 +1,7 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
-import ResponsiveInputShowcase from "./spectrumui/form";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ResponsiveInputShowcase from "@/components/ui/form-two";
 
 export function Tabspreview() {
   const codeString = `
@@ -58,9 +53,10 @@ export function Tabspreview() {
       <TabsContent value="preview" className="p-4 bg-card rounded-lg shadow">
         <ResponsiveInputShowcase />
       </TabsContent>
-      <TabsContent value="code" className="p-4 bg-muted rounded-lg">
-     
-      </TabsContent>
+      <TabsContent
+        value="code"
+        className="p-4 bg-muted rounded-lg"
+      ></TabsContent>
     </Tabs>
   );
 }
