@@ -7,9 +7,8 @@ interface GradientCircleProps {
   size?: string;
   gradientColors?: string[];
   logoSrc: string;
-  orbitImages: string[];  // Array of image URLs for orbit circles
+  orbitImages?: string[];  // Make it optional
 }
-
 const GradientCircle = ({
   size = "200px",
   gradientColors = [

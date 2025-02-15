@@ -22,7 +22,7 @@ export function Tabspreview() {
       TabsList,
       TabsTrigger,
     } from "@/components/ui/tabs";
-    import ResponsiveInputShowcase from "./spectrumui/form";
+
 
     export function Tabspreview() {
       return (

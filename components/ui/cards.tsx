@@ -763,13 +763,13 @@ export default function CardCollection() {
             <Avatar>
               <AvatarImage
                 src="https://img.freepik.com/premium-photo/anime-male-avatar_950633-956.jpg"
-                alt="@arihantcodes"
+                alt="@rohitkdev"
               />
               <AvatarFallback>SU</AvatarFallback>
             </Avatar>
             <div>
-              <CardTitle>Spectrum UI</CardTitle>
-              <CardDescription>@arihantcodes</CardDescription>
+              <CardTitle>LuminaUI</CardTitle>
+              <CardDescription>@rohitkdev</CardDescription>
             </div>
           </div>
         </CardHeader>
@@ -777,7 +777,7 @@ export default function CardCollection() {
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label>Email</Label>
-              <p className="text-sm">hello@arihant.us</p>
+             
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label>Location</Label>
@@ -1331,7 +1331,7 @@ function QuickNoteCard() {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div>
-          <div className="font-semibold">Arihant</div>
+         
           <p className="text-xs text-muted-foreground">Call | Message</p>
         </div>
       </CardContent>
@@ -1600,13 +1600,13 @@ export function ProfileCard() {
           <Avatar>
             <AvatarImage
               src="https://img.freepik.com/premium-photo/anime-male-avatar_950633-956.jpg"
-              alt="@arihantcodes"
+              alt="@rohitkdev"
             />
-            <AvatarFallback>SU</AvatarFallback>
+            <AvatarFallback>LU</AvatarFallback>
           </Avatar>
           <div>
-            <CardTitle>Spectrum UI</CardTitle>
-            <CardDescription>@arihantcodes</CardDescription>
+            <CardTitle>Lumina UI</CardTitle>
+            
           </div>
         </div>
       </CardHeader>
@@ -1614,7 +1614,7 @@ export function ProfileCard() {
         <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
             <Label>Email</Label>
-            <p className="text-sm">hello@arihant.us</p>
+           
           </div>
           <div className="flex flex-col space-y-1.5">
             <Label>Location</Label>
@@ -2324,7 +2324,7 @@ export function QuickContactCard() {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div>
-          <div className="font-semibold">Arihant</div>
+         
           <p className="text-xs text-muted-foreground">Call | Message</p>
         </div>
       </CardContent>

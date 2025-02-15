@@ -1,13 +1,13 @@
-## Contributing to Spectrum UI
+## Contributing to LuminaUI
 
-Thank you for your interest in contributing to Spectrum UI! 🎉  
+Thank you for your interest in contributing to LuminaUI! 🎉  
 We value contributions from the community, whether it's a bug fix, a new feature, or an enhancement. Your input helps us grow and improve the library.
 
 ---
 
 ### How to Contribute
 
-Follow these steps to get started with contributing to Spectrum UI:
+Follow these steps to get started with contributing to LuminaUI:
 
 ---
 
@@ -20,8 +20,8 @@ Click the "Fork" button at the top-right of the repository page to create your o
 Clone your forked repository to your local machine:
 
 ```bash
-git clone https://github.com/arihantcodes/spectrum-ui.git
-cd spectrum-ui
+git clone https://github.com/Rohitk131/LuminaUI.git
+cd LuminaUI
 ```
 
 ---
@@ -77,7 +77,7 @@ git push origin feature-name
 ---
 
 #### 9. **Create a Pull Request (PR)**  
-- Go to the [Pull Requests](https://github.com/your-username/spectrum-ui/pulls) section of the original repository.  
+- Go to the [Pull Requests](https://github.com/your-username/LuminaUI/pulls) section of the original repository.  
 - Click **"New Pull Request"**.  
 - Select your branch and submit your PR.  
 - Provide a clear description of your changes, including why they are beneficial.

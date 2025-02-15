@@ -108,7 +108,7 @@ export default function Footer() {
                       <Link
                         href={
                           item.toLowerCase() === "blog"
-                            ? "https://blog.arihant.us/"
+                            ? ""
                             : `/${item.toLowerCase()}`
                         }
                         className="text-zinc-600 hover:text-zinc-900 dark:text-gray-400 dark:hover:text-white transition-colors"
