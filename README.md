@@ -1,3 +1,5 @@
+LuminaUI is a modern UI component library with 36+ beautifully designed, fully responsive components to help developers build stunning websites effortlessly. Featuring premium animations, zero-config theming, and battle-tested designs, LuminaUI saves you time, effort, and money—so you can focus on what matters. Build faster. Build better.
+
 ## Contributing to LuminaUI
 
 Thank you for your interest in contributing to LuminaUI! 🎉  
